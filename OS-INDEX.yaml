@@ -1,0 +1,25 @@
+version: 0.1.0
+status: ACTIVE
+owner: GP Company CEO
+levels:
+  level_1:
+    name: Direction
+    modules: [Mission, Vision, Manifest, Blueprint]
+  level_2:
+    name: Business
+    modules: [Business, Marketing, OEM, B2C, Production, Finance]
+  level_3:
+    name: Operating Knowledge
+    modules: [SOP, Knowledge, Prompt Library, Decisions, Context]
+  level_4:
+    name: AI Execution
+    modules: [AI, Agents, Automation, Workflow, Memory]
+  level_5:
+    name: Management Control
+    modules: [Dashboard, KPI, Roadmap, Weekly Review, CEO Review]
+source_of_truth_order:
+  - Decisions
+  - Context
+  - SOP
+  - Knowledge
+  - Prompt Library
