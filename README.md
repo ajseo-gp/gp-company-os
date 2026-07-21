@@ -79,23 +79,28 @@ flowchart TD
 ## Repository and System Architecture — 저장소·시스템 구조
 
 ```mermaid
-flowchart LR
-    OS[("gp-company-os<br/>회사 전략 · 정책 · Decision SSOT")]
-    HUB[("gp-company-hub<br/>Hermes · Agent · 프로젝트 운영 스펙")]
-    REPOS[("실행 저장소<br/>gpcompany-lab · 프로젝트별 저장소")]
-    H["Hermes<br/>상시 오케스트레이션"]
-    SLACK["Slack<br/>요청 · 알림 · 상호작용"]
-    WB["GP Workbench<br/>실행 제어면"]
-    CEO["대표<br/>승인 · 수정 · 거절"]
+flowchart TD
+    CEO["대표<br/>승인·수정·거절"] --> SLACK["Slack<br/>단일 운영 인터페이스"]
 
-    OS -->|"OS SHA · Decision"| HUB
-    OS -->|"적용 기준"| REPOS
-    HUB -->|"작업 지시 · 검수 기준"| H
-    H <--> SLACK
-    H -->|"업무 배정"| REPOS
-    REPOS -->|"결과 · 증거"| H
-    H -->|"큐 · 상태 · 로그 · KPI"| WB
-    WB -->|"승인 필요 항목만"| CEO
+    SLACK --> HP["Hermes Primary<br/>Mac mini 2018<br/>24시간 오케스트레이션"]
+    OS["gp-company-os<br/>회사 SSOT"] --> HP
+
+    HP --> QUEUE["중앙 작업 큐<br/>Task-ID · OS-Ref · 상태"]
+    QUEUE --> WB["GP Workbench<br/>큐 · 승인함 · 로그 · KPI"]
+
+    HP --> GH["GitHub<br/>Issue · Branch · Draft PR"]
+    HP --> CLAUDE["Claude Code Worker<br/>Workbench 개발"]
+    HP --> CODEX["Codex Worker<br/>MacBook M4 Pro<br/>기획 · OS 정합성 · 검수"]
+    HP --> GPU["향후 GPU Worker<br/>Galaxy Book 6 Ultra"]
+
+    CLAUDE --> GH
+    CODEX --> GH
+    GPU --> GH
+
+    GH --> HP
+    HP -->|"C등급·예외만"| CEO
+
+    HS["MacBook Hermes<br/>개발·비상 대기"] -.장애 시 전환.-> HP
 ```
 
 | 구성요소 | 역할 |
