@@ -36,6 +36,83 @@ GP Company는 두 개의 수익 엔진을 운영한다.
 | LEVEL 4 | AI Execution | AI, Agent, Automation, Workflow, Memory 실행 |
 | LEVEL 5 | Management Control | Dashboard, KPI, Roadmap, 정기 리뷰를 통한 경영 통제 |
 
+## Company Operating Structure — 회사 운영 구조
+
+GP Company의 목표 운영 구조는 대표가 모든 실행을 직접 지휘하는 방식이 아니다.
+대표는 목표·예산·정책과 예외를 승인하고, CEO Co-Operator와 Hermes가 OS를 기준으로
+Operator와 전문 실행 Agent를 조율한다.
+
+```mermaid
+flowchart TD
+    CEO["CEO · 대표<br/>목표 · 예산 · 정책 승인"]
+    OS[("GP Company OS<br/>Mission · Decision · Context · SOP · Knowledge")]
+    CO["CEO Co-Operator<br/>OS 확인 · 우선순위 · 실행 기준"]
+    H["Hermes<br/>영향 분석 · 업무 분해 · 라우팅"]
+    B2C["B2C Growth Operator<br/>전략 · 캠페인 · 배정 · 검수 · 재작업"]
+    OPS["담당 Operator<br/>B2B · 콘텐츠 · R&D · AI/OS"]
+    EA["Execution Agents<br/>매출 분석 · 고객 인사이트 · 캠페인 · 콘텐츠<br/>커머스 실행 · 화장품 표현/브랜드 QA"]
+    WB["GP Workbench<br/>작업 큐 · 진행 상태 · 승인함 · 실행 로그 · KPI"]
+    GATE["대표 승인 게이트<br/>승인 · 수정 · 거절"]
+    LOOP["운영 학습<br/>Context · Knowledge · SOP · Decision 후보"]
+
+    CEO -->|"승인된 방향"| OS
+    OS --> CO
+    CO --> H
+    H --> B2C
+    H --> OPS
+    B2C --> EA
+    OPS --> EA
+    EA -->|"결과 · 증거"| B2C
+    EA -->|"결과 · 증거"| OPS
+    B2C --> WB
+    OPS --> WB
+    WB -->|"승인 범위 초과 · 정책 예외 · 차단만"| GATE
+    GATE --> CEO
+    WB --> LOOP
+    LOOP --> OS
+```
+
+대표에게는 목표·정책·예산 변경, 외부 공개, 계약, 법률·규정, 고위험·비가역 실행과
+기존 기준의 예외처럼 실제 판단이 필요한 항목만 올라간다. 승인된 정책 안의 가역적
+업무는 담당 Operator가 검수하고 실행 기록을 남긴다.
+
+## Repository and System Architecture — 저장소·시스템 구조
+
+```mermaid
+flowchart LR
+    OS[("gp-company-os<br/>회사 전략 · 정책 · Decision SSOT")]
+    HUB[("gp-company-hub<br/>Hermes · Agent · 프로젝트 운영 스펙")]
+    REPOS[("실행 저장소<br/>gpcompany-lab · 프로젝트별 저장소")]
+    H["Hermes<br/>상시 오케스트레이션"]
+    SLACK["Slack<br/>요청 · 알림 · 상호작용"]
+    WB["GP Workbench<br/>실행 제어면"]
+    CEO["대표<br/>승인 · 수정 · 거절"]
+
+    OS -->|"OS SHA · Decision"| HUB
+    OS -->|"적용 기준"| REPOS
+    HUB -->|"작업 지시 · 검수 기준"| H
+    H <--> SLACK
+    H -->|"업무 배정"| REPOS
+    REPOS -->|"결과 · 증거"| H
+    H -->|"큐 · 상태 · 로그 · KPI"| WB
+    WB -->|"승인 필요 항목만"| CEO
+```
+
+| 구성요소 | 역할 |
+|---|---|
+| [`gp-company-os`](https://github.com/ajseo-gp/gp-company-os) | 회사의 최상위 전략·정책·Decision 원본 |
+| [`gp-company-hub`](https://github.com/ajseo-gp/gp-company-hub) | OS를 Hermes·Agent·프로젝트 운영 스펙으로 변환하는 오케스트레이션 레이어 |
+| [`gpcompany-lab`](https://github.com/ajseo-gp/gpcompany-lab) 및 프로젝트 저장소 | Workbench 코드와 프로젝트별 실행 산출물 관리 |
+| GP Workbench | 작업 큐·상태·승인함·실행 로그·KPI를 연결하는 실행 제어면 |
+| Slack | 사람과 Hermes·Agent 사이의 요청·알림·승인 인터페이스 |
+| GitHub | Decision·작업 정의·코드·검수 증거를 추적하는 지속 기록 |
+
+세부 역할은 [`LEVEL-2_BUSINESS/B2C.md`](./LEVEL-2_BUSINESS/B2C.md),
+[`LEVEL-4_AI-EXECUTION/AGENTS`](./LEVEL-4_AI-EXECUTION/AGENTS),
+[`LEVEL-4_AI-EXECUTION/WORKFLOW`](./LEVEL-4_AI-EXECUTION/WORKFLOW)와
+[`LEVEL-5_MANAGEMENT-CONTROL`](./LEVEL-5_MANAGEMENT-CONTROL)을 따른다. 장비 배치와
+Hermes 운영 토폴로지는 `gp-company-hub`에서 관리한다.
+
 ## Primary Business Context
 
 GP Company는 다음 영역을 동시에 운영한다.
