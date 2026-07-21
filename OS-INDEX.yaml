@@ -1,13 +1,20 @@
-version: 0.1.0
+version: 0.2.0
 status: ACTIVE
 owner: GP Company CEO
+authority_repository: ajseo-gp/gp-company-os
+corporate_direction:
+  focus_domains: [Hair, Scalp]
+  revenue_engines:
+    - Hair & Scalp Business
+    - AI & Company OS Business
+  value_principle: Transferable Company
 levels:
   level_1:
     name: Direction
     modules: [Mission, Vision, Manifest, Blueprint]
   level_2:
     name: Business
-    modules: [Business, Marketing, OEM, B2C, Production, Finance]
+    modules: [Business, Hair & Scalp Business, AI & Company OS Business, Marketing, OEM, B2C, Production, Finance]
   level_3:
     name: Operating Knowledge
     modules: [SOP, Knowledge, Prompt Library, Decisions, Context]

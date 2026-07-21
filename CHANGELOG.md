@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0 - 2026-07-21
+
+- Hair와 Scalp를 회사의 핵심 시장 축으로 확정
+- Hair·Scalp 사업과 AI·Company OS 사업의 이중 수익 엔진 확정
+- `gp-company-os`를 최상위 전략·정책·Decision 원본으로 명시
+- Mission, Vision, Manifest, Blueprint와 Business 문서 정렬
+- 내부 검증을 외부 AI·OS 제품과 서비스로 발전시키는 경로 정의
+- 대표 의존도, 자산 소유권과 양도가능성 KPI·Roadmap 추가
+
 ## 0.1.0 - 2026-07-21
 
 - GP Company OS 5-Level Architecture 수립
