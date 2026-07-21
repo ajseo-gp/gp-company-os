@@ -1,6 +1,15 @@
 # CEO Validation Checklist
 
-**목적:** v0.1 초안 중 대표 확정이 필요한 운영 수치를 식별한다.
+**목적:** v0.2 운영 기준 중 대표 확정이 필요한 전략과 운영 수치를 식별한다.
+
+## Strategic Execution — 두 수익 엔진
+
+- [ ] Hair·Scalp 사업에서 우선 실행할 B2B/B2C 과제
+- [ ] B2C Growth Operator의 실행 권한과 CEO 승인 범위
+- [ ] 내부 효과를 먼저 측정할 AI·Company OS 적용 사례
+- [ ] 첫 외부 AI·Company OS 상품 후보와 고객 검증 방식
+- [ ] 수익 엔진별 손익 구분 기준
+- [ ] 코드·브랜드·계약·데이터 소유권 점검 책임자와 주기
 
 ## P1 — 즉시 확정
 
