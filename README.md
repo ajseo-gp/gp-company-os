@@ -118,6 +118,17 @@ flowchart TD
 [`LEVEL-5_MANAGEMENT-CONTROL`](./LEVEL-5_MANAGEMENT-CONTROL)을 따른다. 장비 배치와
 Hermes 운영 토폴로지는 `gp-company-hub`에서 관리한다.
 
+Hermes 작업은 [`SOP-007`](./LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-007_HERMES-SLACK-ORCHESTRATION.md)에
+따라 모든 요청에 40자리 commit SHA의 `OS-Ref`를 고정한다. Hermes는 로컬 clone이나
+현재 브랜치가 아니라 지정 SHA의 Company OS 문서를 읽고, Slack의 같은 스레드에서
+ACK·상태·결과·검토 종료를 연결한다.
+
+사람이 사용하는 기능은 코드 검토만으로 merge하지 않는다. Agent가 동일 revision의
+Preview URL과 시각 증거를 제공하고 대표가 Slack에서 승인하면, 해당 revision은 추가
+수동 확인 없이 자동 merge·배포·smoke test로 진행한다. 세부 기준은
+[`SOP-008`](./LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md)을
+따른다.
+
 ## Primary Business Context
 
 GP Company는 다음 영역을 동시에 운영한다.

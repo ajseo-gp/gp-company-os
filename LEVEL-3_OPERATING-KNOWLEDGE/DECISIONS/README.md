@@ -8,3 +8,5 @@
 | DEC-0002 | 회사 문서 우선 원칙 | ACTIVE |
 | DEC-0003 | 소량 OEM 운영 방향 | REVIEW |
 | DEC-0004 | GP Company 이중 수익 엔진 전략 | ACTIVE |
+| DEC-0005 | Hermes–Slack 오케스트레이션과 OS-Ref 고정 | ACTIVE |
+| DEC-0006 | Human Preview 승인 후 자동 Release | ACTIVE |

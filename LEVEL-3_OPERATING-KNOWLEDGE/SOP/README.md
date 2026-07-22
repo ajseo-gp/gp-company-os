@@ -23,3 +23,5 @@ SOP는 반복 업무를 동일한 품질로 수행하기 위한 표준 절차다
 - Decision 기록
 - 콘텐츠 제작
 - 주간 운영 리뷰
+- Hermes–Slack 작업 오케스트레이션
+- Human Preview 승인과 자동 Release

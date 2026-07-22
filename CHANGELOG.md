@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Hermes Primary와 GPmarketing Slack bridge의 책임 경계 정의
+- Hermes 작업마다 40자리 commit SHA의 `OS-Ref`를 고정하는 원칙 추가
+- 지정 SHA를 `gh api`로 읽는 SOP와 Slack 작업 상태 흐름 추가
+- Hermes Primary Agent 정의와 표준 작업 요청 템플릿 추가
+- 코드 검토 대신 실제 Preview를 승인하는 Human Experience Gate 추가
+- 승인 revision의 자동 merge·배포·smoke test 원칙과 자동화 명세 추가
+
 ## 0.2.0 - 2026-07-21
 
 - Hair와 Scalp를 회사의 핵심 시장 축으로 확정

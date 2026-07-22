@@ -11,3 +11,4 @@
 | AUT-003 | 주간 KPI 집계 | P1 | PLANNED |
 | AUT-004 | 콘텐츠 초안 생성 | P2 | PLANNED |
 | AUT-005 | 리뷰 수집·요약 | P2 | PLANNED |
+| AUT-006 | Preview 승인 후 자동 merge·deploy | P0 | PLANNED |
