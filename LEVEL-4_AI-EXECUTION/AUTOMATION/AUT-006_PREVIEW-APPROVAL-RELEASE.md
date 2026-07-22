@@ -19,8 +19,10 @@ Slack의 유효한 Human Preview 승인을 검증하고, 승인된 revision을 �
 |---|---|---|
 | Preview build·desktop/mobile artifact | [`gpcompany-lab` PR #8](https://github.com/ajseo-gp/gpcompany-lab/pull/8) | READY_FOR_REVIEW |
 | Hermes manifest 검증·Slack 전달 계약 | [`gp-company-hub` PR #8](https://github.com/ajseo-gp/gp-company-hub/pull/8) | READY_FOR_REVIEW |
-| Slack 승인 identity·revision 검증 | `gp-company-hub` | PLANNED |
-| 자동 merge·deploy·smoke test·rollback | `gp-company-hub`·실행 저장소 | PLANNED |
+| 승인 envelope·identity·revision validator | [`gpcompany-lab` PR #8](https://github.com/ajseo-gp/gpcompany-lab/pull/8) | READY_FOR_REVIEW |
+| Hermes Slack 승인 handler·repository dispatch | [`gp-company-hub` PR #8](https://github.com/ajseo-gp/gp-company-hub/pull/8) | 계약 완료, handler PLANNED |
+| exact SHA merge·deploy 관찰·smoke test | [`gpcompany-lab` PR #8](https://github.com/ajseo-gp/gpcompany-lab/pull/8) | READY_FOR_REVIEW, 비활성 |
+| 자동 rollback | `gp-company-hub`·실행 저장소 | PLANNED |
 
 ## Trigger
 
