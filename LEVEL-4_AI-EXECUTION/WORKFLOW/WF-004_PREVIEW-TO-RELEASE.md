@@ -9,6 +9,9 @@
 
 구현 결과를 사람이 직접 경험하고 승인한 뒤, 승인 revision만 자동 merge·배포한다.
 
+이 Workflow는 표준 Human Preview 경로에 적용한다. `DEC-0007`의 GP Workbench Closed
+Beta Fast Lane은 `WF-005`를 사용한다.
+
 ## 흐름
 
 ```mermaid
@@ -70,3 +73,4 @@ sequenceDiagram
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0006_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
 - `../AUTOMATION/AUT-006_PREVIEW-APPROVAL-RELEASE.md`
+- `WF-005_WORKBENCH-DIRECT-DEVELOPMENT.md`

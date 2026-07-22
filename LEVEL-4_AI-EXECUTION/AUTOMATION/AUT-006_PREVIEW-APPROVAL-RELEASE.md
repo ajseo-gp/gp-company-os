@@ -1,7 +1,7 @@
 # AUT-006 Preview Approval Release
 
 - 상태: PLANNED
-- 우선순위: P0
+- 우선순위: P1
 - 소유자: GP Company CEO
 - 실행 책임: Hermes Primary, `gp-company-hub`, GitHub·Deployment Pipeline
 - 작성일: 2026-07-22
@@ -11,7 +11,10 @@
 Slack의 유효한 Human Preview 승인을 검증하고, 승인된 revision을 자동 merge·배포·검증한다.
 
 현재 상태는 `PLANNED`다. 아래 구현 완료 조건을 충족해 `ACTIVE`로 전환되기 전에는
-승인 후 수동 merge·배포로 우회하지 않는다.
+표준 Human Preview 경로의 승인 후 수동 merge·배포로 우회하지 않는다.
+
+`DEC-0007`의 Workbench Closed Beta Fast Lane은 이 자동화의 활성화를 기다리지 않는다.
+저위험 Workbench 변경은 `SOP-009`에 따라 로컬 Claude Code가 검증·Release한다.
 
 ## 구현 진행
 
@@ -107,3 +110,4 @@ Automation 실행을 위한 별도 승인은 요구하지 않는다.
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0006_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
 - `../WORKFLOW/WF-004_PREVIEW-TO-RELEASE.md`
+- `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0007_WORKBENCH-CLOSED-BETA-FAST-LANE.md`

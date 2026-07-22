@@ -14,7 +14,8 @@
 
 ## 결정
 
-1. 사람에게 보이는 기능과 업무 흐름은 코드 작성만으로 완료 처리하지 않는다.
+1. 사람에게 보이는 기능과 업무 흐름은 코드 작성만으로 완료 처리하지 않는다. 단,
+   `DEC-0007`의 GP Workbench Closed Beta Fast Lane은 위험등급별 Release 규칙을 우선한다.
 2. Agent는 merge 전에 정확한 revision으로 실행한 Preview와 시각 증거를 제공한다.
 3. 승인권자는 같은 `Task-ID`의 Slack 스레드에서 정확한 Preview revision을
    `[HUMAN:APPROVED]`로 승인한다.
@@ -70,9 +71,12 @@ API 결과, 테스트 보고서, 로그·대시보드 또는 안전한 sandbox �
 
 ## 전환 조건
 
-`AUT-006_PREVIEW-APPROVAL-RELEASE.md`가 현재 `PLANNED`인 동안에는 승인 이벤트를
+표준 Human Preview 경로에서는 `AUT-006_PREVIEW-APPROVAL-RELEASE.md`가 현재 `PLANNED`인 동안 승인 이벤트를
 받아도 수동 merge로 우회하지 않는다. Hermes는 `[RELEASE:BLOCKED]`와 자동화 미활성
 상태를 보고한다.
+
+이 전환 조건은 `DEC-0007`의 `WB-LOW` 자체 승인·Release를 차단하지 않는다. Workbench
+Fast Lane은 Claude Code의 저장소별 검증·배포·rollback 계약을 사용한다.
 
 승인 identity, revision 고정, idempotency, merge·deploy·rollback 테스트를 통과하고
 AUT-006 상태가 `ACTIVE`가 된 이후부터 `[HUMAN:APPROVED]`가 자동 Release를 트리거한다.
@@ -102,3 +106,4 @@ AUT-006 상태가 `ACTIVE`가 된 이후부터 `[HUMAN:APPROVED]`가 자동 Rele
 - `../SOP/SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
 - `../../LEVEL-4_AI-EXECUTION/WORKFLOW/WF-004_PREVIEW-TO-RELEASE.md`
 - `../../LEVEL-4_AI-EXECUTION/AUTOMATION/AUT-006_PREVIEW-APPROVAL-RELEASE.md`
+- `DEC-0007_WORKBENCH-CLOSED-BETA-FAST-LANE.md`

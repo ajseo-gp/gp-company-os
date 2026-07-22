@@ -19,9 +19,10 @@ sequenceDiagram
     participant O as gp-company-os
     participant W as Worker·Workbench·GitHub
 
-    R->>S: WORK_REQUEST · Task-ID · OS-Ref · 승인등급
+    R->>S: 자연어 요청·첨부·제약
     S->>H: Primary에 단일 전달
-    H->>S: ACK 또는 BLOCKED
+    H->>H: Task-ID·OS-Ref·승인등급 자동 생성
+    H->>S: 자연어 접수 또는 BLOCKED
     H->>O: 지정 SHA를 gh api로 읽기
     O-->>H: Decision · Context · SOP · Knowledge
     H->>W: Task-ID · OS-Ref · 권한 · 출력 계약 전달
@@ -29,7 +30,8 @@ sequenceDiagram
     H->>S: RESULT
     opt 사람이 사용하는 개발 결과
         H->>S: PREVIEW:READY
-        R->>S: HUMAN:APPROVED 또는 CHANGES_REQUESTED
+        R->>S: 자연어 승인 또는 수정 요청
+        H->>H: 승인 의도와 revision 구조화
         S->>H: WF-004 자동 Release 또는 재작업
     end
     R->>S: REVIEW:CLOSED
@@ -57,6 +59,8 @@ sequenceDiagram
 - Worker가 바뀌어도 `Task-ID`, `OS-Ref`, 승인등급과 안전 제약은 유지한다.
 - Slack, Workbench, GitHub의 상태가 다르면 실행을 계속하기 전에 불일치를 기록·해소한다.
 - `CLOSED` 작업은 새 `Task-ID` 또는 명시적 재개 승인 없이 다시 실행하지 않는다.
+- 사람에게 Task-ID, OS-Ref, 상태 태그 또는 SHA 입력을 요구하지 않는다.
+- `DEC-0007`의 Workbench Fast Lane은 `WF-005`를 사용하고 이 흐름에 중복 등록하지 않는다.
 
 ## 예외 흐름
 
@@ -72,3 +76,4 @@ sequenceDiagram
 - `../AGENTS/AGENT-HERMES.md`
 - `../../TEMPLATES/HERMES-WORK-REQUEST.md`
 - `WF-004_PREVIEW-TO-RELEASE.md`
+- `WF-005_WORKBENCH-DIRECT-DEVELOPMENT.md`

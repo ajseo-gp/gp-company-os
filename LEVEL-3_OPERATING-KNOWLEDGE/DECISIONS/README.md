@@ -10,3 +10,4 @@
 | DEC-0004 | GP Company 이중 수익 엔진 전략 | ACTIVE |
 | DEC-0005 | Hermes–Slack 오케스트레이션과 OS-Ref 고정 | ACTIVE |
 | DEC-0006 | Human Preview 승인 후 자동 Release | ACTIVE |
+| DEC-0007 | GP Workbench Closed Beta Fast Lane | ACTIVE |

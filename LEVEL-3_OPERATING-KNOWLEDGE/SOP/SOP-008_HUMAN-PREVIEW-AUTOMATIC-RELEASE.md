@@ -16,6 +16,10 @@
 - 사람이 사용하는 업무 흐름과 자동화 인터페이스 변경
 - 시각 UI는 없지만 운영 동작을 바꾸는 backend·infrastructure 변경
 
+`DEC-0007`과 `SOP-009`의 GP Workbench Closed Beta Fast Lane에는 위험등급별 규칙을
+우선 적용한다. `WB-LOW`는 사후 시각 보고, `WB-MEDIUM`·`WB-HIGH`는 배포 전 Human
+Preview를 적용한다.
+
 문서만 변경하는 작업은 직접 열 수 있는 rendered 문서 또는 변경 결과를 Preview로
 간주할 수 있다. 단순 코드 diff만으로는 Human Preview Gate를 통과하지 않는다.
 
@@ -137,7 +141,7 @@ Rollback: not required
 | Preview URL·artifact 없음 | `[BLOCKED:PREVIEW]`, merge 금지 |
 | 이미지·동작 증거가 revision과 불일치 | 새 증거 생성, 승인 요청 금지 |
 | 승인 후 새 commit | 승인 무효화, 새 Preview와 재승인 |
-| AUT-006 미활성 | `[RELEASE:BLOCKED]`, 수동 merge 우회 금지 |
+| AUT-006 미활성 | 표준 경로는 `[RELEASE:BLOCKED]`; `SOP-009` Fast Lane은 별도 계약 적용 |
 | CI·보호 규칙 실패 | `[RELEASE:BLOCKED]`, merge 금지 |
 | merge conflict | 자동 해결 금지, 수정 후 새 revision·Preview·승인 |
 | merge 성공·배포 실패 | `[DEPLOY:FAILED]`, incident 기록과 정의된 rollback 수행 |
@@ -167,3 +171,4 @@ Rollback: not required
 - `../../LEVEL-4_AI-EXECUTION/WORKFLOW/WF-004_PREVIEW-TO-RELEASE.md`
 - `../../LEVEL-4_AI-EXECUTION/AUTOMATION/AUT-006_PREVIEW-APPROVAL-RELEASE.md`
 - `../../TEMPLATES/HERMES-WORK-REQUEST.md`
+- `SOP-009_WORKBENCH-CLOSED-BETA-FAST-LANE.md`

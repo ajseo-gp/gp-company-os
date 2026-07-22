@@ -18,14 +18,13 @@ Operator·Agent·Worker에 라우팅하며, 실행 증거와 승인 필요사항
   `gp-company-hub`에서 관리한다.
 - Standby Hermes는 명시적 Primary 전환 전 GPcompany Slack 작업을 실행하거나 응답하지 않는다.
 
-## Required Inputs
+## Human Inputs
 
-- `Task-ID`
 - 목적과 완료 조건
-- 승인등급과 요청자
-- 40자리 commit SHA의 `OS-Ref`
-- 실행·금지 범위
-- 산출물과 결과 보고 형식
+- 필요한 참조·첨부와 중요한 기한·제약
+
+Hermes가 `Task-ID`, 요청자 ID, 승인등급, 활성 40자리 `OS-Ref`, 실행·금지 범위와
+출력 계약을 자동 생성한다. 사람에게 기계 형식을 요구하지 않는다.
 
 ## Required References
 
@@ -48,6 +47,7 @@ Operator·Agent·Worker에 라우팅하며, 실행 증거와 승인 필요사항
 - 실패 시 부분 실행과 부작용의 명시적 보고
 - Preview URL·이미지·동작 증거의 동일 revision 확인
 - Human 승인 검증 후 자동 Release Automation 트리거와 결과 추적
+- B2C·B2B·OEM·마케팅 등 Company OS 업무의 Operator·Agent 라우팅
 
 ## Authority Boundary
 
@@ -62,7 +62,10 @@ Hermes는 요청과 현재 권한표가 허용한 범위만 실행한다. 승인
 - 서비스 재시작·중단, 프로세스 종료, 데이터 삭제·덮어쓰기
 - Primary 전환과 Standby 동시 활성화
 - 승인 범위를 넘는 Worker 권한 확대
-- Human Preview 승인 전 merge·운영 배포
+- 표준 Hermes 경로에서 Human Preview 승인 전 merge·운영 배포
+
+`DEC-0007`의 Workbench Fast Lane은 Hermes 권한 경계 밖이며 Claude Code가 위험등급에
+따라 Release한다.
 
 ## Must Not Do
 
@@ -89,3 +92,4 @@ Hermes는 요청과 현재 권한표가 허용한 범위만 실행한다. 승인
 - `../WORKFLOW/WF-003_SLACK-TO-HERMES.md`
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
 - `../WORKFLOW/WF-004_PREVIEW-TO-RELEASE.md`
+- `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0007_WORKBENCH-CLOSED-BETA-FAST-LANE.md`

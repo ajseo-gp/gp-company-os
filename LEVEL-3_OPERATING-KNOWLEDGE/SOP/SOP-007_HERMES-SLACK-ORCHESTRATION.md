@@ -15,62 +15,53 @@ Slack에서 접수한 작업을 고정된 Company OS 기준으로 검증·실행
 
 - GPcompany Slack에서 Hermes Primary에 요청하는 운영·진단·개발·문서 작업
 - Hermes가 Operator, Agent, Codex, Claude Code 또는 GitHub 작업으로 라우팅하는 요청
-- `Task-ID`와 `OS-Ref`를 사용하는 Workbench·GitHub 연계 작업
+- `Task-ID`와 `OS-Ref`를 사용하는 GitHub·업무 시스템 연계 작업
 
-GPmarketing의 `slack_bridge.py` relay 업무에는 적용하지 않는다.
+GPmarketing의 `slack_bridge.py` relay 업무와 `DEC-0007`의 GP Workbench Closed Beta
+Fast Lane에는 적용하지 않는다.
 
 ## 입력 정보
 
-필수 입력은 다음과 같다.
+사람이 제공하는 필수 입력은 다음과 같다.
+
+- 목적과 완료 조건
+- 필요한 입력·참조 또는 첨부파일
+- 중요한 기한·제약이 있으면 해당 내용
+
+Hermes가 자동 생성·분류하는 정보는 다음과 같다.
 
 - `Task-ID`: `GP-YYYYMMDD-NNN` 형식의 고유 ID
-- 목적과 완료 조건
-- 업무 영역
-- 승인등급
-- `OS-Ref`: `ajseo-gp/gp-company-os@<40자리 commit SHA>`
-- 실행 범위와 금지 범위
-- 필수 점검 또는 산출물
-- 결과 보고 형식
+- 요청자 Slack ID, channel과 thread
+- 업무 영역과 승인등급
+- 활성 `OS-Ref`: `ajseo-gp/gp-company-os@<40자리 commit SHA>`
+- 실행·금지 범위, 필수 점검·산출물과 결과 계약
 
-누락된 필수 입력은 추정하지 않는다.
+목적을 알 수 없을 정도로 입력이 부족할 때만 짧게 질문한다. 기계 형식의 누락을 이유로
+사람의 자연어 요청을 반려하지 않는다.
 
 ## 표준 작업 요청
 
+사람은 다음처럼 자연어로 요청한다.
+
 ```text
-@Hermes [WORK_REQUEST] <Task-ID> · <업무영역> · 승인등급 <등급>
-
-목적
-<목적과 완료 조건>
-
-OS-Ref
-ajseo-gp/gp-company-os@<40자리-SHA>
-
-실행 범위
-• <허용된 작업>
-
-안전 제약
-• <금지된 작업>
-
-필수 결과
-• 종합 판정 또는 완료 상태
-• 항목별 증거
-• 발견된 위험과 예외
-• 승인 필요한 다음 조치
-• 개발 작업이면 Preview URL과 시각 검수 자료
-
-먼저 같은 스레드에 [ACK]를 남기고, 완료 후 [RESULT]로 보고하세요.
+지난주 자사몰 매출이 떨어진 원인을 확인하고 이번 주 실행할 프로모션을 제안해줘.
+할인율을 변경하거나 고객에게 발송하기 전에는 나에게 확인해줘.
 ```
 
-전체 복사용 양식은 `TEMPLATES/HERMES-WORK-REQUEST.md`를 사용한다.
+Hermes는 `TEMPLATES/HERMES-WORK-REQUEST.md`의 내부 envelope로 변환한다. 이 템플릿을
+사람이 복사하거나 채우도록 요구하지 않는다.
 
 ## 실행 단계
 
 ### 1. 요청 식별과 중복 방지
 
-1. Slack 원문에서 `Task-ID`, 스레드, 요청자, 승인등급을 식별한다.
-2. 같은 `Task-ID`의 열린 작업이 있는지 작업 큐와 현재 스레드에서 확인한다.
-3. 이미 실행 중이면 새 작업을 시작하지 않고 기존 작업 위치와 상태를 보고한다.
-4. 요청을 수락할 수 있으면 같은 스레드에 `[ACK] <Task-ID>`를 남긴다.
+1. Slack 원문에서 스레드, 요청자와 자연어 의도를 식별한다.
+2. 기존 Task-ID가 없으면 새 Task-ID를 발급하고, 활성 OS-Ref와 승인등급을 자동으로
+   고정한다.
+3. 같은 목적·참조의 열린 작업이 있는지 작업 큐와 현재 스레드에서 확인한다.
+4. 이미 실행 중이면 새 작업을 시작하지 않고 기존 작업 위치와 상태를 보고한다.
+5. 요청을 수락할 수 있으면 같은 스레드에 자연어 접수 메시지를 남기고 내부 기록에
+   `[ACK] <Task-ID>`를 저장한다.
 
 ### 2. OS-Ref 검증
 
@@ -153,12 +144,14 @@ OS-Ref: ajseo-gp/gp-company-os@<OS_SHA>
 승인 필요: <없음 또는 구체적 항목>
 ```
 
-요청자는 `[REVIEW]`로 추가 검증·수정을 요청하거나 `[REVIEW:CLOSED] <Task-ID>`로
-종료한다. Hermes는 종료 후 같은 요청을 다시 실행하지 않는다.
+요청자는 자연어로 추가 검증·수정을 요청하거나 종료 의사를 밝힌다. Hermes가 이를
+`[REVIEW]` 또는 `[REVIEW:CLOSED] <Task-ID>`로 구조화한다. Hermes는 종료 후 같은
+요청을 새 Task-ID 없이 다시 실행하지 않는다.
 
-사람이 사용하는 기능을 개발한 작업은 `[RESULT]`만으로 종료하지 않는다. 구현 revision을
+사람이 사용하는 기능을 개발한 표준 Hermes 작업은 `[RESULT]`만으로 종료하지 않는다. 구현 revision을
 고정한 뒤 `SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`에 따라 Preview URL과 이미지·
 동작 증거를 제공하고, `[HUMAN:APPROVED]` 이후 자동 merge·배포로 인계한다.
+Workbench Fast Lane은 이 절차 대신 `SOP-009`를 따른다.
 
 ## 승인 필요 지점
 
@@ -180,8 +173,8 @@ OS-Ref: ajseo-gp/gp-company-os@<OS_SHA>
 
 | 조건 | 처리 |
 |---|---|
-| `Task-ID` 없음 | `[BLOCKED]`와 누락 항목 보고 |
-| `OS-Ref` 없음·형식 오류 | 실행 금지, 정확한 SHA 요청 |
+| `Task-ID` 없음 | Hermes가 새 ID 발급 |
+| 활성 `OS-Ref` 없음·형식 오류 | 실행 금지, 운영 설정 복구; 사람에게 SHA 입력 요구 금지 |
 | GitHub 인증·접근 실패 | 재시도 남발 금지, 접근 실패 증거와 복구 조건 보고 |
 | OS 문서 충돌 | Decision 우선, 충돌 경로와 승인 필요사항 보고 |
 | 동일 `Task-ID` 중복 요청 | 기존 작업에 연결하고 중복 실행 금지 |
@@ -205,4 +198,5 @@ OS-Ref: ajseo-gp/gp-company-os@<OS_SHA>
 - `../../LEVEL-4_AI-EXECUTION/WORKFLOW/WF-003_SLACK-TO-HERMES.md`
 - `../../TEMPLATES/HERMES-WORK-REQUEST.md`
 - `SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
+- `SOP-009_WORKBENCH-CLOSED-BETA-FAST-LANE.md`
 - `ajseo-gp/gp-company-hub/agents/roles.md` — 현재 승인등급 실행 매트릭스

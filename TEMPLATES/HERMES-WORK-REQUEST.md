@@ -1,23 +1,36 @@
-# Hermes 작업 요청 템플릿
+# Hermes 내부 작업 Envelope
 
 - 상태: ACTIVE
-- 버전: 1.0
+- 버전: 2.0
 - 소유자: GP Company CEO
 - 변경일: 2026-07-22
 
-아래 블록을 Slack에 복사하고 모든 `<...>` 항목을 채운다.
+사람은 Slack에 자연어로 요청한다. 이 양식은 Hermes가 요청을 접수한 뒤 자동으로 생성하는
+내부 실행 계약이며, 대표나 직원에게 복사·작성하도록 요구하지 않는다.
+
+## 사람이 보내는 예시
 
 ```text
-@Hermes [WORK_REQUEST] <GP-YYYYMMDD-NNN> · <업무영역> · 승인등급 <등급>
+지난주 젠틀파파 자사몰 매출이 왜 떨어졌는지 확인하고 이번 주 실행안을 만들어줘.
+고객 발송이나 할인율 변경 전에는 나에게 알려줘.
+```
+
+## Hermes 생성 Envelope
+
+```text
+[WORK_REQUEST] <GP-YYYYMMDD-NNN> · <업무영역> · 승인등급 <등급>
+
+요청자
+<Slack user ID · channel · thread>
 
 목적
-<달성할 결과와 완료 조건>
+<자연어 요청에서 추출한 결과와 완료 조건>
 
 OS-Ref
-ajseo-gp/gp-company-os@<40자리-commit-SHA>
+ajseo-gp/gp-company-os@<활성 40자리-commit-SHA>
 
 입력·참조
-• <입력 위치 또는 참조 ID>
+• <원문·첨부·입력 위치 또는 참조 ID>
 
 실행 범위
 • <허용된 조회·분석·변경>
@@ -43,25 +56,18 @@ ajseo-gp/gp-company-os@<40자리-commit-SHA>
 • 발견된 위험·예외와 부분 실패
 • 실제 변경 사항
 • 대표 승인 또는 후속 작업이 필요한 항목
-• 사람이 사용하는 기능이면 Preview URL, 데스크톱·모바일 이미지와 검수 시나리오
-• 승인 revision, target branch와 자동 배포 환경
-
-먼저 같은 스레드에 [ACK]를 남기고, 진행 상태와 최종 [RESULT]를 같은 Task-ID로
-보고하세요. 승인 범위가 불명확하거나 필수 입력이 없으면 실행하지 말고 [BLOCKED]와
-차단 사유만 보고하세요. 개발 결과는 Preview 승인 전 merge하지 말고, 정확한 revision에
-[HUMAN:APPROVED]가 남으면 별도 확인 없이 자동 merge·배포·smoke test를 진행하세요.
 ```
 
-## 작성 확인
+## 생성 확인
 
-- [ ] `Task-ID`가 새롭고 고유하다.
-- [ ] `OS-Ref`가 저장소명과 40자리 commit SHA를 포함한다.
-- [ ] 목적과 완료 조건이 검증 가능하다.
-- [ ] 승인등급이 현재 권한표에 존재한다.
-- [ ] 허용 범위와 금지 범위를 모두 적었다.
+- [ ] 새 Task-ID를 발급했거나 기존 열린 작업에 연결했다.
+- [ ] 운영 설정의 활성 OS-Ref가 정확한 저장소명과 40자리 commit SHA를 포함한다.
+- [ ] 자연어 요청에서 목적과 완료 조건을 검증 가능하게 정리했다.
+- [ ] 승인등급과 위험을 현재 권한표로 분류했다.
+- [ ] 허용 범위와 금지 범위를 분리했다.
 - [ ] 결과를 확인할 증거와 검토자를 정했다.
-- [ ] 개발 작업이면 Preview 방식, target branch와 자동 배포 환경을 적었다.
-- [ ] 승인 후 자동 merge·배포되는 범위를 확인했다.
+- [ ] 사람에게 내부 태그·ID·SHA 입력을 요구하지 않았다.
+- [ ] Workbench Fast Lane 요청이면 Hermes 큐에 중복 등록하지 않고 `SOP-009`로 안내했다.
 
 ## 관련 문서
 
@@ -69,4 +75,4 @@ ajseo-gp/gp-company-os@<40자리-commit-SHA>
 - `../LEVEL-4_AI-EXECUTION/AGENTS/AGENT-HERMES.md`
 - `../LEVEL-4_AI-EXECUTION/WORKFLOW/WF-003_SLACK-TO-HERMES.md`
 - `../LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
-- `../LEVEL-4_AI-EXECUTION/WORKFLOW/WF-004_PREVIEW-TO-RELEASE.md`
+- `../LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-009_WORKBENCH-CLOSED-BETA-FAST-LANE.md`

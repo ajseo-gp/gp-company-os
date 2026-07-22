@@ -16,6 +16,7 @@
 - Prompt Library 검증
 - Weekly Review 정착
 - B2C Growth Operator와 실행 Agent 역할 정의
+- Workbench Closed Beta 개발을 `gpwb_bot`·로컬 Claude Code Fast Lane으로 분리
 - 두 수익 엔진의 분리 손익과 KPI 정의
 - 하위 저장소의 OS 버전 추적 규약 정의
 
@@ -27,6 +28,7 @@
 - 콘텐츠 초안 자동생성
 - B2C 전략→캠페인→실행→피드백 Workflow 구축
 - GP Workbench 작업 큐·승인함·로그 구축
+- Hermes 자연어 접수와 Task-ID·OS-Ref 자동 생성
 - 내부 AI·OS 적용 전후 효과 측정
 
 ## Phase 4 — Management System

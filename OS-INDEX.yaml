@@ -1,4 +1,4 @@
-version: 0.2.0
+version: 0.3.0
 status: ACTIVE
 owner: GP Company CEO
 authority_repository: ajseo-gp/gp-company-os
@@ -30,3 +30,11 @@ source_of_truth_order:
   - SOP
   - Knowledge
   - Prompt Library
+execution_lanes:
+  company_operations:
+    orchestrator: Hermes Primary
+    human_interface: natural language in GPcompany Slack
+  workbench_closed_beta:
+    implementer: local Claude Code via gpwb_bot
+    policy: DEC-0007
+    sop: SOP-009
