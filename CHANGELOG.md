@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased
+
+- GP Workbench Closed Beta를 `gpwb_bot`·로컬 Claude Code 직접 개발 Fast Lane으로 분리
+- Workbench 저위험 변경의 자체 승인·자동 배포·사후 PC/모바일 시각 보고 정의
+- 중위험·고위험 Workbench 변경의 사전 Human Preview와 승인 유지
+- 사람 대신 Hermes가 Task-ID·OS-Ref·승인등급을 생성하도록 자연어 접수 계약 변경
+- Hermes의 우선 역할을 B2C·B2B·OEM·마케팅 Agent 라우팅으로 명확화
+- Hermes Primary와 GPmarketing Slack bridge의 책임 경계 정의
+- Hermes 작업마다 40자리 commit SHA의 `OS-Ref`를 고정하는 원칙 추가
+- 지정 SHA를 `gh api`로 읽는 SOP와 Slack 작업 상태 흐름 추가
+- Hermes Primary Agent 정의와 표준 작업 요청 템플릿 추가
+- 코드 검토 대신 실제 Preview를 승인하는 Human Experience Gate 추가
+- 승인 revision의 자동 merge·배포·smoke test 원칙과 자동화 명세 추가
+
 ## 0.2.0 - 2026-07-21
 
 - Hair와 Scalp를 회사의 핵심 시장 축으로 확정

@@ -1,6 +1,6 @@
 # GP Company OS
 
-**Version:** 0.2.0
+**Version:** 0.3.0
 **Status:** ACTIVE
 **Owner:** GP Company CEO  
 **Purpose:** GP Company를 Hair·Scalp 사업과 AI·Company OS 사업이 함께 성장하고, 대표 개인이 아니라 양도 가능한 시스템으로 운영되는 AI Native Company로 전환한다.
@@ -40,7 +40,8 @@ GP Company는 두 개의 수익 엔진을 운영한다.
 
 GP Company의 목표 운영 구조는 대표가 모든 실행을 직접 지휘하는 방식이 아니다.
 대표는 목표·예산·정책과 예외를 승인하고, CEO Co-Operator와 Hermes가 OS를 기준으로
-Operator와 전문 실행 Agent를 조율한다.
+Operator와 전문 실행 Agent를 조율한다. GP Workbench Closed Beta 개발은 별도의 Fast
+Lane에서 `gpwb_bot`과 로컬 Claude Code가 직접 처리한다.
 
 ```mermaid
 flowchart TD
@@ -80,27 +81,22 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    CEO["대표<br/>승인·수정·거절"] --> SLACK["Slack<br/>단일 운영 인터페이스"]
+    CEO["대표·연구원<br/>자연어·이미지·사업 판단"] --> SLACK["GPcompany Slack"]
 
-    SLACK --> HP["Hermes Primary<br/>Mac mini 2018<br/>24시간 오케스트레이션"]
+    SLACK -->|"회사 운영 요청"| HP["Hermes Primary<br/>Mac mini 2018"]
     OS["gp-company-os<br/>회사 SSOT"] --> HP
+    CODEX["Codex<br/>OS · Hub 구현"] --> OS
+    HP --> QUEUE["회사 운영 큐<br/>Task-ID · OS-Ref · 상태"]
+    QUEUE --> OPS["B2C · B2B · OEM · Marketing Agents"]
+    OPS -->|"결과·예외만"| SLACK
 
-    HP --> QUEUE["중앙 작업 큐<br/>Task-ID · OS-Ref · 상태"]
-    QUEUE --> WB["GP Workbench<br/>큐 · 승인함 · 로그 · KPI"]
+    SLACK -->|"Workbench 피드백"| BOT["gpwb_bot"]
+    BOT --> CLAUDE["Local Claude Code Max<br/>Workbench 단일 구현자"]
+    CLAUDE --> GH["gpcompany-lab<br/>branch · test · release"]
+    GH --> WB["GP Workbench Closed Beta"]
+    WB -->|"운영 URL·변경 영역 PC/모바일"| SLACK
 
-    HP --> GH["GitHub<br/>Issue · Branch · Draft PR"]
-    HP --> CLAUDE["Claude Code Worker<br/>Workbench 개발"]
-    HP --> CODEX["Codex Worker<br/>MacBook M4 Pro<br/>기획 · OS 정합성 · 검수"]
-    HP --> GPU["향후 GPU Worker<br/>Galaxy Book 6 Ultra"]
-
-    CLAUDE --> GH
-    CODEX --> GH
-    GPU --> GH
-
-    GH --> HP
-    HP -->|"C등급·예외만"| CEO
-
-    HS["MacBook Hermes<br/>개발·비상 대기"] -.장애 시 전환.-> HP
+    HS["MacBook Hermes<br/>비상 대기"] -.장애 시 전환.-> HP
 ```
 
 | 구성요소 | 역할 |
@@ -117,6 +113,22 @@ flowchart TD
 [`LEVEL-4_AI-EXECUTION/WORKFLOW`](./LEVEL-4_AI-EXECUTION/WORKFLOW)와
 [`LEVEL-5_MANAGEMENT-CONTROL`](./LEVEL-5_MANAGEMENT-CONTROL)을 따른다. 장비 배치와
 Hermes 운영 토폴로지는 `gp-company-hub`에서 관리한다.
+
+Hermes 작업은 [`SOP-007`](./LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-007_HERMES-SLACK-ORCHESTRATION.md)에
+따라 자연어 요청을 Task-ID와 40자리 commit SHA의 `OS-Ref`가 포함된 내부 작업으로
+변환한다. 사람은 이 값을 입력하지 않는다. Hermes는 로컬 clone이나 현재 브랜치가 아니라
+지정 SHA의 Company OS 문서를 읽고 B2C·B2B·OEM·마케팅 업무를 라우팅한다.
+
+사람이 사용하는 기능은 코드 검토만으로 merge하지 않는다. Agent가 동일 revision의
+Preview URL과 시각 증거를 제공하고 대표가 Slack에서 승인하면, 해당 revision은 추가
+수동 확인 없이 자동 merge·배포·smoke test로 진행한다. 세부 기준은
+[`SOP-008`](./LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md)을
+따른다. 단, GP Workbench Closed Beta는
+[`DEC-0007`](./LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0007_WORKBENCH-CLOSED-BETA-FAST-LANE.md)과
+[`SOP-009`](./LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-009_WORKBENCH-CLOSED-BETA-FAST-LANE.md)에
+따라 `gpwb_bot`과 로컬 Claude Code가 직접 처리한다. 저위험 변경은 자체 승인·자동
+배포 후 변경 영역 PC·모바일 이미지를 보고하고, 중위험·고위험 변경만 사전 Human
+Preview를 요구한다.
 
 ## Primary Business Context
 
