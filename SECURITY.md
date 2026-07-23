@@ -22,6 +22,16 @@
 - 운영 데이터 변경·복원·이전 전에는 백업 위치, 복원 방법과 rollback 조건을 확인한다.
 - 다른 기록이 참조하는 원료·레시피·스케쥴·LOT를 하드 삭제하지 않는다.
 
+## Marketing and Revenue Data
+
+- SmartStore·아이디어스·광고·CRM credential과 고객·주문 원문은 권한이 분리된 운영
+  시스템에 보관한다.
+- OS에는 KPI 정의, 집계, Campaign-ID, 안전한 원천 참조와 검증 결과만 기록한다.
+- Campaign 결과는 데이터 원천, 기준 시각, attribution model·window와 정정 이력을 남긴다.
+- 고객 연락처·구매 이력·후기 원문을 GitHub, Prompt, Slack과 Preview에 복제하지 않는다.
+- CRM·후기·추천 대상 생성과 외부 발송은 동의·제외·보존 정책과 Human Gate가 확인되기
+  전에는 자동화하지 않는다.
+
 ## 외부 발행 문서
 
 - 견적서, 생산기록, 제품표준서, COA와 안전·취급 문서의 고객·제품별 원본 근거를 보존한다.

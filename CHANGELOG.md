@@ -2,6 +2,23 @@
 
 ## Unreleased
 
+- CEO `DEC-0009 Revenue First` 운영 우선순위와 Customer Journey Revenue Engine 반영
+- Marketing Growth Team을 SmartStore·Idus·Content·CRM·Review·Revenue Analytics 역할로 설계
+- `WF-006 Revenue Growth Loop`와 `SOP-011 Marketing Revenue Experiment` 추가
+- Marketing Agent별 매출·기여이익·Journey KPI와 PILOT Gate 정의
+- SmartStore와 아이디어스의 채널 책임·데이터·KPI·학습을 분리
+- Campaign-ID·비용·주문·직접/기여 매출·attribution Evidence 계약 추가
+- Revenue Snapshot·Readout·Campaign Brief 등 대표 마케팅 병목 자동화 후보 우선순위화
+- Dashboard·Weekly Review·Roadmap을 Revenue Engine → Marketing → B2B → R&D/Production 순서로 변경
+- GP Company OS v1.0 readiness Architecture Review와 v2.0 Roadmap 추가
+- `SYSTEM_BOOT.md`를 AI 단일 진입점으로 추가하고 루트 `AGENTS.md` 작업 규칙 정의
+- README에 Project, Mission, Vision, Repository Map, AI Onboarding과 OS 학습 순환 추가
+- `OS-INDEX.yaml`에 Boot sequence, 디렉터리·문서 계약과 레지스트리 추가
+- Boot 경로·링크·ID·실행 문서 계약·File Manifest를 검사하는 GitHub CI 추가
+- PR·Decision·Process Improvement 템플릿에 traceability·근거·검증·KPI Gate 강화
+- Context·Decision·Knowledge·Workflow·SOP·Prompt·Automation 책임 경계와 표준 강화
+- Agent Architecture와 명세 상태·Runtime 상태를 분리하고 R&D·Production·Knowledge Agent 설계 추가
+- Agent·Workflow·Automation·Knowledge·Decision 신규 문서 템플릿 강화
 - Workbench의 문의→연구 조건→레시피→견적→스케쥴→LOT 실행 흐름을 Company OS에 반영
 - R&D 사업 문서, 연구→생산 SOP와 시스템별 원본 경계 정합성 Context 추가
 - Inquiry-to-Order Workflow에 연구중·확정·수주·LOT 상태 제어 추가

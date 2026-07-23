@@ -5,11 +5,25 @@
 ## Strategic Execution — 두 수익 엔진
 
 - [ ] Hair·Scalp 사업에서 우선 실행할 B2B/B2C 과제
-- [ ] B2C Growth Operator의 실행 권한과 CEO 승인 범위
+- [ ] Growth Orchestrator와 Marketing Agent의 실행 권한과 CEO 승인 범위
 - [ ] 내부 효과를 먼저 측정할 AI·Company OS 적용 사례
 - [ ] 첫 외부 AI·Company OS 상품 후보와 고객 검증 방식
 - [ ] 수익 엔진별 손익 구분 기준
 - [ ] 코드·브랜드·계약·데이터 소유권 점검 책임자와 주기
+
+## Revenue First — Marketing PILOT 전 확정
+
+- [ ] 첫 PILOT 제품·채널·Customer Journey 병목
+- [ ] SmartStore·아이디어스별 데이터 Owner와 접근권한
+- [ ] 매출·주문·환불·광고비·수수료·기여이익 산식과 기준 시각
+- [ ] Campaign-ID와 주문·콘텐츠·광고 revision 연결 방식
+- [ ] 직접 매출과 기여 매출 attribution model·window·제외 조건
+- [ ] 채널·제품별 기준선과 첫 Campaign 목표 KPI
+- [ ] 주간·월간 광고 예산과 증액 승인 범위
+- [ ] 가격·할인·쿠폰·증정 허용 범위
+- [ ] 외부 게시·고객 발송·후기 요청과 CRM 동의·제외 기준
+- [ ] 재고·기여이익·환불·불만·표현 위반 Campaign 중지 기준
+- [ ] 대표의 현재 마케팅 분석·기획·발행·성과 검토 시간 기준선
 
 ## P1 — 즉시 확정
 

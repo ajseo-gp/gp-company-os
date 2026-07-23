@@ -1,0 +1,112 @@
+# GP Company OS — System Boot
+
+- 상태: ACTIVE
+- 문서 버전: 1.0
+- 적용 OS 버전: 0.3.x
+- 소유자: GP Company CEO
+- 목적: 사람과 AI가 같은 기준·순서·권한으로 GP Company OS를 해석하도록 한다.
+
+## 1. 이 저장소의 역할
+
+`gp-company-os`는 GP Company의 Mission, 정책, Decision, 운영 Context, SOP와 AI 실행
+계약의 최상위 원본이다. 이 저장소는 고객·처방·원가 같은 운영 원문 데이터베이스가
+아니며, 실행 코드 저장소도 아니다.
+
+AI는 모델의 기억이나 일반 지식보다 이 저장소의 고정된 문서를 우선한다. 확인되지 않은
+회사의 사실을 보완하거나 추정하지 않는다.
+
+## 2. Boot Sequence
+
+도구가 루트 `AGENTS.md`를 자동으로 먼저 읽을 수 있다. 그것은 저장소 작업 안전규칙이고,
+회사의 의미 체계를 이해하기 위한 정식 읽기 순서는 다음과 같다.
+
+1. `SYSTEM_BOOT.md`
+2. `README.md`
+3. `LEVEL-1_DIRECTION/MANIFEST.md`
+4. `LEVEL-1_DIRECTION/BLUEPRINT.md`
+5. 관련 `LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT`
+6. 관련 `LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS`
+7. `AGENTS.md`와 관련 Agent 명세
+8. 관련 `LEVEL-4_AI-EXECUTION/WORKFLOW`
+9. 관련 `LEVEL-3_OPERATING-KNOWLEDGE/SOP`
+10. 관련 `LEVEL-4_AI-EXECUTION/AUTOMATION`
+11. 필요한 Knowledge와 Prompt
+12. 관련 KPI·Dashboard·Review
+
+Mission이나 Vision을 변경·평가하는 작업이면 `MISSION.md`와 `VISION.md`를 Blueprint보다
+먼저 읽는다. 모든 문서를 무조건 읽지 말고, `OS-INDEX.yaml`에서 작업과 관련된 문서
+유형과 레지스트리를 찾는다.
+
+## 3. Source of Truth
+
+충돌 시 우선순위는 다음과 같다.
+
+1. 대표가 승인한 ACTIVE Decision
+2. 적용 시점이 명시된 ACTIVE Context
+3. ACTIVE SOP
+4. 검증 범위가 명시된 ACTIVE Knowledge
+5. Prompt
+6. 일반 AI 지식과 외부 정보
+
+상위 문서라도 `DRAFT`, `REVIEW`, `ARCHIVED` 상태이면 확정 운영 기준으로 사용하지 않는다.
+같은 우선순위에서는 더 구체적인 적용 범위와 더 최신의 승인 문서를 사용한다. 충돌을
+해결할 수 없으면 실행을 확대하지 말고 대표의 Decision이 필요한 항목으로 보고한다.
+
+## 4. 문서 유형 경계
+
+| 유형 | 답하는 질문 | 포함하지 않는 것 |
+|---|---|---|
+| Business | 무엇으로 고객가치와 수익을 만드는가 | 세부 실행 순서 |
+| Context | 지금 회사의 상태·제약·우선순위는 무엇인가 | 영구적 사실로 단정한 미검증 정보 |
+| Decision | 무엇을 왜 선택했고 무엇에 영향을 주는가 | 반복 실행 단계 |
+| Knowledge | 어떤 사실·교훈이 어떤 근거와 범위에서 검증되었는가 | 임시 상태·개인 의견 |
+| Workflow | 여러 역할과 시스템이 어떤 상태를 거쳐 결과를 만드는가 | 한 역할의 상세 작업법 |
+| SOP | 한 반복 업무를 어떤 품질·승인 기준으로 수행하는가 | 조직 전체 상태 흐름 |
+| Prompt | 승인된 업무를 AI에 어떤 형식으로 요청하는가 | 정책·권한의 신규 정의 |
+| Agent | 누가 어떤 입력·권한·출력 계약으로 수행하는가 | 근거 없는 자율 권한 |
+| Automation | 어떤 Trigger가 검증된 SOP 단계를 기계 실행하는가 | SOP 없는 업무 정책 |
+| Dashboard/KPI | 운영 결과를 무엇으로 측정하고 어떤 결정에 쓰는가 | 원본 운영 데이터 |
+
+## 5. AI Task Boot
+
+AI는 작업을 시작할 때 다음을 수행한다.
+
+1. 가능하면 정확한 40자리 commit SHA를 `OS-Ref`로 고정한다.
+2. `DEC-0009`에 따라 신규 고객, 판매, 재구매, 대표의 마케팅 병목 또는 반복 가능한
+   성장에 대한 기여 경로를 확인한다.
+3. 요청의 사업영역, Customer Journey, Workflow, 위험도와 완료 조건을 식별한다.
+4. 관련 ACTIVE Decision·Context·SOP를 읽고 충돌을 확인한다.
+5. 민감정보와 외부 발송·금전·계약·법률·생산 승인 여부를 확인한다.
+6. 승인 범위 안에서만 실행하고, 결과에 사용 문서와 증거를 남긴다.
+7. 반복 문제나 새로 검증된 사실을 Context·Knowledge·SOP·Decision 후보로 분류한다.
+
+`OS-Ref`를 고정할 수 없는 대화형 검토에서는 현재 브랜치와 미확정 상태를 명시하고,
+실행 시스템의 확정 기준인 것처럼 보고하지 않는다.
+
+## 6. Stop and Escalate
+
+다음은 승인 또는 추가 근거 없이 확정·실행하지 않는다.
+
+- 가격, 마진, 납기, 계약, 결제와 법률·규정 판단
+- 레시피 확정, 생산 가능성, 시험결과·기능성·사용기한 확정
+- 고객 또는 외부 대상 발송·게시
+- 데이터 삭제·덮어쓰기와 비가역적 변경
+- ACTIVE Decision과 충돌하는 변경
+- 권한·책임자·근거 문서가 불명확한 고위험 실행
+
+## 7. 최소 결과 계약
+
+중요한 AI 결과에는 가능한 범위에서 다음을 포함한다.
+
+- 적용한 `OS-Ref` 또는 검토한 브랜치
+- 참조한 Decision·Context·SOP
+- 확인된 사실과 아직 확인되지 않은 가정
+- 실행 결과와 검증 증거
+- 필요한 승인 또는 차단 사유
+- Context·Knowledge·SOP·Decision 갱신 후보
+
+## 8. 보안
+
+실제 고객정보, 이메일 원문, 처방·함량, 원가·단가, 계약 비밀과 인증정보는 이 저장소에
+커밋하지 않는다. 이 저장소에는 정책, 비식별 메타데이터, 안전한 참조 ID와 검증 범위만
+남긴다. 자세한 기준은 `SECURITY.md`를 따른다.
