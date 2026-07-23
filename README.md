@@ -109,6 +109,8 @@ flowchart TD
 | GitHub | Decision·작업 정의·코드·검수 증거를 추적하는 지속 기록 |
 
 세부 역할은 [`LEVEL-2_BUSINESS/B2C.md`](./LEVEL-2_BUSINESS/B2C.md),
+[`LEVEL-2_BUSINESS/RND.md`](./LEVEL-2_BUSINESS/RND.md),
+[`LEVEL-2_BUSINESS/PRODUCTION.md`](./LEVEL-2_BUSINESS/PRODUCTION.md),
 [`LEVEL-4_AI-EXECUTION/AGENTS`](./LEVEL-4_AI-EXECUTION/AGENTS),
 [`LEVEL-4_AI-EXECUTION/WORKFLOW`](./LEVEL-4_AI-EXECUTION/WORKFLOW)와
 [`LEVEL-5_MANAGEMENT-CONTROL`](./LEVEL-5_MANAGEMENT-CONTROL)을 따른다. 장비 배치와
@@ -137,6 +139,7 @@ GP Company는 다음 영역을 동시에 운영한다.
 - Hair·Scalp 중심 소량 OEM/ODM
 - 자체 브랜드 젠틀파파 운영
 - Hair·Scalp 제품 기획·제조·브랜드 운영
+- 고객 문의→레시피 연구→견적→생산 LOT와 문서의 추적
 - B2B 거래처 개발과 B2C 온라인 판매
 - 콘텐츠 마케팅
 - AI·Company OS 제품과 서비스 개발

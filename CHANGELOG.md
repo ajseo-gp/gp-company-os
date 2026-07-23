@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Workbench의 문의→연구 조건→레시피→견적→스케쥴→LOT 실행 흐름을 Company OS에 반영
+- R&D 사업 문서, 연구→생산 SOP와 시스템별 원본 경계 정합성 Context 추가
+- Inquiry-to-Order Workflow에 연구중·확정·수주·LOT 상태 제어 추가
+- Workbench 운영 데이터와 외부 생산문서의 보안·발행 guard 추가
+- 연구·견적·생산 제어 경계 Decision 후보와 CEO 검증 항목 추가
+- OS·Hub·Workbench의 R&D 상태, 결제조건, MOQ와 시험 근거 충돌을 REVIEW 항목으로 분리
+- Hermes 1차 점검 결과와 서로 다른 OS·Hub 적용 revision, 미확인 production·데이터·백업 상태 기록
 - GP Workbench Closed Beta를 `gpwb_bot`·로컬 Claude Code 직접 개발 Fast Lane으로 분리
 - Workbench 저위험 변경의 자체 승인·자동 배포·사후 PC/모바일 시각 보고 정의
 - 중위험·고위험 Workbench 변경의 사전 Human Preview와 승인 유지

@@ -7,6 +7,7 @@
 3. Hermes 자연어 접수, Task-ID·OS-Ref 자동 생성과 Agent 라우팅 구현
 4. GP Workbench는 `gpwb_bot`·로컬 Claude Code Closed Beta Fast Lane으로 운영
 5. 원가와 최소 마진 기준 데이터 정리
-6. 내부 AI·Company OS 적용 사례와 효과 측정
-7. 외부 AI·Company OS 상품 후보와 고객 문제 검증
-8. CEO Weekly Review와 양도가능성 관리 체계 정착
+6. Workbench 연구→견적→생산 데이터 흐름과 OS·Hub 원본 경계 정렬
+7. 내부 AI·Company OS 적용 사례와 효과 측정
+8. 외부 AI·Company OS 상품 후보와 고객 문제 검증
+9. CEO Weekly Review와 양도가능성 관리 체계 정착

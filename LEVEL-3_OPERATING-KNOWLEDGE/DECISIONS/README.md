@@ -11,3 +11,4 @@
 | DEC-0005 | Hermes–Slack 오케스트레이션과 OS-Ref 고정 | ACTIVE |
 | DEC-0006 | Human Preview 승인 후 자동 Release | ACTIVE |
 | DEC-0007 | GP Workbench Closed Beta Fast Lane | ACTIVE |
+| DEC-0008 | 연구·견적·생산 제어 경계 | REVIEW |

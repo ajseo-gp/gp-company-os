@@ -13,6 +13,8 @@
 
 - 원가·MOQ·마진 데이터 정리
 - OEM Pipeline 표준화
+- 문의→연구→견적→스케쥴→LOT 상태와 원본 경계 표준화
+- OS·Hub·Workbench의 R&D·생산 정의와 적용 OS revision 정렬
 - Prompt Library 검증
 - Weekly Review 정착
 - B2C Growth Operator와 실행 Agent 역할 정의

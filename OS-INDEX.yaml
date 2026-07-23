@@ -14,7 +14,7 @@ levels:
     modules: [Mission, Vision, Manifest, Blueprint]
   level_2:
     name: Business
-    modules: [Business, Hair & Scalp Business, AI & Company OS Business, Marketing, OEM, B2C, Production, Finance]
+    modules: [Business, Hair & Scalp Business, AI & Company OS Business, Marketing, OEM, B2C, R&D, Production, Finance]
   level_3:
     name: Operating Knowledge
     modules: [SOP, Knowledge, Prompt Library, Decisions, Context]
@@ -38,3 +38,8 @@ execution_lanes:
     implementer: local Claude Code via gpwb_bot
     policy: DEC-0007
     sop: SOP-009
+runtime_record_authority:
+  policy_and_state_rules: gp-company-os
+  orchestration_and_pipeline: gp-company-hub
+  workbench_execution_records: gpcompany-lab local data
+  issued_customer_and_production_documents: approved secure storage
