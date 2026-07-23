@@ -6,7 +6,7 @@
 - 구현 위치: `gpcompany-lab` / GP Workbench — 실제 경로 REVIEW
 - 버전: 0.1
 - 작성일: 2026-07-23
-- 다음 검토일: 첫 데이터 원천·Owner 확인 시
+- 다음 검토일: SmartStore·아이디어스 주문 export 확보 시
 
 ## Purpose
 
@@ -42,6 +42,22 @@ SmartStore·아이디어스의 채널 행동, 주문·취소·환불, 광고·�
 - 광고비·수수료·할인·승인 원가의 포함 범위
 - Campaign-ID와 attribution 조건이 있는 경우 승인된 Campaign Register
 - 비식별 고객키 사용 승인과 보존 정책
+
+### 주문 원천과 정산 원천의 분리
+
+Revenue Snapshot의 매출 기간은 원칙적으로 `구매/결제 발생일` 기준의 주문 원천으로
+잠근다. 정산 리포트는 배송완료·정산기준일·지급일처럼 다른 기간 기준을 사용할 수
+있으므로 주문 원천을 대신하지 않는다.
+
+| 원천 | Revenue Snapshot | Finance reconciliation |
+|---|---|---|
+| 주문·취소·환불 export | Primary input | 정산 리포트와 대조 |
+| 채널 정산 리포트 | 주문 기준 기간의 Primary input으로 사용 금지 | 수수료·부가세·판매자 부담금·지급금 검증 |
+| 채널 행동/광고 export | 방문·전환·ROAS Driver | 필요 시 비용 대조 |
+
+주문 원천과 정산 원천을 같은 기간의 매출처럼 합산하지 않는다. 두 원천의 차이는
+배송·정산 지연, 환불, 수수료, 판매자 부담금과 지급 시점으로 설명하고 reconciliation
+결과를 별도 보존한다.
 
 ### 검증
 
@@ -153,6 +169,22 @@ SmartStore·아이디어스의 채널 행동, 주문·취소·환불, 광고·�
 - 주문 원문·PII·원가가 공개 로그에 노출되지 않는지 확인
 - Revenue Analytics Owner와 CEO가 PILOT 범위 승인
 
+## Confirmed Source Review — 2026-07-24
+
+아이디어스 2026년 7월 국내 1차 정산 리포트의 구조를 실제 파일로 검토했다. 실제 금액,
+사업자정보, 주문번호, 상품명과 고객정보는 OS 저장소에 복사하지 않았다.
+
+- 확인된 탭: `정산 정보`, `정산 요약`, `상세 내역`, `후기 적립금`, `고객 혜택 적립금`
+- 확인 가능한 항목: 판매금액, 플랫폼·결제 수수료, 수수료 부가세, 판매자 부담 적립금,
+  정산 예정금과 최종 지급금
+- `상세 내역`의 주문번호·상품 line은 정산대상 주문이며 구매일과 정산기준일이 함께 존재
+- 방문자, 전체 구매 cohort, 승인 원가, 배송·포장 변동비, 안정적인 고객 신규·재구매
+  구분은 이 파일만으로 확인할 수 없음
+
+따라서 이 파일은 아이디어스 `Finance reconciliation` 원천으로 승인 후보이며,
+Weekly Revenue Snapshot의 주문 기준 `REV-NET` 원천으로는 아직 `BLOCKED`다. 아이디어스
+주문·취소·환불 export와 SmartStore 주문·행동·광고·정산 export를 별도로 확보해야 한다.
+
 ### `PILOT → ACTIVE`
 
 - 최소 네 번의 Weekly Snapshot과 Review에서 정정 이력·장애 처리 검증
@@ -176,7 +208,8 @@ SmartStore·아이디어스의 채널 행동, 주문·취소·환불, 광고·�
 
 ## Unconfirmed Before Implementation
 
-- SmartStore·아이디어스 데이터 취득 방식과 export/API 범위
+- SmartStore 주문·행동·광고·정산 데이터의 export/API 범위
+- 아이디어스 주문·취소·환불 export/API 범위
 - 주문·광고·정산 원천의 지연과 기준시각
 - Finance 승인 원가·수수료·배송·포장비 원천
 - 채널 간 고객 중복을 처리할 수 있는 승인된 비식별 키
