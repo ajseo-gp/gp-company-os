@@ -185,6 +185,17 @@ Revenue Snapshot의 매출 기간은 원칙적으로 `구매/결제 발생일` �
 Weekly Revenue Snapshot의 주문 기준 `REV-NET` 원천으로는 아직 `BLOCKED`다. 아이디어스
 주문·취소·환불 export와 SmartStore 주문·행동·광고·정산 export를 별도로 확보해야 한다.
 
+과거 아이디어스 주문 export(2023년)의 구조도 추가 확인했다.
+
+- 매출 Adapter 후보 열: 주문번호, 주문상태, 작품명, 수량, 결제금액
+- 별도 열로 포함되는 개인정보: 주문자·수령인, 전화번호, 우편번호, 주소, 요청·메모
+- 안전 경계: 매출 Adapter는 허용 목록의 매출 열만 읽고 개인정보 열을 즉시 제외한다.
+- 고객 KPI: 승인된 비식별 고객키를 만들지 않으므로 신규·재구매 KPI는 `NOT_AVAILABLE`
+
+이 과거 파일은 Adapter 초안과 개인정보 차단 테스트에는 사용할 수 있지만, 현재 아이디어스
+export 형식과 취소·환불 상태 범위를 대신 승인하지 않는다. 최신 완료 기간 export로 다시
+검증하기 전에는 결과를 `PARTIAL`로만 사용한다.
+
 ### `PILOT → ACTIVE`
 
 - 최소 네 번의 Weekly Snapshot과 Review에서 정정 이력·장애 처리 검증
@@ -209,7 +220,7 @@ Weekly Revenue Snapshot의 주문 기준 `REV-NET` 원천으로는 아직 `BLOCK
 ## Unconfirmed Before Implementation
 
 - SmartStore 주문·행동·광고·정산 데이터의 export/API 범위
-- 아이디어스 주문·취소·환불 export/API 범위
+- 최신 아이디어스 주문·취소·환불 export/API 형식과 상태 범위
 - 주문·광고·정산 원천의 지연과 기준시각
 - Finance 승인 원가·수수료·배송·포장비 원천
 - 채널 간 고객 중복을 처리할 수 있는 승인된 비식별 키
