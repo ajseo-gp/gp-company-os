@@ -28,7 +28,7 @@
 | AUT-004 | 콘텐츠 초안 생성 | P2 | PLANNED | WF-002 / SOP-005 |
 | AUT-005 | 리뷰 수집·요약 | P2 | PLANNED | WF-002 / SOP 미정 |
 | AUT-006 | 표준 Preview 승인 후 자동 merge·deploy | P1 | PLANNED | WF-004 / SOP-008 |
-| AUT-007 | 채널·주문·비용 Revenue Snapshot | P0 | PLANNED | WF-006 / SOP-011 |
+| [AUT-007](./AUT-007_REVENUE-SNAPSHOT.md) | 채널·주문·비용 Revenue Snapshot | P0 | PLANNED | WF-006 / SOP-006, 011 |
 | AUT-008 | Journey 병목·Campaign Brief 초안 | P0 | PLANNED | WF-006 / SOP-011 |
 | AUT-009 | 채널별 콘텐츠 package·성과 metadata 생성 | P1 | PLANNED | WF-002, 006 / SOP-005, 011 |
 | AUT-010 | CRM 대상 적격성·재구매 알림 | P1 | PLANNED | WF-006 / Customer Communication SOP 미정 |
@@ -51,3 +51,16 @@
    외부 발송은 별도 SOP와 Human Gate 전에는 자동화하지 않는다.
 
 첫 자동화는 게시·발송보다 Revenue 데이터 수집·정합성과 Review 준비를 우선한다.
+
+## Revenue Runtime Activation Order
+
+```text
+AUT-007 Revenue Snapshot
+→ AUT-012 Weekly Revenue Readout
+→ AUT-008 Campaign Brief
+→ AUT-009 Channel Content Package
+→ AUT-010/011 CRM·Review 후보
+```
+
+`AUT-007`의 원천·산식·품질 Gate가 `PILOT` 기준을 충족하기 전에는 `AUT-012`가 확정
+매출을 보고하거나 `AUT-008`이 매출 개선률을 가정하지 않는다.
