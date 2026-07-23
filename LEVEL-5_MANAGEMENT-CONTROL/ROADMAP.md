@@ -16,11 +16,16 @@
 
 - Acquisition→Activation→Conversion→Retention→Referral Journey 정의
 - Campaign-ID·채널·제품·비용·주문·매출 Evidence 계약
+- `AUT-007` Revenue Snapshot의 원천·기준시각·산식·품질 상태 확정
 - SmartStore·아이디어스 별도 Revenue view
 - 직접 매출·기여 매출·기여이익 구분
 - CEO Weekly Revenue Review
 
-**Exit:** 모든 Marketing Campaign이 Journey·비용·매출·결과 Decision에 연결된다.
+**First executable milestone:** 최근 완료 기간을 대상으로 수동 기준선과 동일 범위의
+Revenue Snapshot 1개를 만들고, `READY/PARTIAL/BLOCKED`를 숨김없이 표시한다.
+
+**Exit:** 모든 Marketing Campaign이 Journey·비용·매출·결과 Decision에 연결되고,
+Weekly Review가 같은 기준시각의 신뢰 가능한 Snapshot으로 진행된다.
 
 ## Phase 2 — Marketing Agent Runtime
 

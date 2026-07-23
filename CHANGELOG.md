@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- `AUT-007 Revenue Snapshot`의 원천·기준시각·검증·revision·보안·PILOT 활성화 계약 추가
+- B2C 순매출·기여이익·재구매 매출 비중 중심의 CEO Weekly Scorecard와 표준 산식 정의
+- Revenue 숫자에 `READY/PARTIAL/BLOCKED/NOT_AVAILABLE` 데이터 품질 상태를 의무화
+- Weekly Review를 Snapshot 잠금→품질 Gate→병목→Campaign→Knowledge 환류 절차로 고도화
 - CEO `DEC-0009 Revenue First` 운영 우선순위와 Customer Journey Revenue Engine 반영
 - Marketing Growth Team을 SmartStore·Idus·Content·CRM·Review·Revenue Analytics 역할로 설계
 - `WF-006 Revenue Growth Loop`와 `SOP-011 Marketing Revenue Experiment` 추가

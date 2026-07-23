@@ -2,8 +2,8 @@
 
 **기준일:** 2026-07-23
 
-1. Customer Journey Revenue Engine과 매출 Evidence 계약 구축
-2. SmartStore·아이디어스 채널별 Growth Agent와 Revenue Dashboard PILOT 준비
+1. `AUT-007` Revenue Snapshot의 SmartStore·아이디어스 원천·Owner·기준시각·산식 확정
+2. 같은 기간의 수동 기준선과 첫 Revenue Snapshot 비교·검증
 3. Content·CRM·Review·Revenue Analytics Agent의 Workflow·KPI 연결
 4. 첫 Revenue Campaign의 기준선·목표·예산·attribution·Owner 확정
 5. B2B/OEM Intake Agent로 문의·견적·후속관리 표준화·자동화
