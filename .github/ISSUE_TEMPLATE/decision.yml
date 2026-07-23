@@ -16,6 +16,25 @@ body:
     validations:
       required: true
   - type: textarea
+    id: rationale
+    attributes:
+      label: 선택 이유와 Trade-off
+    validations:
+      required: true
+  - type: textarea
     id: impact
     attributes:
       label: 영향 범위
+      description: 적용 영역과 명시적 비적용 영역을 함께 적습니다.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 근거와 검증 방법
+  - type: textarea
+    id: review
+    attributes:
+      label: 재검토 조건
+    validations:
+      required: true

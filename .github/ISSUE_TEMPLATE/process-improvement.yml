@@ -15,6 +15,13 @@ body:
       label: 문제와 반복 빈도
     validations:
       required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 발생 근거와 영향
+      description: 빈도, 소요시간, 오류, 고객 또는 매출 영향을 기록합니다.
+    validations:
+      required: true
   - type: dropdown
     id: solution
     attributes:
@@ -26,3 +33,9 @@ body:
         - Agent
         - Automation
         - Decision
+  - type: textarea
+    id: measure
+    attributes:
+      label: 완료 조건과 측정 지표
+    validations:
+      required: true
