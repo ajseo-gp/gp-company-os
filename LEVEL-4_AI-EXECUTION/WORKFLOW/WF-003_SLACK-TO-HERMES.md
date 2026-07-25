@@ -1,9 +1,10 @@
 # WF-003 Slack to Hermes
 
 - 상태: ACTIVE
-- 버전: 1.0
+- 버전: 1.1
 - 소유자: GP Company CEO
-- 변경일: 2026-07-22
+- 변경일: 2026-07-26
+- Learning-Ref: DEC-0011
 
 ## 목적
 
@@ -75,6 +76,10 @@ sequenceDiagram
 - Slack 장애: Workbench·GitHub에 상태 보존 → 연결 복구 → 원래 스레드에 동기화
 
 ## Knowledge Feedback
+
+Hermes는 L1/L2 Task Envelope에 관련 ACTIVE Knowledge·최근 EXPERIMENT·FAILURE,
+적용·비적용 이유와 Outcome 완료 조건을 넣는다. 결과는 `WF-008`의 학습 검토와 다음
+Reuse Verification으로 인계한다.
 
 반복되는 라우팅 오류, 승인 병목과 실패 조건은 FAILURE 또는 SOP 개선 후보로 전달한다.
 Slack 원문과 비밀정보는 Knowledge에 복제하지 않는다.

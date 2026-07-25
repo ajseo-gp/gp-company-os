@@ -1,9 +1,13 @@
 # Weekly Review
 
+**용도:** GP Workbench Weekly Review 인스턴스 입력 schema — 이 파일을 실행 기록으로 덮어쓰지 않음
+**Review-ID:** WR-YYYY-Www
 **기간:** YYYY-MM-DD ~ YYYY-MM-DD
 **Snapshot 기준시각:** YYYY-MM-DD HH:MM KST
+**OS-Ref:** 40자리 commit SHA
+**원본 위치·revision:**
 **전체 데이터 상태:** READY / PARTIAL / BLOCKED
-**검토자:**
+**Review Owner / 검토자 / 대리자:**
 
 ## 0. 데이터 품질
 
@@ -56,10 +60,13 @@
 
 ## 3-1. Revenue Knowledge
 
+- Learning Preflight 적용·비적용:
 - 새 EXPERIMENT:
 - PRACTICE 승격 후보:
 - FAILURE와 재발 방지:
 - 고객 INSIGHT:
+- `NO_NEW_LEARNING` 건수 / 검토 완료 L1·L2 Task:
+- `RESULT_PENDING`·`UNBOUND_KNOWLEDGE`·`REUSE_UNVERIFIED`:
 
 ## 4. 다음 주 우선순위 3개
 
@@ -88,4 +95,5 @@
 - 다음 Campaign-ID 또는 `BRIEF_BLOCKED` 사유:
 - `SCALE / ITERATE / STOP` 결정과 근거:
 - Knowledge·SOP·Decision 후보:
+- Enforcement Point와 다음 Reuse Verification:
 - 다음 Snapshot 기준일:

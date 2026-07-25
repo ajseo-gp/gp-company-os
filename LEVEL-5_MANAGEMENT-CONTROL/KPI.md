@@ -1,11 +1,11 @@
 # KPI Framework
 
 - 상태: ACTIVE
-- 버전: 0.2
+- 버전: 0.3
 - 소유자: GP Company CEO / Revenue Analytics Owner
 - 적용 범위: Hair & Scalp Revenue Engine, Weekly Revenue Review
-- 적용 Decision: DEC-0009
-- 기준일: 2026-07-23
+- 적용 Decision: DEC-0009, DEC-0011
+- 기준일: 2026-07-26
 - 다음 검토일: 2026-08-23
 
 ## Revenue First North Star
@@ -175,6 +175,23 @@ Driver로 표시한다.
 | Repository Governance | OS 동기화율, 미반영 Decision, 변경 추적률 | 통제 원본 일치 |
 | Asset Readiness | 코드·브랜드·계약·데이터 소유권 확인율 | 인수 가능한 자산 구축 |
 
+## Organizational Learning
+
+목표값은 첫 L2 PILOT 기준선과 CEO 승인 전에는 임의로 설정하지 않는다.
+
+| ID | 정의 | 목적 |
+|---|---|---|
+| `LRN-PREFLIGHT-COVERAGE` | 완결된 Learning Preflight가 있는 L1/L2 Task ÷ 전체 L1/L2 Task | 실행 전 학습 소비 강제 |
+| `LRN-OUTCOME-COVERAGE` | Outcome 또는 유효한 `RESULT_PENDING` 계약이 있는 L1/L2 Task ÷ 전체 L1/L2 Task | 결과 없는 완료 방지 |
+| `LRN-ENFORCEMENT-RATE` | 소비 파일 역참조와 적용 revision이 확인된 Knowledge ÷ 승격 대상 Knowledge | 문서 생성과 실제 행동 연결 |
+| `LRN-REUSE-VERIFIED` | 비교 가능한 다음 Task에서 조회·적용·Outcome이 검증된 Knowledge ÷ 재사용 예정 Knowledge | 학습 재사용 확인 |
+| `LRN-FAILURE-RECURRENCE` | 같은 적용 범위에서 재발한 FAILURE ÷ 후속 검증 대상 FAILURE | 재발 방지 효과 |
+| `LRN-NO-NEW-RATE` | `NO_NEW_LEARNING` ÷ 학습 검토 완료 L1/L2 Task | 기본값 남용과 학습 품질 경보 |
+| `LRN-RESULT-PENDING-AGE` | `RESULT_PENDING` 생성부터 Outcome 확정까지의 경과시간 | 미측정 결과 적체 탐지 |
+
+학습 문서 수 자체는 성공 KPI가 아니다. Revenue·기여이익·품질·리드타임·재작업과 대표
+병목 변화가 같은 비교 단위에서 확인되어야 한다.
+
 ## Finance
 
 | 영역 | 핵심 KPI | 목적 |
@@ -191,6 +208,7 @@ Driver로 표시한다.
 - 고객 성과는 고객이 승인하거나 객관적으로 확인 가능한 근거로 측정한다.
 - 매출과 attribution 기반 기여 매출을 구분하고 model·window 없이 기여를 확정하지 않는다.
 - 조회·발행·클릭 같은 중간지표만으로 Revenue Campaign 성공을 확정하지 않는다.
+- Knowledge 생성 수만으로 AI Native 또는 학습 성과를 확정하지 않는다.
 
 ## Related Documents
 

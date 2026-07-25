@@ -45,6 +45,9 @@ OS는 다음 원칙으로 성장한다.
 `현장 증거 → 검증 → Context·Knowledge → Decision·SOP → Workflow·Agent·Automation → KPI·Review → 개선`
 
 - 문서 수보다 출처, 상태, 책임과 연결의 품질을 우선한다.
+- 관련 Knowledge를 실행 전에 소비하고, 적용·비적용 이유와 실제 Outcome을 남긴다.
+- Knowledge 생성만으로 학습 완료로 보지 않고, 소비 파일 반영과 다음 실행의 재사용 효과를
+  확인한다.
 - 자동화보다 SOP, SOP보다 실제 업무 검증을 먼저 한다.
 - AI는 자율적으로 회사 정책을 만드는 존재가 아니라 승인된 운영체계를 실행하고
   개선 후보를 제안하는 협업자다.

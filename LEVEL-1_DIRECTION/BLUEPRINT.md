@@ -1,7 +1,7 @@
 # GP Company OS Blueprint
 
 **Status:** ACTIVE  
-**Version:** 0.2
+**Version:** 0.3
 
 ## System Flow
 
@@ -68,6 +68,9 @@ Agent와 Automation은 정책을 새로 만들지 않고 승인된 Workflow·SOP
 - 모든 마케팅 실행은 Journey 단계, Campaign-ID, 채널, 제품, 비용, Evidence와 결과 KPI를
   연결한다.
 - 좋은 성과는 EXPERIMENT/PRACTICE, 실패는 FAILURE, 반복 고객 행동은 INSIGHT 후보로 남긴다.
+- L1·L2 실행은 관련 ACTIVE Knowledge를 먼저 읽고 적용·비적용 이유를 남긴다.
+- Knowledge는 소비 파일의 Enforcement Point와 다음 비교 실행의 Reuse Verification이
+  연결되어야 학습 완료로 본다.
 
 ## Initial Priority
 

@@ -3,9 +3,11 @@
 - 상태: ACTIVE
 - 소유자: GP Company CEO / Marketing Owner
 - 적용 사업: Hair & Scalp B2C
-- 버전: 1.0
+- 버전: 1.1
 - 적용 Decision: DEC-0009
 - 작성일: 2026-07-23
+- 변경일: 2026-07-26
+- Learning-Ref: DEC-0011
 
 ## Purpose
 
@@ -92,6 +94,10 @@ Revenue 목표·병목
 - 잘못된 매출 연결은 원본을 삭제하지 않고 정정 이력을 남긴다.
 
 ## Knowledge Feedback
+
+Campaign 시작 전 관련 ACTIVE Knowledge와 비교 가능한 EXPERIMENT·FAILURE를 읽고
+적용·비적용 이유를 Learning Preflight에 남긴다. Campaign Outcome은 `WF-008`로
+Enforcement Point와 다음 비교 Campaign의 Reuse Verification까지 연결한다.
 
 ```text
 Evidence

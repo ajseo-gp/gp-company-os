@@ -30,6 +30,42 @@ Hash(index["revenue_runtime"]).each do |name, entry|
   errors << "Revenue runtime path does not exist (#{name}): #{entry}" unless ROOT.join(entry).exist?
 end
 
+["knowledge_refresh", "organizational_learning"].each do |section|
+  Hash(index[section]).each do |name, entry|
+    next unless entry.is_a?(String) && entry.include?("/")
+
+    errors << "#{section} path does not exist (#{name}): #{entry}" unless ROOT.join(entry).exist?
+  end
+end
+
+learning = Hash(index["organizational_learning"])
+unless learning["status"] == "ACTIVE"
+  errors << "OS-INDEX.yaml: organizational_learning must be ACTIVE after DEC-0011 approval"
+end
+
+Array(learning["enforcement"]).each do |contract|
+  contract = Hash(contract)
+  id = contract["id"] || "unnamed"
+  source = contract["source"]
+  consumer = contract["consumer"]
+  marker = contract["marker"]
+
+  errors << "Learning enforcement #{id}: missing source" if source.to_s.empty?
+  errors << "Learning enforcement #{id}: missing consumer" if consumer.to_s.empty?
+  errors << "Learning enforcement #{id}: missing marker" if marker.to_s.empty?
+  next if source.to_s.empty? || consumer.to_s.empty? || marker.to_s.empty?
+
+  source_path = ROOT.join(source)
+  consumer_path = ROOT.join(consumer)
+  errors << "Learning enforcement #{id}: source does not exist: #{source}" unless source_path.exist?
+  errors << "Learning enforcement #{id}: consumer does not exist: #{consumer}" unless consumer_path.exist?
+  next unless source_path.exist? && consumer_path.exist?
+
+  unless File.read(consumer_path).include?(marker)
+    errors << "Learning enforcement #{id}: consumer missing marker #{marker.inspect}: #{consumer}"
+  end
+end
+
 expected_journey = [
   "Customer Acquisition",
   "Customer Activation",
@@ -121,6 +157,26 @@ contracts.each do |pattern, rule|
     rule[:fields].each do |field, matcher|
       errors << "#{relative(Pathname.new(file_name))}: missing #{field}" unless text.match?(matcher)
     end
+  end
+end
+
+Dir[ROOT.join("LEVEL-4_AI-EXECUTION/WORKFLOW/WF-*.md")].sort.each do |file_name|
+  text = File.read(file_name)
+  next unless text.match?(/-\s*상태:\s*ACTIVE/)
+
+  unless text.include?("Learning-Ref: DEC-0011")
+    errors << "#{relative(Pathname.new(file_name))}: ACTIVE Workflow missing DEC-0011 Learning-Ref"
+  end
+end
+
+Dir[ROOT.join("LEVEL-4_AI-EXECUTION/AGENTS/AGENT-*.md")].sort.each do |file_name|
+  next if File.basename(file_name) == "AGENT-ARCHITECTURE.md"
+
+  text = File.read(file_name)
+  next unless text.match?(/-\s*Runtime 상태:\s*ACTIVE/)
+
+  unless text.include?("Learning-Ref: DEC-0011")
+    errors << "#{relative(Pathname.new(file_name))}: ACTIVE Runtime Agent missing DEC-0011 Learning-Ref"
   end
 end
 

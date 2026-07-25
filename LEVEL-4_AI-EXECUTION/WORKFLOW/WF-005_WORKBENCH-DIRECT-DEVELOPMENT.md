@@ -1,9 +1,10 @@
 # WF-005 Workbench Direct Development
 
 - 상태: ACTIVE
-- 버전: 1.0
+- 버전: 1.1
 - 소유자: GP Company CEO
-- 변경일: 2026-07-22
+- 변경일: 2026-07-26
+- Learning-Ref: DEC-0011
 
 ## 목적
 
@@ -53,6 +54,10 @@ sequenceDiagram
 - 실패한 배포는 성공으로 보고하지 않으며 rollback 또는 안전 차단 상태를 함께 알린다.
 
 ## Knowledge Feedback
+
+L1/L2 변경은 관련 FAILURE·PRACTICE와 이전 Workbench Evidence를 먼저 읽고 적용·비적용
+이유를 남긴다. 운영 반영·smoke test·rollback Outcome은 `WF-008`의 학습 후보와 다음
+비교 변경의 Reuse Verification으로 연결한다.
 
 반복 피드백은 제품 Insight 또는 SOP 후보로 분류하고, 실패한 변경은 재현 조건과 함께
 FAILURE 후보로 전달한다. 실제 고객·처방·원가 데이터는 저장하지 않는다.

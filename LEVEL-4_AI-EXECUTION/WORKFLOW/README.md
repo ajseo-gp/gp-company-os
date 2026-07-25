@@ -30,6 +30,7 @@ Workflow의 특정 상태 전이와 SOP 단계를 구현한다.
 | WF-005 | Workbench Direct Development | ACTIVE | SOP-009 | gpwb_bot, Claude Code |
 | WF-006 | Revenue Growth Loop | ACTIVE | SOP-005, 011 | Marketing Growth Team |
 | WF-007 | Targeted Knowledge Refresh | ACTIVE | SOP-012 | Knowledge Steward, Hermes |
+| WF-008 | Organizational Learning Loop | ACTIVE | SOP-013 | Knowledge Steward, Hermes, Domain Agents |
 
 `ACTIVE` 표시는 Workflow 기준이 승인되었다는 뜻이며, 연결 Automation이 실제 구현되었다는
 뜻은 아니다. 실행 가능 여부는 Automation의 별도 상태를 확인한다.

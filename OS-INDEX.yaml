@@ -15,6 +15,9 @@ boot_sequence:
   - LEVEL-4_AI-EXECUTION/WORKFLOW
   - LEVEL-3_OPERATING-KNOWLEDGE/SOP
   - LEVEL-4_AI-EXECUTION/AUTOMATION
+  - LEVEL-3_OPERATING-KNOWLEDGE/KNOWLEDGE
+  - LEVEL-3_OPERATING-KNOWLEDGE/PROMPT-LIBRARY
+  - LEVEL-5_MANAGEMENT-CONTROL
 corporate_direction:
   focus_domains: [Hair, Scalp]
   current_execution_principle: Revenue First
@@ -47,6 +50,48 @@ knowledge_refresh:
   sop: LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-012_TARGETED-KNOWLEDGE-REFRESH.md
   automation: LEVEL-4_AI-EXECUTION/AUTOMATION/AUT-013_TARGETED-KNOWLEDGE-REFRESH.md
   cadence: [TASK, WEEKLY, MONTHLY, URGENT]
+organizational_learning:
+  status: ACTIVE
+  context: LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT/ORGANIZATIONAL-LEARNING-GAP.md
+  decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md
+  workflow: LEVEL-4_AI-EXECUTION/WORKFLOW/WF-008_ORGANIZATIONAL-LEARNING-LOOP.md
+  sop: LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-013_ORGANIZATIONAL-LEARNING-CYCLE.md
+  record_template: TEMPLATES/LEARNING-RECORD-TEMPLATE.md
+  review_record_authority: GP Workbench
+  activation: ACTIVE_MANUAL
+  enforcement:
+    - id: LE-BOOT
+      source: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md
+      consumer: SYSTEM_BOOT.md
+      marker: "Learning-Ref: DEC-0011"
+    - id: LE-AI-POLICY
+      source: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md
+      consumer: LEVEL-4_AI-EXECUTION/AI.md
+      marker: "Learning-Ref: DEC-0011"
+    - id: LE-HERMES
+      source: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md
+      consumer: LEVEL-4_AI-EXECUTION/AGENTS/AGENT-HERMES.md
+      marker: "Learning-Ref: DEC-0011"
+    - id: LE-HERMES-ENVELOPE
+      source: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md
+      consumer: TEMPLATES/HERMES-WORK-REQUEST.md
+      marker: "Learning-Ref: DEC-0011"
+    - id: LE-AGENT-TEMPLATE
+      source: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md
+      consumer: TEMPLATES/AGENT-TEMPLATE.md
+      marker: "Learning-Ref: DEC-0011"
+    - id: LE-WORKFLOW-TEMPLATE
+      source: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md
+      consumer: TEMPLATES/WORKFLOW-TEMPLATE.md
+      marker: "Learning-Ref: DEC-0011"
+    - id: LE-KNOWLEDGE-TEMPLATE
+      source: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md
+      consumer: TEMPLATES/KNOWLEDGE-TEMPLATE.md
+      marker: "Learning-Ref: DEC-0011"
+    - id: LE-WEEKLY-REVIEW
+      source: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md
+      consumer: LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-006_WEEKLY-REVIEW.md
+      marker: "Learning-Ref: DEC-0011"
 levels:
   level_1:
     name: Direction
@@ -94,10 +139,10 @@ registers:
 document_contracts:
   context: [status, owner, as_of, review_date, scope, source]
   decision: [id, status, decision_date, owner, background, decision, rationale, impact, review_condition]
-  knowledge: [id, status, owner, evidence, confidence, applicability, review_date]
-  workflow: [id, status, owner, trigger, states, roles, related_sop, exceptions, kpi]
+  knowledge: [id, status, owner, evidence, confidence, applicability, review_date, enforcement, reuse_verification]
+  workflow: [id, status, owner, trigger, states, roles, related_sop, exceptions, learning_gate, kpi]
   sop: [id, status, owner, purpose, scope, inputs, steps, approvals, outputs, failures, references]
-  agent: [id, status, runtime_status, owner, role, inputs, outputs, references, authority, approvals, relationships]
+  agent: [id, status, runtime_status, owner, role, inputs, outputs, references, authority, approvals, relationships, learning_contract]
   marketing_agent: [mission, customer_journey, role, inputs, outputs, references, workflow, sop, kpi, approvals, runtime_status]
   automation: [id, status, owner, trigger, inputs, processing, outputs, approvals, failures, idempotency, audit]
 execution_lanes:
@@ -113,4 +158,5 @@ runtime_record_authority:
   orchestration_and_pipeline: gp-company-hub
   workbench_execution_records: gpcompany-lab local data
   marketing_execution_records: GP Workbench and approved channel or commerce sources
+  weekly_review_records: GP Workbench
   issued_customer_and_production_documents: approved secure storage

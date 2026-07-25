@@ -14,6 +14,7 @@ ACTIVE여도 Runtime이 `PLANNED`이면 실행 가능한 Agent로 취급하지 �
 - Human 승인 지점
 - 다른 Agent·사람·시스템과의 인계
 - 실패·예외·감사 기록
+- 사전 Knowledge 소비·Outcome·Enforcement Point와 Reuse Verification
 - 성공 지표
 
 모든 Agent는 최소 하나의 SOP를 참조한다. 참조할 ACTIVE SOP가 없으면 Agent Runtime을

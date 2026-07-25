@@ -1,12 +1,14 @@
 # SOP-006 Weekly Review
 
 - 상태: ACTIVE
-- 버전: 1.0
+- 버전: 1.1
 - 소유자: GP Company CEO / Review Owner
 - 적용 범위: GP Company 주간 경영 Review
-- 적용 Decision: DEC-0009
+- 적용 Decision: DEC-0009, DEC-0011
 - 작성일: 2026-07-23
+- 변경일: 2026-07-26
 - 다음 검토일: 2026-08-23
+- Learning-Ref: DEC-0011
 
 ## 목적
 
@@ -83,7 +85,15 @@ Knowledge·SOP·Decision 변경 후보와 다음 Snapshot 기준일을 지정한
 
 ## 출력
 
-- 완결된 `LEVEL-5_MANAGEMENT-CONTROL/WEEKLY-REVIEW/TEMPLATE.md`
+- GP Workbench의 불변 Weekly Review 인스턴스
+  - Review-ID: `WR-YYYY-Www`
+  - 기간, Snapshot 기준시각, OS-Ref와 원천 revision
+  - 생성·검토 Owner와 확정 시각
+- `LEVEL-5_MANAGEMENT-CONTROL/WEEKLY-REVIEW/TEMPLATE.md`는 입력 schema이며 실행 때
+  덮어쓰거나 완료 기록으로 사용하지 않는다.
+- GP Workbench 구현 전에는 승인된 운영 저장소에 동일 Review-ID의 임시 인스턴스를
+  만들고 OS에는 안전한 ID와 상태만 남긴다. 임시 원본 위치가 지정되지 않으면
+  `REVIEW_RECORD_BLOCKED`로 보고한다.
 - 다음 주 우선순위 세 개 이하와 Owner·완료일
 - Campaign `SCALE/ITERATE/STOP/DATA_BLOCKED`
 - CEO Decision 요청과 미승인 시 안전 상태
@@ -95,6 +105,7 @@ Knowledge·SOP·Decision 변경 후보와 다음 Snapshot 기준일을 지정한
 - 원천 간 불일치: 관측값을 보존하고 차이·Owner·해결일 기록
 - Review 미개최: Review Owner가 1영업일 안에 비동기 초안과 Decision 대기 항목 공유
 - Owner 없는 Action: 우선순위로 확정하지 않음
+- Review 인스턴스 원본·Review-ID 없음: `REVIEW_RECORD_BLOCKED`, 완료 처리 금지
 - 지난주 Action 미완료: 원인·Revenue 영향·중단/재계획을 기록
 
 ## 관련 문서

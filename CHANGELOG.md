@@ -2,6 +2,23 @@
 
 ## Unreleased
 
+- CEO 승인 `DEC-0011`을 ACTIVE로 전환해 Targeted Knowledge Refresh와 실행 결과 기반
+  Organizational Learning의 책임을 분리
+- `WF-008`·`SOP-013`을 ACTIVE 수동 운영 기준으로 등록하고 Learning Record 템플릿에
+  실행 전 학습 조회, Outcome,
+  Enforcement Point, Reuse Verification과 OS·Hub·Workbench 원본 경계를 정의
+- DEC-0011 활성화 선행조건에 SYSTEM_BOOT Knowledge 소비 계약, Enforcement 역참조 CI,
+  Weekly Review 인스턴스 규칙과 PLANNED Knowledge Steward의 수동 대체 Owner를 추가
+- 학습 PILOT 성공 기준을 1회차 학습 생산과 2회차 이후 재사용·성과 검증으로 분리하고
+  `NO_NEW_LEARNING` 비율을 운영 경보 KPI로 추가
+- `SYSTEM_BOOT`, AI Policy, Hermes·Agent·Knowledge·Workflow 템플릿에 Knowledge
+  사전 소비와 적용·비적용·Outcome 계약을 반영
+- `OS-INDEX.yaml`의 Enforcement 목록과 CI marker 검사를 추가해 DEC-0011이 소비 파일에
+  실제 반영됐는지 검증
+- Weekly Review 원본을 GP Workbench의 `WR-YYYY-Www` 인스턴스로 정하고 OS 템플릿
+  덮어쓰기를 금지
+- Revenue First를 유지하면서 젠틀파파 B2C를 첫 L2 학습 PILOT으로 제안하고, ACTIVE
+  전환·첫 Owner·수동 Knowledge Reviewer는 CEO 승인사항으로 명시
 - CEO 승인 `DEC-0010 Targeted Knowledge Refresh`를 추가해 전사 전체 재독 대신 현재 과제의
   관련 Repository·문서·공식 원천과 checkpoint 이후 변경분을 우선하도록 확정
 - 작업별·주간 Delta·월간 심층·긴급 Refresh를 `WF-007`과 `SOP-012`로 연결하고 범위·

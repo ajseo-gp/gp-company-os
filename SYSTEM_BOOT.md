@@ -1,10 +1,11 @@
 # GP Company OS — System Boot
 
 - 상태: ACTIVE
-- 문서 버전: 1.0
+- 문서 버전: 1.1
 - 적용 OS 버전: 0.3.x
 - 소유자: GP Company CEO
 - 목적: 사람과 AI가 같은 기준·순서·권한으로 GP Company OS를 해석하도록 한다.
+- Learning-Ref: DEC-0011
 
 ## 1. 이 저장소의 역할
 
@@ -75,10 +76,18 @@ AI는 작업을 시작할 때 다음을 수행한다.
 2. `DEC-0009`에 따라 신규 고객, 판매, 재구매, 대표의 마케팅 병목 또는 반복 가능한
    성장에 대한 기여 경로를 확인한다.
 3. 요청의 사업영역, Customer Journey, Workflow, 위험도와 완료 조건을 식별한다.
-4. 관련 ACTIVE Decision·Context·SOP를 읽고 충돌을 확인한다.
-5. 민감정보와 외부 발송·금전·계약·법률·생산 승인 여부를 확인한다.
-6. 승인 범위 안에서만 실행하고, 결과에 사용 문서와 증거를 남긴다.
-7. 반복 문제나 새로 검증된 사실을 Context·Knowledge·SOP·Decision 후보로 분류한다.
+4. 관련 ACTIVE Decision·Context·SOP·Knowledge와 비교 가능한 최근
+   EXPERIMENT·FAILURE를 읽고 충돌·만료·적용 범위를 확인한다.
+5. `DEC-0011`에 따라 적용한 Knowledge, 적용하지 않은 Knowledge와 이유, 관련 지식이
+   없으면 검색 범위를 `Learning Preflight`에 남긴다.
+6. 민감정보와 외부 발송·금전·계약·법률·생산 승인 여부를 확인한다.
+7. 승인 범위 안에서만 실행하고, 결과에 사용 문서·Evidence와 예상 대비 실제 결과를 남긴다.
+8. 반복 문제나 새로 검증된 사실을 Context·Knowledge·SOP·Decision 후보로 분류하고,
+   다음 소비 파일과 검증 시점을 지정한다.
+
+L1·L2 Task는 `SOP-013`을 따른다. 결과가 나중에 발생하면 Owner·측정일·원천을 가진
+`RESULT_PENDING`으로 두며, Knowledge를 생성했더라도 소비 파일의 Enforcement Point와
+다음 비교 실행의 Reuse Verification이 없으면 학습 완료로 보고하지 않는다.
 
 `OS-Ref`를 고정할 수 없는 대화형 검토에서는 현재 브랜치와 미확정 상태를 명시하고,
 실행 시스템의 확정 기준인 것처럼 보고하지 않는다.
@@ -99,11 +108,13 @@ AI는 작업을 시작할 때 다음을 수행한다.
 중요한 AI 결과에는 가능한 범위에서 다음을 포함한다.
 
 - 적용한 `OS-Ref` 또는 검토한 브랜치
-- 참조한 Decision·Context·SOP
+- 참조한 Decision·Context·SOP·Knowledge
+- 적용한 Knowledge, 적용하지 않은 Knowledge와 이유 또는 `NO_APPLICABLE_KNOWLEDGE` 검색 범위
 - 확인된 사실과 아직 확인되지 않은 가정
-- 실행 결과와 검증 증거
+- 예상 대비 실행 결과, 검증 Evidence와 결과 측정일
 - 필요한 승인 또는 차단 사유
-- Context·Knowledge·SOP·Decision 갱신 후보
+- Context·Knowledge·SOP·Decision 갱신 후보와 Enforcement Point
+- 다음 비교 실행의 Reuse Verification 또는 `RESULT_PENDING` Owner·일자
 
 ## 8. 보안
 

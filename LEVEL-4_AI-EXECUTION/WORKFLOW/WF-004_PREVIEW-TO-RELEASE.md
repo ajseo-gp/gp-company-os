@@ -1,9 +1,10 @@
 # WF-004 Preview to Automatic Release
 
 - 상태: ACTIVE
-- 버전: 1.0
+- 버전: 1.1
 - 소유자: GP Company CEO
-- 변경일: 2026-07-22
+- 변경일: 2026-07-26
+- Learning-Ref: DEC-0011
 
 ## 목적
 
@@ -74,6 +75,10 @@ sequenceDiagram
 - 모든 단계는 같은 `Task-ID`와 Slack 스레드에 연결한다.
 
 ## Knowledge Feedback
+
+L1/L2 변경은 관련 FAILURE·PRACTICE와 이전 Preview·Release Evidence를 먼저 읽고
+적용·비적용 이유를 남긴다. 배포·rollback Outcome은 `WF-008`의 학습 후보와 다음
+비교 Release 검증으로 연결한다.
 
 Preview에서 반복 발견되는 결함은 테스트·SOP 개선 후보, 배포 실패 조건은 FAILURE 후보로
 전달한다. 개별 승인 이벤트는 일반 정책으로 승격하지 않는다.

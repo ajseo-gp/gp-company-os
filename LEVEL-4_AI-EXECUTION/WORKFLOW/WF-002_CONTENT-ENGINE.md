@@ -3,7 +3,9 @@
 - 상태: ACTIVE
 - 소유자: Marketing Owner
 - 적용 사업: Hair & Scalp B2C / GP Company
-- 버전: 0.2
+- 버전: 0.3
+- 변경일: 2026-07-26
+- Learning-Ref: DEC-0011
 
 ## Purpose
 
@@ -51,6 +53,10 @@
 - `WF-006_REVENUE-GROWTH-LOOP.md`
 
 ## Knowledge Feedback
+
+L1/L2 Task는 실행 전에 관련 ACTIVE Knowledge·최근 EXPERIMENT·FAILURE를 읽고
+Learning Preflight를 남긴다. Outcome 이후 `WF-008`로 학습 후보·Enforcement Point와
+다음 Reuse Verification을 연결한다.
 
 실험의 가설·기간·채널·결과를 연결한다. 단일 콘텐츠 성과를 보편적 Best Practice로
 승격하지 않는다.

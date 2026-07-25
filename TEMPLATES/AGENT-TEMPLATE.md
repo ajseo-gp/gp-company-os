@@ -5,6 +5,7 @@
 - 버전: 0.1
 - 소유자:
 - 검토일:
+- Learning-Ref: DEC-0011
 
 ## Mission
 
@@ -15,6 +16,13 @@
 ## Inputs
 
 ## Outputs
+
+## Learning Contract
+
+- 사전 소비할 ACTIVE Knowledge·최근 EXPERIMENT·FAILURE:
+- 적용·비적용 이유를 남길 위치:
+- Outcome·학습 후보를 전달할 대상:
+- Enforcement Point와 Reuse Verification:
 
 ## Required References
 

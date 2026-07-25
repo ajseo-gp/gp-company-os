@@ -3,7 +3,9 @@
 - 상태: ACTIVE
 - 소유자: OEM Owner / Production Owner
 - 적용 사업: Hair & Scalp B2B
-- 버전: 0.2
+- 버전: 0.3
+- 변경일: 2026-07-26
+- Learning-Ref: DEC-0011
 
 ## Purpose
 
@@ -70,6 +72,10 @@
 - 레시피 확정→견적→수주→LOT 연결률
 
 ## Knowledge Feedback
+
+L1/L2 Task는 실행 전에 관련 ACTIVE Knowledge·최근 EXPERIMENT·FAILURE를 읽고
+Learning Preflight를 남긴다. Outcome 이후 `WF-008`로 학습 후보·Enforcement Point와
+다음 Reuse Verification을 연결한다.
 
 반복되는 고객 요구는 INSIGHT, 재현된 연구·생산 교훈은 LESSON/PRACTICE, 실패 조건은
 FAILURE 후보로 분류한다. 원본 고객정보와 처방은 Knowledge에 복사하지 않는다.

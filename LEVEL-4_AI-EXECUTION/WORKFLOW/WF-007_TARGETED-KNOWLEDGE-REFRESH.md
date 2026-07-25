@@ -3,7 +3,10 @@
 - 상태: ACTIVE
 - 소유자: Knowledge Steward / GP Company CEO
 - 적용 사업: 전사, 단 Domain·과제별 제한 범위
+- 버전: 1.1
+- 변경일: 2026-07-26
 - 적용 Decision: DEC-0010
+- Learning-Ref: DEC-0011
 
 ## 목적
 
@@ -86,6 +89,10 @@ REQUESTED → SCOPED → BASELINE_LOCKED → DELTA_COLLECTED → VALIDATED
 - 승인 결과, checkpoint와 다음 검토일
 
 ## Knowledge Feedback
+
+Refresh로 만든 후보는 소비 파일의 Enforcement Point와 역참조가 확인되어야 한다.
+실행 결과 학습은 이 Workflow에서 완료하지 않고 `WF-008`로 인계해 다음 비교 실행의
+Reuse Verification을 연결한다.
 
 Refresh 결과 자체가 Knowledge는 아니다. 검증된 회사 사실은 FACT, 재현된 운영 방법은
 PRACTICE, 실패 조건은 FAILURE, 단일 실행은 EXPERIMENT, 반복 고객 행동은 INSIGHT 후보로

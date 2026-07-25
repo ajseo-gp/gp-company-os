@@ -1,10 +1,12 @@
 # GP Company Agent Architecture
 
 - 문서 상태: ACTIVE
-- 버전: 1.0
+- 버전: 1.1
 - 소유자: GP Company CEO
 - 작성일: 2026-07-23
+- 변경일: 2026-07-26
 - 다음 검토일: 2026-10-23
+- Learning-Ref: DEC-0011
 
 ## Architecture Principle
 
@@ -78,6 +80,10 @@ Customer Journey·채널·KPI가 명확한 전문 Agent 팀으로 구성한다. 
 4. 외부 발송, 가격·계약, 생산 확정과 비가역 실행은 해당 승인 Gate를 통과한다.
 5. 결과는 Workbench·GitHub 또는 승인된 운영 시스템의 감사 기록에 연결한다.
 6. 새 학습은 Knowledge Steward가 Evidence와 적용 범위를 검토한 뒤 승격한다.
+7. L1/L2 Task의 수신 Agent는 관련 ACTIVE Knowledge와 최근 EXPERIMENT·FAILURE를 먼저
+   읽고 적용·비적용 이유를 인계 기록에 남긴다.
+8. Knowledge는 소비 파일의 역참조와 다음 Reuse Verification이 연결되기 전에는 학습
+   완료로 보지 않는다.
 
 ## Activation Gate
 
@@ -89,5 +95,6 @@ Runtime을 ACTIVE로 전환하려면 모두 충족해야 한다.
 - 입력·출력 스키마와 민감정보 경계
 - 실패, timeout, 재시도와 수동 인계
 - 감사 로그와 KPI
+- Learning Preflight·Outcome·Enforcement Point·Reuse Verification 계약
 - 합성 또는 비식별 데이터 기반 테스트
 - CEO 또는 위임된 승인권자의 활성화 승인
