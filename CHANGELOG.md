@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- CEO 승인 `DEC-0010 Targeted Knowledge Refresh`를 추가해 전사 전체 재독 대신 현재 과제의
+  관련 Repository·문서·공식 원천과 checkpoint 이후 변경분을 우선하도록 확정
+- 작업별·주간 Delta·월간 심층·긴급 Refresh를 `WF-007`과 `SOP-012`로 연결하고 범위·
+  토큰/시간 예산·Stop 조건·source revision·다음 checkpoint 계약 정의
+- `AUT-013`을 PLANNED로 등록해 allowlist·idempotency·예산 차단·NO_CHANGE·승인 없는
+  자동 적용 금지와 PILOT/ACTIVE 전환 기준 정의
 - 네이버 SmartStore 공식 상품명·브랜드·태그·검색 메타데이터·정가·첫구매 혜택 기준과
   식약처 화장품 표시광고 지침을 조사해 Evidence 기반 상품 운영 가이드 추가
 - SmartStore 상품 수정 전에 현재 revision·제품 Evidence·Revenue 기준선·변경 이력·

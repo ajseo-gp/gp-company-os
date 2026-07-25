@@ -30,6 +30,7 @@
 | DEC-0007 | GP Workbench Closed Beta Fast Lane | ACTIVE | Workbench |
 | DEC-0008 | 연구·견적·생산 제어 경계 | REVIEW | R&D·생산 |
 | DEC-0009 | Revenue First 운영 우선순위 | ACTIVE | Revenue Engine·Marketing·KPI |
+| DEC-0010 | Targeted Knowledge Refresh | ACTIVE | AI 조사범위·주간/월간 지식 갱신·토큰 비용 |
 
 초기 Decision 중 필수 메타데이터가 없는 문서는 내용을 추정해 채우지 않고, 다음 재검토
 때 신규 템플릿으로 마이그레이션한다.
