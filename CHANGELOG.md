@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- 네이버 SmartStore 공식 상품명·브랜드·태그·검색 메타데이터·정가·첫구매 혜택 기준과
+  식약처 화장품 표시광고 지침을 조사해 Evidence 기반 상품 운영 가이드 추가
+- SmartStore 상품 수정 전에 현재 revision·제품 Evidence·Revenue 기준선·변경 이력·
+  KPI·원복 조건을 요구하는 전용 Dry-run Prompt 추가
+- Commerce 제안에서 상품명 키워드 단순 결합·제품 추정·원인 단정·승인 없는 실제 변경을
+  금지하고 SmartStore Growth Agent 참조 계약 강화
 - SmartStore 최신 주문조회 export의 업무 열·개인정보 경계·상품주문 중복·판매 집계
   reconciliation을 검증하고 단순 변심 취소 Context와 남은 결제·환불 매핑 차단요인 반영
 - SmartStore 판매·방문 집계 export의 실제 구조, 계층 중복·귀속 범위·제품 상세 불일치와

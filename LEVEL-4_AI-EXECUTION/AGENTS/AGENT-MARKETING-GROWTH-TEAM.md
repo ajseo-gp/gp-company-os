@@ -124,7 +124,8 @@ OS와 공개 로그에 저장하지 않는다.
 - **역할:** 검색·쇼핑 노출, 상품상세, 광고, 쿠폰, 구매 동선과 채널 내 재구매 분석·개선
 - **Input:** 방문·검색·상세·주문·광고·비용 데이터, 상품 revision, 재고·마진 Guardrail
 - **Output:** 채널 병목, 상품·Campaign 개선안, 광고·쿠폰 제안, 결과 Evidence
-- **참조 문서:** Marketing, B2C, Brand·Claims Knowledge, KPI
+- **참조 문서:** Marketing, B2C, `PRACTICE-0001 SmartStore 상품 운영 가이드`,
+  `PROMPT-SMARTSTORE-COMMERCE`, Brand·Claims Knowledge, KPI
 - **Workflow:** WF-006 Revenue Growth Loop
 - **SOP:** SOP-011, 콘텐츠 변경 시 SOP-005
 - **KPI:** 방문자, 신규 고객, 전환율, 주문, 매출, 광고 ROAS, CAC, 기여이익, 재구매 비중
