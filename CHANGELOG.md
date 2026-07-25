@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- SmartStore 최신 주문조회 export의 업무 열·개인정보 경계·상품주문 중복·판매 집계
+  reconciliation을 검증하고 단순 변심 취소 Context와 남은 결제·환불 매핑 차단요인 반영
+- SmartStore 판매·방문 집계 export의 실제 구조, 계층 중복·귀속 범위·제품 상세 불일치와
+  개인정보 없는 `PARTIAL` 수동 Revenue 기준선 사용 범위 확인
 - `AUT-007 Revenue Snapshot`의 원천·기준시각·검증·revision·보안·PILOT 활성화 계약 추가
 - B2C 순매출·기여이익·재구매 매출 비중 중심의 CEO Weekly Scorecard와 표준 산식 정의
 - Revenue 숫자에 `READY/PARTIAL/BLOCKED/NOT_AVAILABLE` 데이터 품질 상태를 의무화
