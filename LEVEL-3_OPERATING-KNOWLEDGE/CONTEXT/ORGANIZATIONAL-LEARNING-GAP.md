@@ -5,7 +5,11 @@
 - 기준일: 2026-07-26
 - 다음 검토일: 2026-08-08
 - 적용 범위: GP Company OS의 전사 학습 계약과 OS·Hub·Workbench 간 Runtime 경계
-- 검토 기준: `82dd55618df7e92d8b66c1f6a8f868a098f1d97b`
+- OS 활성화 기준: `0ae256ee97b397aac497ad437fabf90c88ea117a`
+- Hub 감사 기준: `origin/main@48f4ca1`, 변경 후보
+  `e951905e09dca1bb4551c48d1232e62dcd967e42`
+- Workbench 감사 기준: `origin/main@2d0fec1`, 변경 후보
+  `d62ef7fa5950597e2634f6511fafdff561a90e02`
 
 ## 확인된 현재 상태
 
@@ -53,17 +57,25 @@ GP Company OS에는 학습과 지식 갱신을 위한 부분 계약이 이미 �
 - 학습 문서 수는 늘지만 매출, 재작업, 오류와 대표 의존도가 개선되지 않는
   `Documentation Theater`가 발생할 수 있다.
 
-## 저장소별 확인 범위
+## 2026-07-26 저장소별 Runtime 감사
 
-| 저장소·시스템 | 원본 책임 | 이번 검토에서 확인된 것 |
+감사는 각 저장소의 로컬 clone 이름이 아니라 `origin/main` revision을 기준으로 했다.
+같은 저장소의 여러 clone이 서로 다른 revision을 가리키고 있었으므로 특정 홈 경로를
+운영 원본으로 추정하지 않았다.
+
+| 저장소·시스템 | 감사 revision | 확인 결과 |
 |---|---|---|
-| `gp-company-os` | 정책·Decision·Context·Knowledge·SOP·실행 계약 | 위 공백을 문서 기준으로 확인 |
-| `gp-company-hub` | Hermes 오케스트레이션·Pipeline·프로젝트 운영 스펙 | 실제 학습 소비·포착 구현 상태 `미확인` |
-| `gpcompany-lab` / GP Workbench | 코드·작업 큐·실행 로그·KPI와 운영 기록 | Learning 상태·UI·데이터 구현 상태 `미확인` |
-| 승인된 운영 저장소 | 채널·고객·연구·생산의 권한 있는 원본 Evidence | 원본별 보존·연결 상태 `미확인` |
+| `gp-company-os` | `0ae256e…` | `DEC-0011`·`WF-008`·`SOP-013` ACTIVE, Boot·템플릿·CI Enforcement 반영 |
+| `gp-company-hub` authority main | `48f4ca1` | `.gp-company-os.yaml`이 과거 OS를 `current`로 표시했고, 공통 Learning Preflight·L2 수동 역할 Gate가 없었음 |
+| `gp-company-hub` 변경 후보 | `e951905…` | 승인 Gate 보완과 공통 Learning Preflight·L2 역할/측정 Gate, OS drift·임의 clone·게시 승인 오인 CI 포함. Runtime 테스트 90건 통과. authority main 미반영, 운영 활성화 미승인 |
+| `gpcompany-lab` authority main | `2d0fec1` | B2C Workbench는 설계 문서만 있고 조직학습 UI·API·상태 저장 구현이 없었으며 과거 OS를 `current`로 표시 |
+| `gpcompany-lab` 변경 후보 | `d62ef7f…` | Workbench Runtime을 `PLANNED`로 고정하고 이슈·PR 계약, 상태 승격·OS drift 검증 CI 반영. 조직학습 UI·API는 미구현. 계약 검증·production build 통과 |
+| 승인된 운영 저장소 | 미확인 | 채널·고객·연구·생산 원본 Evidence의 보존·연결 상태는 이번 감사 범위 밖 |
 
-다른 저장소의 상태는 이 OS에서 추정하지 않는다. 구현 감사에는 각 저장소의 정확한
-revision과 접근 가능한 Evidence가 필요하다.
+두 변경 후보는 로컬 작업 브랜치 revision이며 push·Draft PR·merge·배포되지 않았다.
+따라서 Hub Agent/Automation과 Workbench Runtime이 PILOT·ACTIVE라고 보고하지 않는다.
+외부 게시·Campaign 실행·고객 발송·가격/광고 변경 승인도 이 감사와 변경 후보에서
+생성되지 않았다.
 
 ## 2026-07-26 승인 조치
 
@@ -78,7 +90,11 @@ revision과 접근 가능한 Evidence가 필요하다.
 ## 남은 실행 공백
 
 - 첫 L2 PILOT의 실행 Owner, 수동 Reviewer·대리자와 측정일은 아직 `미확인`이다.
-- GP Workbench의 Review 인스턴스 구현과 Hub의 Preflight 주입 구현은 `미확인`이다.
+- Hub 학습 Gate 후보는 authority main 반영·운영 Runtime 배포·Agent/Automation 활성화
+  전까지 실행 기준이 아니다.
+- GP Workbench의 Review 인스턴스와 조직학습 UI·API·상태 저장은 아직 `PLANNED`다.
+- OS revision `0ae256e…`와 Hub·Workbench 변경 후보는 authority repository에 push되어
+  검증되기 전까지 각 저장소의 sync 상태를 `current`로 올리지 않는다.
 - EXPERIMENT·FAILURE·INSIGHT·LESSON Knowledge는 첫 PILOT Evidence 전에는 생성하지 않는다.
 - Agent·Automation Runtime 전환과 외부 실행은 별도 승인 대상이다.
 
