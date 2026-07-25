@@ -35,6 +35,7 @@ Knowledge에는 지식 ID와 유형, 상태, 소유자, 검토일, 주장, 근�
 | `CUSTOMER-SEGMENTS.md` | INSIGHT | 미표시 | 근거·상태 |
 | `COSMETIC-CLAIMS-GUIDE.md` | PRACTICE | ACTIVE | 법규 검토일·출처 |
 | `MANUFACTURING-CAPABILITY.md` | FACT | REVIEW | 생산 근거·책임자 |
+| `PRACTICE-0001_SMARTSTORE-OPERATING-GUIDE.md` | PRACTICE | REVIEW | 첫 Campaign 성과·CEO 승인 |
 
 신규 문서는 `../../TEMPLATES/KNOWLEDGE-TEMPLATE.md`를 사용한다.
 
