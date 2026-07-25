@@ -34,6 +34,7 @@
 | AUT-010 | CRM 대상 적격성·재구매 알림 | P1 | PLANNED | WF-006 / Customer Communication SOP 미정 |
 | AUT-011 | 후기·Referral 요청 후보 생성 | P1 | PLANNED | WF-006 / Customer Communication SOP 미정 |
 | AUT-012 | Weekly Revenue Readout | P0 | PLANNED | WF-006 / SOP-011 |
+| [AUT-013](./AUT-013_TARGETED-KNOWLEDGE-REFRESH.md) | Targeted Knowledge Refresh | P1 | PLANNED | WF-007 / SOP-012 |
 
 `SOP 미정` 항목은 구현 차단 상태다. 먼저 SOP와 데이터·승인 계약을 확정한다.
 
