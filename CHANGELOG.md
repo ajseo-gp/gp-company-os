@@ -2,6 +2,50 @@
 
 ## Unreleased
 
+- CEO 승인 `DEC-0010 Targeted Knowledge Refresh`를 추가해 전사 전체 재독 대신 현재 과제의
+  관련 Repository·문서·공식 원천과 checkpoint 이후 변경분을 우선하도록 확정
+- 작업별·주간 Delta·월간 심층·긴급 Refresh를 `WF-007`과 `SOP-012`로 연결하고 범위·
+  토큰/시간 예산·Stop 조건·source revision·다음 checkpoint 계약 정의
+- `AUT-013`을 PLANNED로 등록해 allowlist·idempotency·예산 차단·NO_CHANGE·승인 없는
+  자동 적용 금지와 PILOT/ACTIVE 전환 기준 정의
+- 네이버 SmartStore 공식 상품명·브랜드·태그·검색 메타데이터·정가·첫구매 혜택 기준과
+  식약처 화장품 표시광고 지침을 조사해 Evidence 기반 상품 운영 가이드 추가
+- SmartStore 상품 수정 전에 현재 revision·제품 Evidence·Revenue 기준선·변경 이력·
+  KPI·원복 조건을 요구하는 전용 Dry-run Prompt 추가
+- Commerce 제안에서 상품명 키워드 단순 결합·제품 추정·원인 단정·승인 없는 실제 변경을
+  금지하고 SmartStore Growth Agent 참조 계약 강화
+- SmartStore 최신 주문조회 export의 업무 열·개인정보 경계·상품주문 중복·판매 집계
+  reconciliation을 검증하고 단순 변심 취소 Context와 남은 결제·환불 매핑 차단요인 반영
+- SmartStore 판매·방문 집계 export의 실제 구조, 계층 중복·귀속 범위·제품 상세 불일치와
+  개인정보 없는 `PARTIAL` 수동 Revenue 기준선 사용 범위 확인
+- `AUT-007 Revenue Snapshot`의 원천·기준시각·검증·revision·보안·PILOT 활성화 계약 추가
+- B2C 순매출·기여이익·재구매 매출 비중 중심의 CEO Weekly Scorecard와 표준 산식 정의
+- Revenue 숫자에 `READY/PARTIAL/BLOCKED/NOT_AVAILABLE` 데이터 품질 상태를 의무화
+- Weekly Review를 Snapshot 잠금→품질 Gate→병목→Campaign→Knowledge 환류 절차로 고도화
+- CEO `DEC-0009 Revenue First` 운영 우선순위와 Customer Journey Revenue Engine 반영
+- Marketing Growth Team을 SmartStore·Idus·Content·CRM·Review·Revenue Analytics 역할로 설계
+- `WF-006 Revenue Growth Loop`와 `SOP-011 Marketing Revenue Experiment` 추가
+- Marketing Agent별 매출·기여이익·Journey KPI와 PILOT Gate 정의
+- SmartStore와 아이디어스의 채널 책임·데이터·KPI·학습을 분리
+- Campaign-ID·비용·주문·직접/기여 매출·attribution Evidence 계약 추가
+- Revenue Snapshot·Readout·Campaign Brief 등 대표 마케팅 병목 자동화 후보 우선순위화
+- Dashboard·Weekly Review·Roadmap을 Revenue Engine → Marketing → B2B → R&D/Production 순서로 변경
+- GP Company OS v1.0 readiness Architecture Review와 v2.0 Roadmap 추가
+- `SYSTEM_BOOT.md`를 AI 단일 진입점으로 추가하고 루트 `AGENTS.md` 작업 규칙 정의
+- README에 Project, Mission, Vision, Repository Map, AI Onboarding과 OS 학습 순환 추가
+- `OS-INDEX.yaml`에 Boot sequence, 디렉터리·문서 계약과 레지스트리 추가
+- Boot 경로·링크·ID·실행 문서 계약·File Manifest를 검사하는 GitHub CI 추가
+- PR·Decision·Process Improvement 템플릿에 traceability·근거·검증·KPI Gate 강화
+- Context·Decision·Knowledge·Workflow·SOP·Prompt·Automation 책임 경계와 표준 강화
+- Agent Architecture와 명세 상태·Runtime 상태를 분리하고 R&D·Production·Knowledge Agent 설계 추가
+- Agent·Workflow·Automation·Knowledge·Decision 신규 문서 템플릿 강화
+- Workbench의 문의→연구 조건→레시피→견적→스케쥴→LOT 실행 흐름을 Company OS에 반영
+- R&D 사업 문서, 연구→생산 SOP와 시스템별 원본 경계 정합성 Context 추가
+- Inquiry-to-Order Workflow에 연구중·확정·수주·LOT 상태 제어 추가
+- Workbench 운영 데이터와 외부 생산문서의 보안·발행 guard 추가
+- 연구·견적·생산 제어 경계 Decision 후보와 CEO 검증 항목 추가
+- OS·Hub·Workbench의 R&D 상태, 결제조건, MOQ와 시험 근거 충돌을 REVIEW 항목으로 분리
+- Hermes 1차 점검 결과와 서로 다른 OS·Hub 적용 revision, 미확인 production·데이터·백업 상태 기록
 - GP Workbench Closed Beta를 `gpwb_bot`·로컬 Claude Code 직접 개발 Fast Lane으로 분리
 - Workbench 저위험 변경의 자체 승인·자동 배포·사후 PC/모바일 시각 보고 정의
 - 중위험·고위험 Workbench 변경의 사전 Human Preview와 승인 유지

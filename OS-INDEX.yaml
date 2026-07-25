@@ -2,19 +2,58 @@ version: 0.3.0
 status: ACTIVE
 owner: GP Company CEO
 authority_repository: ajseo-gp/gp-company-os
+entrypoint: SYSTEM_BOOT.md
+boot_sequence:
+  - SYSTEM_BOOT.md
+  - README.md
+  - LEVEL-1_DIRECTION/MANIFEST.md
+  - LEVEL-1_DIRECTION/BLUEPRINT.md
+  - LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT
+  - LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS
+  - AGENTS.md
+  - LEVEL-4_AI-EXECUTION/AGENTS
+  - LEVEL-4_AI-EXECUTION/WORKFLOW
+  - LEVEL-3_OPERATING-KNOWLEDGE/SOP
+  - LEVEL-4_AI-EXECUTION/AUTOMATION
 corporate_direction:
   focus_domains: [Hair, Scalp]
+  current_execution_principle: Revenue First
+  governing_decision: DEC-0009
   revenue_engines:
     - Hair & Scalp Business
     - AI & Company OS Business
   value_principle: Transferable Company
+customer_journey:
+  - Customer Acquisition
+  - Customer Activation
+  - Customer Conversion
+  - Customer Retention
+  - Customer Referral
+revenue_runtime:
+  decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0009_REVENUE-FIRST.md
+  business_policy: LEVEL-2_BUSINESS/MARKETING.md
+  agent_team: LEVEL-4_AI-EXECUTION/AGENTS/AGENT-MARKETING-GROWTH-TEAM.md
+  workflow: LEVEL-4_AI-EXECUTION/WORKFLOW/WF-006_REVENUE-GROWTH-LOOP.md
+  sop: LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-011_MARKETING-EXPERIMENT.md
+  review_sop: LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-006_WEEKLY-REVIEW.md
+  first_automation: LEVEL-4_AI-EXECUTION/AUTOMATION/AUT-007_REVENUE-SNAPSHOT.md
+  content_sop: LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-005_CONTENT-PRODUCTION.md
+  kpi: LEVEL-5_MANAGEMENT-CONTROL/KPI.md
+  smartstore_knowledge: LEVEL-3_OPERATING-KNOWLEDGE/KNOWLEDGE/PRACTICE-0001_SMARTSTORE-OPERATING-GUIDE.md
+  smartstore_prompt: LEVEL-3_OPERATING-KNOWLEDGE/PROMPT-LIBRARY/PROMPT-SMARTSTORE-COMMERCE.md
+knowledge_refresh:
+  decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0010_TARGETED-KNOWLEDGE-REFRESH.md
+  workflow: LEVEL-4_AI-EXECUTION/WORKFLOW/WF-007_TARGETED-KNOWLEDGE-REFRESH.md
+  sop: LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-012_TARGETED-KNOWLEDGE-REFRESH.md
+  automation: LEVEL-4_AI-EXECUTION/AUTOMATION/AUT-013_TARGETED-KNOWLEDGE-REFRESH.md
+  cadence: [TASK, WEEKLY, MONTHLY, URGENT]
 levels:
   level_1:
     name: Direction
     modules: [Mission, Vision, Manifest, Blueprint]
   level_2:
     name: Business
-    modules: [Business, Hair & Scalp Business, AI & Company OS Business, Marketing, OEM, B2C, Production, Finance]
+    modules: [Business, Hair & Scalp Business, AI & Company OS Business, Marketing, OEM, B2C, R&D, Production, Finance]
   level_3:
     name: Operating Knowledge
     modules: [SOP, Knowledge, Prompt Library, Decisions, Context]
@@ -30,6 +69,37 @@ source_of_truth_order:
   - SOP
   - Knowledge
   - Prompt Library
+status_semantics:
+  DRAFT: not an operating authority
+  ACTIVE: approved operating authority within its scope
+  REVIEW: not authoritative until the review is resolved
+  ARCHIVED: historical reference only
+directory_contracts:
+  business: LEVEL-2_BUSINESS
+  context: LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT
+  decisions: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS
+  knowledge: LEVEL-3_OPERATING-KNOWLEDGE/KNOWLEDGE
+  sop: LEVEL-3_OPERATING-KNOWLEDGE/SOP
+  prompts: LEVEL-3_OPERATING-KNOWLEDGE/PROMPT-LIBRARY
+  agents: LEVEL-4_AI-EXECUTION/AGENTS
+  workflows: LEVEL-4_AI-EXECUTION/WORKFLOW
+  automation: LEVEL-4_AI-EXECUTION/AUTOMATION
+  management: LEVEL-5_MANAGEMENT-CONTROL
+registers:
+  decisions: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/README.md
+  knowledge: LEVEL-3_OPERATING-KNOWLEDGE/KNOWLEDGE/README.md
+  agents: LEVEL-4_AI-EXECUTION/AGENTS/AGENT-ARCHITECTURE.md
+  workflows: LEVEL-4_AI-EXECUTION/WORKFLOW/README.md
+  automation: LEVEL-4_AI-EXECUTION/AUTOMATION/README.md
+document_contracts:
+  context: [status, owner, as_of, review_date, scope, source]
+  decision: [id, status, decision_date, owner, background, decision, rationale, impact, review_condition]
+  knowledge: [id, status, owner, evidence, confidence, applicability, review_date]
+  workflow: [id, status, owner, trigger, states, roles, related_sop, exceptions, kpi]
+  sop: [id, status, owner, purpose, scope, inputs, steps, approvals, outputs, failures, references]
+  agent: [id, status, runtime_status, owner, role, inputs, outputs, references, authority, approvals, relationships]
+  marketing_agent: [mission, customer_journey, role, inputs, outputs, references, workflow, sop, kpi, approvals, runtime_status]
+  automation: [id, status, owner, trigger, inputs, processing, outputs, approvals, failures, idempotency, audit]
 execution_lanes:
   company_operations:
     orchestrator: Hermes Primary
@@ -38,3 +108,9 @@ execution_lanes:
     implementer: local Claude Code via gpwb_bot
     policy: DEC-0007
     sop: SOP-009
+runtime_record_authority:
+  policy_and_state_rules: gp-company-os
+  orchestration_and_pipeline: gp-company-hub
+  workbench_execution_records: gpcompany-lab local data
+  marketing_execution_records: GP Workbench and approved channel or commerce sources
+  issued_customer_and_production_documents: approved secure storage

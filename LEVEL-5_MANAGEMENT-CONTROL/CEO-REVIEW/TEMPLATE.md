@@ -12,6 +12,10 @@
 
 - B2B 제조:
 - B2C 브랜드·커머스:
+- 신규 고객·신규 고객 매출:
+- 재구매율·재구매 매출:
+- SmartStore·아이디어스 채널별 매출·기여이익:
+- Journey 최대 병목과 다음 Campaign:
 - 주요 고객·제품 학습:
 
 ## Revenue Engine 2 — AI & Company OS
