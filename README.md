@@ -5,6 +5,26 @@
 **Owner:** GP Company CEO  
 **Purpose:** GP Company를 Hair·Scalp 사업과 AI·Company OS 사업이 함께 성장하고, 대표 개인이 아니라 양도 가능한 시스템으로 운영되는 AI Native Company로 전환한다.
 
+> 새로운 AI와 사람의 첫 진입점은 [`SYSTEM_BOOT.md`](./SYSTEM_BOOT.md)다. 이 README는
+> OS의 전체 지도이며, 실제 실행 전에는 관련 ACTIVE Decision·Context·SOP를 확인한다.
+
+## Project Introduction
+
+GP Company OS는 문서 보관함이 아니라 회사의 두 번째 두뇌다. Mission부터 사업,
+의사결정, 업무 흐름, 표준 절차, Agent, 자동화와 경영 피드백까지 하나의 추적 가능한
+운영체계로 연결한다. Claude Code, Codex, Cursor, GitHub Copilot과 사람이 같은 기준을
+읽고 협업하는 것을 목표로 한다.
+
+## Mission and Vision
+
+- **Mission:** Hair와 Scalp의 좋은 아이디어가 규모의 한계 때문에 멈추지 않게 하고,
+  실제 운영에서 검증한 AI Company OS로 기업의 실행력과 성장을 만든다.
+- **Vision:** 제조·브랜드 운영에서 검증된 지식과 AI 실행체계를 연결하여, 대표 개인이
+  아니라 새로운 경영자도 인수·운영 가능한 회사와 두 개의 수익 엔진을 만든다.
+
+원문은 [`MISSION.md`](./LEVEL-1_DIRECTION/MISSION.md)와
+[`VISION.md`](./LEVEL-1_DIRECTION/VISION.md)를 따른다.
+
 ## Corporate Direction
 
 GP Company는 두 개의 수익 엔진을 운영한다.
@@ -14,17 +34,71 @@ GP Company는 두 개의 수익 엔진을 운영한다.
 
 `gp-company-os`는 회사의 최상위 전략·정책·Decision 원본이다. 다른 저장소와 실행 시스템은 활성 OS 문서를 기준으로 변경한다.
 
-## Operating Principle
+현재 실행 우선순위는 [`DEC-0009`](./LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0009_REVENUE-FIRST.md)의
+`Revenue First`다. 운영체계의 일관성은 유지하되, 신규 고객·판매·재구매·대표의 마케팅
+병목과 반복 가능한 성장에 연결되지 않는 설계는 우선순위를 낮춘다.
+
+## OS Philosophy and Operating Test
+
+OS는 다음 원칙으로 성장한다.
+
+`현장 증거 → 검증 → Context·Knowledge → Decision·SOP → Workflow·Agent·Automation → KPI·Review → 개선`
+
+- 문서 수보다 출처, 상태, 책임과 연결의 품질을 우선한다.
+- 관련 Knowledge를 실행 전에 소비하고, 적용·비적용 이유와 실제 Outcome을 남긴다.
+- Knowledge 생성만으로 학습 완료로 보지 않고, 소비 파일 반영과 다음 실행의 재사용 효과를
+  확인한다.
+- 자동화보다 SOP, SOP보다 실제 업무 검증을 먼저 한다.
+- AI는 자율적으로 회사 정책을 만드는 존재가 아니라 승인된 운영체계를 실행하고
+  개선 후보를 제안하는 협업자다.
+- 민감한 운영 원문은 보안 저장소에 두고, OS에는 기준과 안전한 참조만 둔다.
 
 모든 업무는 다음 순서로 판단한다.
 
-1. Mission과 일치하는가?
-2. 기존 Decision과 충돌하지 않는가?
-3. Context와 맞는가?
-4. 기존 SOP가 존재하는가?
-5. 자동화 가능한가?
-6. 문서화가 필요한가?
-7. 새로운 Knowledge가 되는가?
+1. 신규 고객·판매·재구매 또는 반복 가능한 성장에 기여하는가?
+2. 대표의 마케팅 병목을 줄이는가?
+3. Mission과 일치하는가?
+4. 기존 Decision과 충돌하지 않는가?
+5. Context와 맞는가?
+6. 기존 SOP가 존재하는가?
+7. 자동화 가능한가?
+8. 새로운 Knowledge가 되는가?
+
+## AI Onboarding and Reading Order
+
+새 AI는 다음 순서로 온보딩한다.
+
+1. [`SYSTEM_BOOT.md`](./SYSTEM_BOOT.md)
+2. `README.md`
+3. [`MANIFEST.md`](./LEVEL-1_DIRECTION/MANIFEST.md)
+4. [`BLUEPRINT.md`](./LEVEL-1_DIRECTION/BLUEPRINT.md)
+5. 관련 [`CONTEXT`](./LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT)
+6. 관련 [`DECISIONS`](./LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS)
+7. [`AGENTS.md`](./AGENTS.md)와 관련 Agent 명세
+8. 관련 [`WORKFLOW`](./LEVEL-4_AI-EXECUTION/WORKFLOW)
+9. 관련 [`SOP`](./LEVEL-3_OPERATING-KNOWLEDGE/SOP)
+10. 관련 [`AUTOMATION`](./LEVEL-4_AI-EXECUTION/AUTOMATION)
+
+기계가 읽는 전체 색인과 유형 계약은 [`OS-INDEX.yaml`](./OS-INDEX.yaml)을 사용한다.
+사람을 위한 짧은 운영 시작 안내는 [`START-HERE.md`](./START-HERE.md)다.
+
+## Repository Map
+
+| 경로 | 단일 책임 |
+|---|---|
+| `LEVEL-1_DIRECTION` | Mission, Vision, 철학과 전체 시스템 설계 |
+| `LEVEL-2_BUSINESS` | 사업별 고객가치, 수익모델과 운영정책 |
+| `LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT` | 현재 상태, 제약, 우선순위와 유효기간 |
+| `LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS` | 승인된 선택, 이유, 영향과 재검토 조건 |
+| `LEVEL-3_OPERATING-KNOWLEDGE/KNOWLEDGE` | 근거와 적용 범위가 검증된 재사용 지식 |
+| `LEVEL-3_OPERATING-KNOWLEDGE/SOP` | 한 반복 업무의 표준 수행·승인·예외 처리 |
+| `LEVEL-3_OPERATING-KNOWLEDGE/PROMPT-LIBRARY` | 승인된 SOP 실행을 위한 AI 입력 형식 |
+| `LEVEL-4_AI-EXECUTION/WORKFLOW` | 역할·시스템을 가로지르는 상태 흐름 |
+| `LEVEL-4_AI-EXECUTION/AGENTS` | 역할별 입력·출력·권한·책임 계약 |
+| `LEVEL-4_AI-EXECUTION/AUTOMATION` | 검증된 Workflow·SOP 단계의 기계 실행 계약 |
+| `LEVEL-5_MANAGEMENT-CONTROL` | KPI, Dashboard, Roadmap과 정기 경영 리뷰 |
+| `TEMPLATES` | 문서 유형별 신규 작성 계약 |
+| `.github` | 변경 제안, 검토와 소유권 통제 |
 
 ## 5-Level Architecture
 
@@ -49,9 +123,9 @@ flowchart TD
     OS[("GP Company OS<br/>Mission · Decision · Context · SOP · Knowledge")]
     CO["CEO Co-Operator<br/>OS 확인 · 우선순위 · 실행 기준"]
     H["Hermes<br/>영향 분석 · 업무 분해 · 라우팅"]
-    B2C["B2C Growth Operator<br/>전략 · 캠페인 · 배정 · 검수 · 재작업"]
+    B2C["Revenue Growth Orchestrator<br/>Journey 병목 · Campaign · 배정 · Revenue Review"]
     OPS["담당 Operator<br/>B2B · 콘텐츠 · R&D · AI/OS"]
-    EA["Execution Agents<br/>매출 분석 · 고객 인사이트 · 캠페인 · 콘텐츠<br/>커머스 실행 · 화장품 표현/브랜드 QA"]
+    EA["Marketing Growth Team<br/>SmartStore · Idus · Content · CRM · Review<br/>Revenue Analytics · 화장품 표현/브랜드 QA"]
     WB["GP Workbench<br/>작업 큐 · 진행 상태 · 승인함 · 실행 로그 · KPI"]
     GATE["대표 승인 게이트<br/>승인 · 수정 · 거절"]
     LOOP["운영 학습<br/>Context · Knowledge · SOP · Decision 후보"]
@@ -109,6 +183,8 @@ flowchart TD
 | GitHub | Decision·작업 정의·코드·검수 증거를 추적하는 지속 기록 |
 
 세부 역할은 [`LEVEL-2_BUSINESS/B2C.md`](./LEVEL-2_BUSINESS/B2C.md),
+[`LEVEL-2_BUSINESS/RND.md`](./LEVEL-2_BUSINESS/RND.md),
+[`LEVEL-2_BUSINESS/PRODUCTION.md`](./LEVEL-2_BUSINESS/PRODUCTION.md),
 [`LEVEL-4_AI-EXECUTION/AGENTS`](./LEVEL-4_AI-EXECUTION/AGENTS),
 [`LEVEL-4_AI-EXECUTION/WORKFLOW`](./LEVEL-4_AI-EXECUTION/WORKFLOW)와
 [`LEVEL-5_MANAGEMENT-CONTROL`](./LEVEL-5_MANAGEMENT-CONTROL)을 따른다. 장비 배치와
@@ -137,6 +213,7 @@ GP Company는 다음 영역을 동시에 운영한다.
 - Hair·Scalp 중심 소량 OEM/ODM
 - 자체 브랜드 젠틀파파 운영
 - Hair·Scalp 제품 기획·제조·브랜드 운영
+- 고객 문의→레시피 연구→견적→생산 LOT와 문서의 추적
 - B2B 거래처 개발과 B2C 온라인 판매
 - 콘텐츠 마케팅
 - AI·Company OS 제품과 서비스 개발

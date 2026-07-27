@@ -1,9 +1,10 @@
 # Hermes 내부 작업 Envelope
 
 - 상태: ACTIVE
-- 버전: 2.0
+- 버전: 2.1
 - 소유자: GP Company CEO
-- 변경일: 2026-07-22
+- 변경일: 2026-07-26
+- Learning-Ref: DEC-0011
 
 사람은 Slack에 자연어로 요청한다. 이 양식은 Hermes가 요청을 접수한 뒤 자동으로 생성하는
 내부 실행 계약이며, 대표나 직원에게 복사·작성하도록 요구하지 않는다.
@@ -32,6 +33,12 @@ ajseo-gp/gp-company-os@<활성 40자리-commit-SHA>
 입력·참조
 • <원문·첨부·입력 위치 또는 참조 ID>
 
+Learning Preflight
+• 학습 등급: <L0 | L1 | L2>
+• 읽은 ACTIVE Knowledge·최근 비교 Evidence: <경로·ID>
+• 적용한 학습: <항목>
+• 비적용 학습과 이유 또는 NO_APPLICABLE_KNOWLEDGE 검색 범위: <내용>
+
 실행 범위
 • <허용된 조회·분석·변경>
 
@@ -55,6 +62,9 @@ ajseo-gp/gp-company-os@<활성 40자리-commit-SHA>
 • 수행 범위와 항목별 증거
 • 발견된 위험·예외와 부분 실패
 • 실제 변경 사항
+• 예상 대비 Outcome 또는 RESULT_PENDING Owner·측정일·원천
+• 학습 후보 또는 근거 있는 NO_NEW_LEARNING
+• Enforcement Point와 다음 Reuse Verification
 • 대표 승인 또는 후속 작업이 필요한 항목
 ```
 
@@ -66,6 +76,8 @@ ajseo-gp/gp-company-os@<활성 40자리-commit-SHA>
 - [ ] 승인등급과 위험을 현재 권한표로 분류했다.
 - [ ] 허용 범위와 금지 범위를 분리했다.
 - [ ] 결과를 확인할 증거와 검토자를 정했다.
+- [ ] L1/L2이면 관련 Knowledge를 조회하고 적용·비적용 이유를 기록했다.
+- [ ] Outcome 측정일·Owner와 학습 후보·Enforcement Point 완료 조건을 정했다.
 - [ ] 사람에게 내부 태그·ID·SHA 입력을 요구하지 않았다.
 - [ ] Workbench Fast Lane 요청이면 Hermes 큐에 중복 등록하지 않고 `SOP-009`로 안내했다.
 
@@ -76,3 +88,5 @@ ajseo-gp/gp-company-os@<활성 40자리-commit-SHA>
 - `../LEVEL-4_AI-EXECUTION/WORKFLOW/WF-003_SLACK-TO-HERMES.md`
 - `../LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
 - `../LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-009_WORKBENCH-CLOSED-BETA-FAST-LANE.md`
+- `../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md`
+- `../LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-013_ORGANIZATIONAL-LEARNING-CYCLE.md`

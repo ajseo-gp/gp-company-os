@@ -1,13 +1,19 @@
 # WF-003 Slack to Hermes
 
 - 상태: ACTIVE
-- 버전: 1.0
+- 버전: 1.1
 - 소유자: GP Company CEO
-- 변경일: 2026-07-22
+- 변경일: 2026-07-26
+- Learning-Ref: DEC-0011
 
 ## 목적
 
 Slack 요청부터 OS 기준 확인, 실행, 검토 종료까지 하나의 `Task-ID`와 스레드로 추적한다.
+
+## Trigger and Completion
+
+- Trigger: GPcompany Slack의 권한 있는 채널에 신규 자연어 요청이 접수됨
+- 완료: 결과·증거·예외가 보고되고 요청자가 Review를 닫거나 명시적으로 취소함
 
 ## 흐름
 
@@ -68,6 +74,22 @@ sequenceDiagram
 - 추가 검증: `RESULT_REPORTED` → `UNDER_REVIEW` → `RUNNING` → 새 `RESULT`
 - Primary 장애: 현재 실행과 부작용 확인 → 승인된 전환 → Standby가 같은 상태·증거를 인계
 - Slack 장애: Workbench·GitHub에 상태 보존 → 연결 복구 → 원래 스레드에 동기화
+
+## Knowledge Feedback
+
+Hermes는 L1/L2 Task Envelope에 관련 ACTIVE Knowledge·최근 EXPERIMENT·FAILURE,
+적용·비적용 이유와 Outcome 완료 조건을 넣는다. 결과는 `WF-008`의 학습 검토와 다음
+Reuse Verification으로 인계한다.
+
+반복되는 라우팅 오류, 승인 병목과 실패 조건은 FAILURE 또는 SOP 개선 후보로 전달한다.
+Slack 원문과 비밀정보는 Knowledge에 복제하지 않는다.
+
+## KPI
+
+- ACK·첫 상태 보고 시간
+- OS-Ref 누락·불일치율
+- 중복 실행과 잘못된 라우팅률
+- BLOCKED 해소시간과 증거 연결률
 
 ## 관련 문서
 

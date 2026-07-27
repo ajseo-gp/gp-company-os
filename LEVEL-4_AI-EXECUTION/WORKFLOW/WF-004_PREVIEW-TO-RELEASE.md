@@ -1,9 +1,10 @@
 # WF-004 Preview to Automatic Release
 
 - 상태: ACTIVE
-- 버전: 1.0
+- 버전: 1.1
 - 소유자: GP Company CEO
-- 변경일: 2026-07-22
+- 변경일: 2026-07-26
+- Learning-Ref: DEC-0011
 
 ## 목적
 
@@ -11,6 +12,11 @@
 
 이 Workflow는 표준 Human Preview 경로에 적용한다. `DEC-0007`의 GP Workbench Closed
 Beta Fast Lane은 `WF-005`를 사용한다.
+
+## Trigger and Completion
+
+- Trigger: exact revision의 Preview와 필수 검수 증거가 준비됨
+- 완료: 승인 revision이 배포·smoke test를 통과하고 닫히거나, 실패·rollback·차단 상태가 기록됨
 
 ## 흐름
 
@@ -67,6 +73,22 @@ sequenceDiagram
 - 유효한 승인 후에는 별도 수동 merge 승인 없이 자동 Release를 시작한다.
 - 배포 성공만으로 종료하지 않고 운영 환경 smoke test를 통과해야 한다.
 - 모든 단계는 같은 `Task-ID`와 Slack 스레드에 연결한다.
+
+## Knowledge Feedback
+
+L1/L2 변경은 관련 FAILURE·PRACTICE와 이전 Preview·Release Evidence를 먼저 읽고
+적용·비적용 이유를 남긴다. 배포·rollback Outcome은 `WF-008`의 학습 후보와 다음
+비교 Release 검증으로 연결한다.
+
+Preview에서 반복 발견되는 결함은 테스트·SOP 개선 후보, 배포 실패 조건은 FAILURE 후보로
+전달한다. 개별 승인 이벤트는 일반 정책으로 승격하지 않는다.
+
+## KPI
+
+- Preview 준비→승인 리드타임
+- 승인 후 revision 변경 차단 건수
+- 배포 성공·rollback·smoke test 실패율
+- 중복 Release 차단률
 
 ## 관련 문서
 
