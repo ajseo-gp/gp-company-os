@@ -9,7 +9,7 @@
 - Hub 감사 기준: `origin/main@48f4ca1`, 변경 후보
   `c052496e36db72cc72d58256f8d0f60906350c09`
 - Workbench 감사 기준: `origin/main@2d0fec1`, 변경 후보
-  `7005efadbc160a16ed55b88e57ac5443e0f97ccf`
+  `775912df2e90bfccbd2ad4b4c15e3861974c417b`
 
 ## 확인된 현재 상태
 
@@ -69,7 +69,7 @@ GP Company OS에는 학습과 지식 갱신을 위한 부분 계약이 이미 �
 | `gp-company-hub` authority main | `48f4ca1` | `.gp-company-os.yaml`이 과거 OS를 `current`로 표시했고, 공통 Learning Preflight·L2 수동 역할 Gate가 없었음 |
 | `gp-company-hub` 변경 후보 | `c052496…` | 승인 Gate와 공통 Learning Preflight·L2 역할/측정 Gate, OS drift·임의 clone·게시 승인 오인 CI, PII-safe LangGraph 관제탑 이벤트·스냅샷 내보내기 포함. Runtime 테스트 94건 통과. authority main 미반영, 운영 활성화 미승인 |
 | `gpcompany-lab` authority main | `2d0fec1` | B2C Workbench는 설계 문서만 있고 조직학습 UI·API·상태 저장 구현이 없었으며 과거 OS를 `current`로 표시 |
-| `gpcompany-lab` 변경 후보 | `7005efa…` | 설정 안 대표 전용 한국어 관제탑, GitHub 열린 PR×변경 파일 충돌·경과일 실시간 조회, GitHub default branch 정본과 로컬 clone revision·역할 비교, PII-safe LangGraph 흐름 반영. Revenue 영역은 별도 PR과 겹치지 않게 제거. 계약 검증·production build·PC/모바일 시각 검수 통과 |
+| `gpcompany-lab` 변경 후보 | `775912d…` | 설정 안 `owner` 역할 전용 한국어 관제탑, GitHub 열린 PR×변경 파일 충돌·경과일 실시간 조회, GitHub default branch 정본과 로컬 clone revision·역할 비교, PII-safe LangGraph 흐름 반영. Revenue 영역은 별도 PR과 겹치지 않게 제거. 계약 검증·production build·PC/모바일 시각 검수 통과 |
 | 승인된 운영 저장소 | 미확인 | 채널·고객·연구·생산 원본 Evidence의 보존·연결 상태는 이번 감사 범위 밖 |
 
 두 변경 후보는 로컬 작업 브랜치 revision이며 push·Draft PR·merge·배포되지 않았다.
