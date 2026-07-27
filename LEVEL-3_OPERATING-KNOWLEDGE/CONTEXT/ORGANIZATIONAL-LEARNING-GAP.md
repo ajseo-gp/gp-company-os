@@ -2,14 +2,14 @@
 
 - 상태: ACTIVE
 - 소유자: GP Company CEO / OS Owner
-- 기준일: 2026-07-26
+- 기준일: 2026-07-27
 - 다음 검토일: 2026-08-08
 - 적용 범위: GP Company OS의 전사 학습 계약과 OS·Hub·Workbench 간 Runtime 경계
 - OS 활성화 기준: `0ae256ee97b397aac497ad437fabf90c88ea117a`
 - Hub 감사 기준: `origin/main@48f4ca1`, 변경 후보
-  `e951905e09dca1bb4551c48d1232e62dcd967e42`
+  `c052496e36db72cc72d58256f8d0f60906350c09`
 - Workbench 감사 기준: `origin/main@2d0fec1`, 변경 후보
-  `d62ef7fa5950597e2634f6511fafdff561a90e02`
+  `b95040c7815ffaa151b987530c2c0d68975e19cf`
 
 ## 확인된 현재 상태
 
@@ -67,9 +67,9 @@ GP Company OS에는 학습과 지식 갱신을 위한 부분 계약이 이미 �
 |---|---|---|
 | `gp-company-os` | `0ae256e…` | `DEC-0011`·`WF-008`·`SOP-013` ACTIVE, Boot·템플릿·CI Enforcement 반영 |
 | `gp-company-hub` authority main | `48f4ca1` | `.gp-company-os.yaml`이 과거 OS를 `current`로 표시했고, 공통 Learning Preflight·L2 수동 역할 Gate가 없었음 |
-| `gp-company-hub` 변경 후보 | `e951905…` | 승인 Gate 보완과 공통 Learning Preflight·L2 역할/측정 Gate, OS drift·임의 clone·게시 승인 오인 CI 포함. Runtime 테스트 90건 통과. authority main 미반영, 운영 활성화 미승인 |
+| `gp-company-hub` 변경 후보 | `c052496…` | 승인 Gate와 공통 Learning Preflight·L2 역할/측정 Gate, OS drift·임의 clone·게시 승인 오인 CI, PII-safe LangGraph 관제탑 이벤트·스냅샷 내보내기 포함. Runtime 테스트 94건 통과. authority main 미반영, 운영 활성화 미승인 |
 | `gpcompany-lab` authority main | `2d0fec1` | B2C Workbench는 설계 문서만 있고 조직학습 UI·API·상태 저장 구현이 없었으며 과거 OS를 `current`로 표시 |
-| `gpcompany-lab` 변경 후보 | `d62ef7f…` | Workbench Runtime을 `PLANNED`로 고정하고 이슈·PR 계약, 상태 승격·OS drift 검증 CI 반영. 조직학습 UI·API는 미구현. 계약 검증·production build 통과 |
+| `gpcompany-lab` 변경 후보 | `b95040c…` | Workbench Runtime을 `PLANNED`로 유지하면서 인증된 한국어 읽기 전용 회사 관제탑 UI·API·안전한 스냅샷 Reader, 이슈·PR 계약과 상태 승격·OS drift 검증 CI 반영. 계약 검증·production build·PC/모바일 시각 검수 통과 |
 | 승인된 운영 저장소 | 미확인 | 채널·고객·연구·생산 원본 Evidence의 보존·연결 상태는 이번 감사 범위 밖 |
 
 두 변경 후보는 로컬 작업 브랜치 revision이며 push·Draft PR·merge·배포되지 않았다.
@@ -92,7 +92,9 @@ GP Company OS에는 학습과 지식 갱신을 위한 부분 계약이 이미 �
 - 첫 L2 PILOT의 실행 Owner, 수동 Reviewer·대리자와 측정일은 아직 `미확인`이다.
 - Hub 학습 Gate 후보는 authority main 반영·운영 Runtime 배포·Agent/Automation 활성화
   전까지 실행 기준이 아니다.
-- GP Workbench의 Review 인스턴스와 조직학습 UI·API·상태 저장은 아직 `PLANNED`다.
+- GP Workbench의 한국어 관제탑 UI·API와 Hub LangGraph 실행 스냅샷 연결은 로컬 변경
+  후보에 구현됐지만, Weekly Review 인스턴스와 운영 상태 저장·배포·실제 데이터 연결은
+  아직 `PLANNED`다.
 - OS revision `0ae256e…`와 Hub·Workbench 변경 후보는 authority repository에 push되어
   검증되기 전까지 각 저장소의 sync 상태를 `current`로 올리지 않는다.
 - EXPERIMENT·FAILURE·INSIGHT·LESSON Knowledge는 첫 PILOT Evidence 전에는 생성하지 않는다.
