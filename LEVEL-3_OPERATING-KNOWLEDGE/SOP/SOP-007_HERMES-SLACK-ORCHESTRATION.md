@@ -117,7 +117,9 @@ gh api 'repos/ajseo-gp/gp-company-os/git/trees/<OS_SHA>?recursive=1' \
    명시된 범위의 읽기 전용 확인은 수행할 수 있지만, 변경 권한이 불명확하면
    `[BLOCKED]`로 보고한다.
 4. 외부 발송·공개, 계약·법률·규정 판단, 정책 예외, 비가역 변경은 명시적 승인 전
-   실행하지 않는다.
+   실행하지 않는다. 단, `DEC-0013`의 스마트스토어·쿠팡 및 활성 쇼핑몰 상품 등록·가격·
+   프로모션은 채널별 첫 `L1` 승인 후, 유효한 Commerce Control Rules와 표현·SKU·예산·
+   rollback·기록 Gate를 모두 통과한 범위에서 Claude Code가 자동 실행할 수 있다.
 
 ### 5. 실행과 상태 보고
 
@@ -163,6 +165,7 @@ Workbench Fast Lane은 이 절차 대신 `SOP-009`를 따른다.
 - 외부 공개·발송, 계약, 결제, 법률·규정 판단
 - 서비스 중단, 재시작, 프로세스 종료, 데이터 삭제·덮어쓰기
 - Company OS Decision·SOP·권한표 변경
+- `DEC-0013` 허용 범위를 벗어난 외부 상품·가격·프로모션 실행
 - Primary 전환 또는 여러 Hermes 인스턴스의 동시 활성화
 
 ## 출력물
@@ -204,4 +207,5 @@ Workbench Fast Lane은 이 절차 대신 `SOP-009`를 따른다.
 - `SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
 - `SOP-009_WORKBENCH-CLOSED-BETA-FAST-LANE.md`
 - `../DECISIONS/DEC-0012_AI-WORK-ALLOCATION.md`
+- `../DECISIONS/DEC-0013_CHANNEL-LISTING-AUTOMATION.md`
 - `ajseo-gp/gp-company-hub/agents/roles.md` — 현재 승인등급 실행 매트릭스

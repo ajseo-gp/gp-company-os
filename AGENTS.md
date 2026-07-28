@@ -34,6 +34,9 @@
   fallback 승인 없이 Hub·Workbench·프로젝트 구현 branch를 수정하지 않는다.
 - 정책과 구현이 섞인 요청은 Codex가 정책 경계를 먼저 고정하고 Claude Code가 별도
   저장소·branch에서 구현한다. 두 도구가 같은 branch를 공동 소유하지 않는다.
+- `DEC-0013`에 따라 Claude Code는 스마트스토어·쿠팡 및 활성 쇼핑몰의 상품 등록, 가격,
+  할인·프로모션을 자동 실행할 수 있다. Commerce Control Rules와 표현·SKU·예산·rollback·
+  실행 기록 Gate를 통과하지 못하면 외부 쓰기를 실행하지 않는다.
 
 ## Change Discipline
 
