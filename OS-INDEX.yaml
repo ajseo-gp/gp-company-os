@@ -155,6 +155,14 @@ execution_lanes:
     policy: DEC-0012
     handoff: approved OS-Ref
     shared_branch: forbidden
+  channel_listing_automation:
+    executor: local Claude Code
+    policy: DEC-0013
+    source: approved_catalog
+    initial_channel: coupang
+    l1_first_approval_count: 1
+    l1_failure_pause_threshold: 1
+    l2_approval: per_change
   workbench_closed_beta:
     implementer: local Claude Code via gpwb_bot
     policy: DEC-0007
