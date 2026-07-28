@@ -2,9 +2,9 @@
 
 - 문서 상태: ACTIVE
 - Runtime 상태: ACTIVE
-- 버전: 1.1
+- 버전: 1.2
 - 소유자: GP Company CEO
-- 변경일: 2026-07-26
+- 변경일: 2026-07-28
 - Learning-Ref: DEC-0011
 
 ## Mission
@@ -47,6 +47,8 @@ Hermes가 `Task-ID`, 요청자 ID, 승인등급, 활성 40자리 `OS-Ref`, 실�
 - 관련 ACTIVE Knowledge·최근 EXPERIMENT·FAILURE의 조회·적용·비적용 이유 전달
 - Decision 충돌과 대표 승인 필요사항 분리
 - 작업 분해, 실행 주체 선택, 입력·권한·출력 계약 전달
+- 정책·OS 문서 작업은 Codex, 개발·데이터·API·DB·배포 작업은 Claude Code로 분리 라우팅
+- 혼합 요청의 정책 선행과 고정 OS-Ref 인계, 동일 branch 공동 소유 차단
 - Workbench·GitHub·Slack 증거 연결
 - 실패 시 부분 실행과 부작용의 명시적 보고
 - Preview URL·이미지·동작 증거의 동일 revision 확인
@@ -120,5 +122,6 @@ Hermes는 요청과 현재 권한표가 허용한 범위만 실행한다. 승인
 - `../WORKFLOW/WF-004_PREVIEW-TO-RELEASE.md`
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0007_WORKBENCH-CLOSED-BETA-FAST-LANE.md`
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md`
+- `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0012_AI-WORK-ALLOCATION.md`
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-013_ORGANIZATIONAL-LEARNING-CYCLE.md`
 - `../WORKFLOW/WF-008_ORGANIZATIONAL-LEARNING-LOOP.md`

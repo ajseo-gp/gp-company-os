@@ -149,6 +149,12 @@ execution_lanes:
   company_operations:
     orchestrator: Hermes Primary
     human_interface: natural language in GPcompany Slack
+  ai_work_allocation:
+    policy_and_documentation: Codex
+    implementation_data_api_and_deployment: local Claude Code
+    policy: DEC-0012
+    handoff: approved OS-Ref
+    shared_branch: forbidden
   workbench_closed_beta:
     implementer: local Claude Code via gpwb_bot
     policy: DEC-0007

@@ -30,8 +30,9 @@ Code가 Workbench 맥락을 가장 직접적으로 다룰 수 있다. 따라서 
    `gpwb_bot`이 승인 의도를 구조화하며 사람에게 기계 형식을 요구하지 않는다.
 7. Hermes는 Workbench Fast Lane을 지휘하거나 동일 작업을 중복 구현하지 않는다. 다만
    정책 예외, 보안 사고 또는 명시적 escalation을 전달받으면 Company OS에 따라 처리한다.
-8. Codex는 `gp-company-os`와 `gp-company-hub`의 정책·오케스트레이션 구현을 담당하며,
-   명시적 fallback 승인 없이 Claude의 Workbench branch에 commit하지 않는다.
+8. `DEC-0012`에 따라 Codex는 `gp-company-os`의 정책·문서 관리를 담당하고, Claude
+   Code는 Workbench·Hub를 포함한 개발·데이터·API 구현을 담당한다. 두 도구는 명시적
+   fallback 승인 없이 상대 작업 branch에 commit하지 않는다.
 9. Workbench 자동 실행은 사용자 승인 로컬 Claude Code 세션을 우선한다. 별도 과금되는
    API 또는 GitHub Claude Action으로 조용히 전환하지 않는다.
 
@@ -69,5 +70,6 @@ Code가 Workbench 맥락을 가장 직접적으로 다룰 수 있다. 따라서 
 
 - `DEC-0005_HERMES-SLACK-ORCHESTRATION.md`
 - `DEC-0006_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
+- `DEC-0012_AI-WORK-ALLOCATION.md`
 - `../SOP/SOP-009_WORKBENCH-CLOSED-BETA-FAST-LANE.md`
 - `../../LEVEL-4_AI-EXECUTION/WORKFLOW/WF-005_WORKBENCH-DIRECT-DEVELOPMENT.md`
