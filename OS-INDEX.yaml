@@ -159,10 +159,11 @@ execution_lanes:
     executor: local Claude Code
     policy: DEC-0013
     source: approved_catalog
-    initial_channel: coupang
+    channels: [smartstore, coupang, approved_marketplaces]
     l1_first_approval_count: 1
-    l1_failure_pause_threshold: 1
-    l2_approval: per_change
+    l1_l2_l3_pause_threshold: 1
+    commerce_control_rules: required
+    automation_scope: [listing, content, price, inventory, promotion, paid_promotion_within_budget]
   workbench_closed_beta:
     implementer: local Claude Code via gpwb_bot
     policy: DEC-0007
