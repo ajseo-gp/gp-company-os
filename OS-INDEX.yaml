@@ -155,6 +155,12 @@ execution_lanes:
     policy: DEC-0012
     handoff: approved OS-Ref
     shared_branch: forbidden
+  external_product_write:
+    executor: local Claude Code
+    policy: DEC-0013
+    channels: [approved_catalog, coupang]
+    required_permit: External Write Permit
+    credential_storage: separated_secret_store
   workbench_closed_beta:
     implementer: local Claude Code via gpwb_bot
     policy: DEC-0007

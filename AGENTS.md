@@ -34,6 +34,8 @@
   fallback 승인 없이 Hub·Workbench·프로젝트 구현 branch를 수정하지 않는다.
 - 정책과 구현이 섞인 요청은 Codex가 정책 경계를 먼저 고정하고 Claude Code가 별도
   저장소·branch에서 구현한다. 두 도구가 같은 branch를 공동 소유하지 않는다.
+- `DEC-0013`의 유효한 External Write Permit이 있을 때만 Claude Code가 승인된 카탈로그·
+  쿠팡 상품을 외부 등록·수정·게시할 수 있다. credential은 이 저장소에 기록하지 않는다.
 
 ## Change Discipline
 
