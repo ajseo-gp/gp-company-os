@@ -1,10 +1,10 @@
 # SOP-007 Hermes–Slack 작업 오케스트레이션
 
 - 상태: ACTIVE
-- 버전: 1.0
+- 버전: 1.1
 - 소유자: GP Company CEO
 - 담당: Hermes Primary
-- 변경일: 2026-07-22
+- 변경일: 2026-07-28
 
 ## 목적
 
@@ -122,11 +122,15 @@ gh api 'repos/ajseo-gp/gp-company-os/git/trees/<OS_SHA>?recursive=1' \
 ### 5. 실행과 상태 보고
 
 1. 승인된 범위 안에서 최소 권한으로 작업한다.
-2. 장기 작업은 같은 스레드에 `Task-ID`, 현재 단계, 경과시간, 차단 여부만 간결하게
+2. `DEC-0012`에 따라 정책 수립·OS 문서 정합성 작업은 Codex에, 코드·데이터·API·DB·
+   테스트·CI/CD·인프라·배포 작업은 Claude Code에 라우팅한다.
+3. 두 범위가 섞이면 Codex 정책 작업과 Claude Code 구현 작업을 분리하고, 승인된
+   OS-Ref를 인계점으로 사용한다. 같은 파일·branch의 공동 소유를 허용하지 않는다.
+4. 장기 작업은 같은 스레드에 `Task-ID`, 현재 단계, 경과시간, 차단 여부만 간결하게
    보고한다.
-3. Worker에 라우팅해도 `Task-ID`, `OS-Ref`, 승인등급, 금지 범위와 출력 계약을 그대로
+5. Worker에 라우팅해도 `Task-ID`, `OS-Ref`, 승인등급, 금지 범위와 출력 계약을 그대로
    전달한다.
-4. 재시도는 동일 작업을 중복 실행하지 않도록 기존 실행 ID와 부작용을 먼저 확인한다.
+6. 재시도는 동일 작업을 중복 실행하지 않도록 기존 실행 ID와 부작용을 먼저 확인한다.
 
 ### 6. 결과와 Preview 인계
 
@@ -199,4 +203,5 @@ Workbench Fast Lane은 이 절차 대신 `SOP-009`를 따른다.
 - `../../TEMPLATES/HERMES-WORK-REQUEST.md`
 - `SOP-008_HUMAN-PREVIEW-AUTOMATIC-RELEASE.md`
 - `SOP-009_WORKBENCH-CLOSED-BETA-FAST-LANE.md`
+- `../DECISIONS/DEC-0012_AI-WORK-ALLOCATION.md`
 - `ajseo-gp/gp-company-hub/agents/roles.md` — 현재 승인등급 실행 매트릭스

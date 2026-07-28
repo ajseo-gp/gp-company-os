@@ -42,7 +42,8 @@ Mac mini에는 `gp-company-os` 로컬 clone이 없지만 GitHub 인증과 읽기
 | `gp-company-os` | Decision·Context·SOP·Knowledge의 최상위 원본 | 실행 큐와 런타임 상태 관리 |
 | `gp-company-hub` | 장비 배치, Hermes 운영 토폴로지와 실행 스펙 관리 | Company OS의 정책 원본 대체 |
 | GP Workbench·GitHub | 작업 상태, 실행 로그, Issue·Branch·PR 증거 관리 | Company OS 정책 원본 변경 |
-| `gpwb_bot`·Claude Code | Workbench Closed Beta 자연어 피드백의 구현·위험별 Release | Company OS·Hub 정책 변경, Hermes 업무 중복 실행 |
+| Codex | Company OS 정책·Decision·SOP·Knowledge와 문서 정합성 | 무승인 기술 구현, 데이터·API·배포 작업 |
+| `gpwb_bot`·Claude Code | Workbench·Hub·프로젝트의 개발·데이터·API 구현과 위험별 Release | Company OS ACTIVE 정책 변경, Hermes 업무 중복 실행 |
 | GPmarketing bridge | GPmarketing의 `bot-relay`, `macmini` 채널 polling과 별도 relay | GPcompany Hermes 작업 수신·응답 |
 
 ## 통제 원칙
@@ -71,3 +72,4 @@ Mac mini에는 `gp-company-os` 로컬 clone이 없지만 GitHub 인증과 읽기
 - `../../LEVEL-4_AI-EXECUTION/AGENTS/AGENT-HERMES.md`
 - `../../LEVEL-4_AI-EXECUTION/WORKFLOW/WF-003_SLACK-TO-HERMES.md`
 - `DEC-0007_WORKBENCH-CLOSED-BETA-FAST-LANE.md`
+- `DEC-0012_AI-WORK-ALLOCATION.md`

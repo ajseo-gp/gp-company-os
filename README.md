@@ -159,13 +159,15 @@ flowchart TD
 
     SLACK -->|"회사 운영 요청"| HP["Hermes Primary<br/>Mac mini 2018"]
     OS["gp-company-os<br/>회사 SSOT"] --> HP
-    CODEX["Codex<br/>OS · Hub 구현"] --> OS
+    CODEX["Codex<br/>정책 수립 · 문서 관리"] --> OS
     HP --> QUEUE["회사 운영 큐<br/>Task-ID · OS-Ref · 상태"]
     QUEUE --> OPS["B2C · B2B · OEM · Marketing Agents"]
     OPS -->|"결과·예외만"| SLACK
 
     SLACK -->|"Workbench 피드백"| BOT["gpwb_bot"]
-    BOT --> CLAUDE["Local Claude Code Max<br/>Workbench 단일 구현자"]
+    HP -->|"개발 · 데이터 · API"| CLAUDE["Local Claude Code Max<br/>기술 구현 Primary"]
+    BOT --> CLAUDE
+    CLAUDE --> HUB["gp-company-hub<br/>오케스트레이션 구현"]
     CLAUDE --> GH["gpcompany-lab<br/>branch · test · release"]
     GH --> WB["GP Workbench Closed Beta"]
     WB -->|"운영 URL·변경 영역 PC/모바일"| SLACK
@@ -189,6 +191,12 @@ flowchart TD
 [`LEVEL-4_AI-EXECUTION/WORKFLOW`](./LEVEL-4_AI-EXECUTION/WORKFLOW)와
 [`LEVEL-5_MANAGEMENT-CONTROL`](./LEVEL-5_MANAGEMENT-CONTROL)을 따른다. 장비 배치와
 Hermes 운영 토폴로지는 `gp-company-hub`에서 관리한다.
+
+AI 작업의 도구 경계는 [`DEC-0012`](./LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0012_AI-WORK-ALLOCATION.md)를
+따른다. Codex는 Company OS의 정책 수립·Decision·SOP·Knowledge·색인과 문서 정합성을
+담당한다. Claude Code는 Hub·Workbench·프로젝트의 개발, 데이터 처리·분석, API·DB,
+테스트, CI/CD와 배포를 담당한다. 혼합 요청은 정책을 먼저 고정한 뒤 Claude Code에
+정확한 OS-Ref로 인계하며 같은 branch를 공동 소유하지 않는다.
 
 Hermes 작업은 [`SOP-007`](./LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-007_HERMES-SLACK-ORCHESTRATION.md)에
 따라 자연어 요청을 Task-ID와 40자리 commit SHA의 `OS-Ref`가 포함된 내부 작업으로

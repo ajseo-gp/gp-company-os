@@ -24,6 +24,17 @@
 - 공개 저장소에 고객 PII, 이메일 원문, 처방·함량, 원가·단가, 계약 비밀과 credential을
   기록하지 않는다.
 
+## AI Work Allocation
+
+- `DEC-0012`에 따라 Codex는 `gp-company-os`의 정책 수립, Decision·Context·SOP·Knowledge
+  작성, 색인과 문서 정합성 검증을 담당한다.
+- 개발, 데이터 처리·분석, API·DB·schema, 테스트, CI/CD, 인프라와 배포 구현은 Claude
+  Code에 라우팅한다.
+- Codex는 정책 근거 확인을 위한 기술 저장소 읽기·감사는 할 수 있지만, CEO의 건별
+  fallback 승인 없이 Hub·Workbench·프로젝트 구현 branch를 수정하지 않는다.
+- 정책과 구현이 섞인 요청은 Codex가 정책 경계를 먼저 고정하고 Claude Code가 별도
+  저장소·branch에서 구현한다. 두 도구가 같은 branch를 공동 소유하지 않는다.
+
 ## Change Discipline
 
 - 기존 사용자 변경과 unrelated 파일을 보존한다.
