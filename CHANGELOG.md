@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- 대표 또는 Codex가 특정한 원격 40자리 OS-Ref는 PR merge 여부와 무관하게 해당 Task의
+  승인 기준이며, 적용 여부와 인계문에 이미 답이 있는 항목을 재질문하지 않도록
+  `DEC-0015`와 루트 `OS-UNBLOCK-RESPONSE.md` 인계 계약을 보강
 - `DEC-0015`를 추가해 22:00-08:00 KST 무인 실행, Decision Digest, 사용량 한도
   checkpoint와 Hermes–Orca–Claude Code 단일 Primary 경계를 확정
 - Commerce Control Rules의 현재 상태 Context, `SOP-014`와 YAML 템플릿을 추가하고
