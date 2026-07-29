@@ -1,10 +1,10 @@
 # SOP-012 Targeted Knowledge Refresh
 
 - 상태: ACTIVE
-- 버전: 1.0
+- 버전: 1.1
 - 소유자: Knowledge Steward / GP Company CEO
 - 적용 Workflow: WF-007 Targeted Knowledge Refresh
-- 적용 Decision: DEC-0010
+- 적용 Decision: DEC-0010, DEC-0014
 - 작성일: 2026-07-25
 - 다음 검토일: 2026-08-25
 
@@ -37,6 +37,12 @@ CEO가 별도 승인한 전사 Architecture Review·감사·실사는 범위를 
 checkpoint가 없으면 관련 범위의 최초 baseline만 만들며 전사 전체로 확대하지 않는다.
 
 ## 실행 단계
+
+### 0. Direction Profile 선택
+
+`DEC-0014`에 따라 `D0`·`D1`·`D2`를 분류하고 정확한 OS-Ref의 Direction Snapshot을 읽는다.
+`D1`은 `DEC-0009`와 관련 운영 문서, `D2`는 Mission·Vision 원문까지 범위에 포함한다.
+같은 세션·OS-Ref에서 검증한 문서는 다시 전체 주입하지 않고 checkpoint를 재사용한다.
 
 ### 1. 질문과 범위 고정
 
@@ -145,6 +151,8 @@ ACTIVE 의미·권한·승인 Gate를 바꾸는 변경은 정확한 revision으�
 ## 관련 문서
 
 - `../DECISIONS/DEC-0010_TARGETED-KNOWLEDGE-REFRESH.md`
+- `../DECISIONS/DEC-0014_TIERED-DIRECTION-BOOT.md`
+- `../../LEVEL-1_DIRECTION/DIRECTION-SNAPSHOT.md`
 - `../../LEVEL-4_AI-EXECUTION/WORKFLOW/WF-007_TARGETED-KNOWLEDGE-REFRESH.md`
 - `../../LEVEL-4_AI-EXECUTION/AGENTS/AGENT-KNOWLEDGE-STEWARD.md`
 - `../../LEVEL-4_AI-EXECUTION/AUTOMATION/AUT-013_TARGETED-KNOWLEDGE-REFRESH.md`
