@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- `DEC-0015`를 추가해 22:00-08:00 KST 무인 실행, Decision Digest, 사용량 한도
+  checkpoint와 Hermes–Orca–Claude Code 단일 Primary 경계를 확정
+- Commerce Control Rules의 현재 상태 Context, `SOP-014`와 YAML 템플릿을 추가하고
+  활성 규칙이 없을 때 `externalWriteEnabled=false`를 명시
+- `DEC-0013` 실패 중단 범위를 채널×SKU로 격리하고 예산·표현·반복 실패·rollback 실패의
+  확대 중단 조건을 분리
+- 제품별 기능성·시험 원본을 선행조건으로 두고 화장품 표현을
+  `AUTO_ALLOW`·`AUTO_BLOCK`·`HUMAN_REVIEW`로 기계 판독 가능하게 정리
+- Claude Code의 정책 요청을 대표가 수동 중계하지 않고 Codex로 직접 인계하도록
+  `DEC-0012`·Hermes·Repository 계약을 보완
 - CEO 승인 `DEC-0011`을 ACTIVE로 전환해 Targeted Knowledge Refresh와 실행 결과 기반
   Organizational Learning의 책임을 분리
 - `WF-008`·`SOP-013`을 ACTIVE 수동 운영 기준으로 등록하고 Learning Record 템플릿에

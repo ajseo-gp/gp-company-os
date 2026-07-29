@@ -1,4 +1,4 @@
-version: 0.3.0
+version: 0.3.1
 status: ACTIVE
 owner: GP Company CEO
 authority_repository: ajseo-gp/gp-company-os
@@ -40,6 +40,16 @@ direction_boot:
     D0: [snapshot]
     D1: [snapshot, DEC-0009, related_business_decision_context_sop]
     D2: [snapshot, mission, vision, DEC-0009, related_business_decision_context_sop]
+unattended_execution:
+  status: ACTIVE
+  decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0015_UNATTENDED-EXECUTION-DECISION-DIGEST.md
+  queue_owner: Hermes Primary
+  implementation_worker: local Claude Code
+  optional_worker_supervisor: Orca
+  primary_rule: one_Hermes_primary_per_task
+  default_window: "22:00-08:00 Asia/Seoul"
+  decision_digest: ["08:00 Asia/Seoul", "18:00 Asia/Seoul optional"]
+  states: [DECISION_QUEUE, WAITING_FOR_QUOTA, CHECKPOINTED]
 customer_journey:
   - Customer Acquisition
   - Customer Activation
@@ -172,11 +182,19 @@ execution_lanes:
   channel_listing_automation:
     executor: local Claude Code
     policy: DEC-0013
+    unattended_policy: DEC-0015
     source: approved_catalog
     channels: [smartstore, coupang, approved_marketplaces]
     l1_first_approval_count: 1
-    l1_l2_l3_pause_threshold: 1
+    ordinary_failure_isolation: channel_x_sku
+    channel_pause_conditions: [budget_exceeded]
+    sku_hard_stop_conditions: [claims_gate_failed]
+    global_pause_conditions: [same_cause_3_times, rollback_failed]
     commerce_control_rules: required
+    commerce_control_context: LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT/COMMERCE-CONTROL-RULES.md
+    commerce_control_sop: LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-014_COMMERCE-CONTROL-RULES.md
+    commerce_control_template: TEMPLATES/COMMERCE-CONTROL-RULES-TEMPLATE.yaml
+    claims_rules: LEVEL-3_OPERATING-KNOWLEDGE/KNOWLEDGE/COSMETIC-CLAIMS-GUIDE.md
     automation_scope: [listing, content, price, inventory, promotion, paid_promotion_within_budget]
   workbench_closed_beta:
     implementer: local Claude Code via gpwb_bot

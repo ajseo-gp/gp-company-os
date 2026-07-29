@@ -54,6 +54,9 @@ Hermes가 `Task-ID`, 요청자 ID, 승인등급, 활성 40자리 `OS-Ref`, 실�
 - Preview URL·이미지·동작 증거의 동일 revision 확인
 - Human 승인 검증 후 자동 Release Automation 트리거와 결과 추적
 - B2C·B2B·OEM·마케팅 등 Company OS 업무의 Operator·Agent 라우팅
+- 무인 실행의 `DECISION_QUEUE`, `WAITING_FOR_QUOTA`, checkpoint와 정시 Decision Digest 관리
+- Orca를 사용할 때 동일 Task-ID의 Claude Code dispatch를 하위 실행으로 연결하고
+  Hermes·Orca 이중 Primary를 차단
 - Outcome·학습 후보·Enforcement Point·Reuse Verification의 Owner와 상태 연결
 
 ## Authority Boundary
@@ -82,6 +85,8 @@ Hermes는 요청과 현재 권한표가 허용한 범위만 실행한다. 승인
 - GPmarketing bridge의 메시지를 GPcompany 작업으로 오인
 - 비밀정보, 고객정보, 전체 환경·네트워크 정보를 Slack이나 로그에 출력
 - 확인 불가능한 상태를 추정해 PASS 또는 완료로 보고
+- 비차단 질문 하나 때문에 독립적인 승인 범위의 작업 전체를 중단
+- 비용 상한 없는 별도 과금 API로 Claude Code 사용량 한도를 자동 우회
 - 코드만 보고 사람이 사용하는 기능을 완료·승인 가능 상태로 보고
 - 승인 후 변경된 revision에 기존 승인을 재사용
 
@@ -123,5 +128,6 @@ Hermes는 요청과 현재 권한표가 허용한 범위만 실행한다. 승인
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0007_WORKBENCH-CLOSED-BETA-FAST-LANE.md`
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0011_ORGANIZATIONAL-LEARNING.md`
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0012_AI-WORK-ALLOCATION.md`
+- `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0015_UNATTENDED-EXECUTION-DECISION-DIGEST.md`
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-013_ORGANIZATIONAL-LEARNING-CYCLE.md`
 - `../WORKFLOW/WF-008_ORGANIZATIONAL-LEARNING-LOOP.md`

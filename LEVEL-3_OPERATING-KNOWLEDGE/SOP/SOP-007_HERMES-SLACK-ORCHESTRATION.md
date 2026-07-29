@@ -133,6 +133,20 @@ gh api 'repos/ajseo-gp/gp-company-os/git/trees/<OS_SHA>?recursive=1' \
 5. Worker에 라우팅해도 `Task-ID`, `OS-Ref`, 승인등급, 금지 범위와 출력 계약을 그대로
    전달한다.
 6. 재시도는 동일 작업을 중복 실행하지 않도록 기존 실행 ID와 부작용을 먼저 확인한다.
+7. 무인 실행 중 즉시 답이 필요하지 않은 규칙 밖 판단·정책 충돌·신규 채널·SKU는
+   `DEC-0015`에 따라 `DECISION_QUEUE`에 넣고 독립적인 `READY` 작업을 계속한다.
+8. Claude Code의 사용량 한도나 프로세스 종료가 감지되면 `WAITING_FOR_QUOTA` 또는
+   `CHECKPOINTED`로 기록하고, 대화 기억이 아니라 마지막 검증 revision과 checkpoint로
+   다음 Worker를 재개한다.
+
+### 5-1. Decision Digest
+
+Hermes는 `08:00 KST`에 `DECISION_QUEUE`를 최대 10개까지 묶어 전달한다. 각 항목은
+질문·확인된 배경·선택지·권고안·미결정 시 기본 동작을 포함한다. 필요하면 `18:00 KST`에
+추가 1회를 보낼 수 있다.
+
+결제·환불·정산·계정·권한, `WB-HIGH`, 예산 초과, 표현 Gate 미통과, rollback 실패와
+민감정보 위험은 Digest까지 기다리지 않고 해당 실행을 즉시 중단한다.
 
 ### 6. 결과와 Preview 인계
 
@@ -189,6 +203,8 @@ Workbench Fast Lane은 이 절차 대신 `SOP-009`를 따른다.
 | Slack 연결 단절 | Workbench·GitHub에 상태를 보존하고 연결 복구 후 같은 스레드에 보고 |
 | 부분 실행 후 실패 | 완료·미완료·부작용을 분리해 WARN 또는 BLOCKED로 보고 |
 | 개발 결과의 Preview 없음 | `[BLOCKED:PREVIEW]`, merge·배포 금지 |
+| Claude Code 사용량 한도 | checkpoint 후 `WAITING_FOR_QUOTA`; 비용 상한 없는 API 자동 전환 금지 |
+| 비차단 결정 필요 | `DECISION_QUEUE`에 보존하고 독립 `READY` 작업 계속 |
 
 ## 보안과 로그
 
@@ -208,4 +224,6 @@ Workbench Fast Lane은 이 절차 대신 `SOP-009`를 따른다.
 - `SOP-009_WORKBENCH-CLOSED-BETA-FAST-LANE.md`
 - `../DECISIONS/DEC-0012_AI-WORK-ALLOCATION.md`
 - `../DECISIONS/DEC-0013_CHANNEL-LISTING-AUTOMATION.md`
+- `../DECISIONS/DEC-0015_UNATTENDED-EXECUTION-DECISION-DIGEST.md`
+- `SOP-014_COMMERCE-CONTROL-RULES.md`
 - `ajseo-gp/gp-company-hub/agents/roles.md` — 현재 승인등급 실행 매트릭스

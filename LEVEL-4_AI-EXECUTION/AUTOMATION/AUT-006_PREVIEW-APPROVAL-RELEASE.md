@@ -98,12 +98,56 @@ Automation 실행을 위한 별도 승인은 요구하지 않는다.
 
 ## 구현 완료 조건
 
-- 승인 identity 검증 테스트 통과
-- revision 변경 시 승인 무효화 테스트 통과
+다음 항목은 이름만 구현됐다는 보고가 아니라 고정된 test run·workflow run·deployment
+Evidence로 확인한다.
+
+### 승인 identity
+
+- GPcompany의 승인 channel/thread에서 수신한 Slack user ID가 승인자 allowlist와 일치
+- bot·relay·편집된 메시지·다른 thread의 승인 거부
+- 승인 이벤트에 `Task-ID`와 40자리 revision SHA가 모두 존재
+
+### Revision 고정
+
+- `[PREVIEW:READY]`, preview artifact, source branch HEAD와 승인 SHA가 동일
+- 승인 뒤 source branch HEAD가 바뀌면 기존 승인 무효
+- merge 대상 SHA와 배포 artifact SHA가 동일
+
+### Required CI
+
+Workbench 기준 required CI는 다음 모두다.
+
+- governance validation
+- lint
+- production build
+- 변경 범위의 자동 테스트와 데이터 무결성 검증
+- desktop·mobile preview artifact 또는 동등한 인증 화면 Evidence
+- 배포 뒤 인증·주요 경로 smoke test
+
+GitHub 플랜이나 branch protection이 check를 강제하지 못해도 Release Automation이 각
+결과를 직접 조회해 PASS가 아니면 merge하지 않는다. `continue-on-error` 결과는 required
+CI PASS로 인정하지 않는다.
+
+### Release·rollback
+
 - 중복 승인·재시도 idempotency 테스트 통과
-- CI 실패·merge conflict 차단 테스트 통과
+- merge conflict와 승인되지 않은 SHA 차단 테스트 통과
 - 성공 deployment와 smoke test 보고 통과
-- deploy 실패 rollback 또는 안전 차단 테스트 통과
+- deploy 실패 rollback 또는 이전 정상 revision으로의 안전 차단 테스트 통과
+- rollback 미정의·실패 시 추가 merge·deploy 중단
+
+### ACTIVE 전환 기록
+
+`ACTIVE` 전환에는 다음을 같은 revision에 기록한다.
+
+- 구현 repository와 exact commit SHA
+- 위 검증의 workflow/test/deployment ID
+- 승인자 allowlist 원본의 안전한 참조
+- production target과 rollback 대상
+- 운영 Owner와 장애 연락·재개 절차
+
+항목 하나라도 `미확인`이면 상태를 `PLANNED`로 유지한다. Workbench `WB-LOW` Fast Lane은
+이 상태와 무관하게 `DEC-0007`과 `SOP-009`를 따른다.
 
 ## 관련 문서
 

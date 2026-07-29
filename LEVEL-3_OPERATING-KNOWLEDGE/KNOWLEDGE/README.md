@@ -33,7 +33,7 @@ Knowledge에는 지식 ID와 유형, 상태, 소유자, 검토일, 주장, 근�
 | `COMPANY-PROFILE.md` | FACT | ACTIVE | 근거·검토일 |
 | `GENTLEPAPA-BRAND.md` | FACT/PRACTICE | ACTIVE | 적용 범위·검토일 |
 | `CUSTOMER-SEGMENTS.md` | INSIGHT | 미표시 | 근거·상태 |
-| `COSMETIC-CLAIMS-GUIDE.md` | PRACTICE | ACTIVE | 법규 검토일·출처 |
+| `COSMETIC-CLAIMS-GUIDE.md` | PRACTICE | ACTIVE | 제품별 기능성·시험 원본 연결 |
 | `MANUFACTURING-CAPABILITY.md` | FACT | REVIEW | 생산 근거·책임자 |
 | `PRACTICE-0001_SMARTSTORE-OPERATING-GUIDE.md` | PRACTICE | REVIEW | 첫 Campaign 성과·CEO 승인 |
 

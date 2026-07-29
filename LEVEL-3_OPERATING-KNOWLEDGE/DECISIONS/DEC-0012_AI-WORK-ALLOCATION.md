@@ -33,7 +33,9 @@
    - 먼저 Codex가 정책·완료 조건·승인 경계를 고정한다.
    - 다음으로 Claude Code가 고정 OS-Ref를 받아 별도 기술 저장소에서 구현한다.
 6. Hermes와 `gpwb_bot`은 자연어 요청을 내부에서 분류하고 사람에게 도구 선택이나
-   Task-ID·branch·SHA 전달을 요구하지 않는다.
+   Task-ID·branch·SHA 전달을 요구하지 않는다. Claude Code가 구현 중 정책 변경을
+   발견하면 Hermes·Orca 또는 공유 작업 artifact를 통해 Codex에 직접 반환하고,
+   대표에게 요청 파일을 복사하거나 두 도구 사이를 중계하도록 요구하지 않는다.
 7. 같은 Task-ID·파일·branch를 Codex와 Claude Code가 동시에 소유하지 않는다.
 8. 이 분리는 비용 절감만을 위한 것이 아니다. 정책 판단과 구현 책임을 분리해 재작업,
    충돌, 승인 오인과 대표의 중계 업무를 줄이는 운영 통제다.

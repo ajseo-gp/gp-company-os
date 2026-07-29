@@ -206,6 +206,18 @@ Hermes 작업은 [`SOP-007`](./LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-007_HERMES-SL
 변환한다. 사람은 이 값을 입력하지 않는다. Hermes는 로컬 clone이나 현재 브랜치가 아니라
 지정 SHA의 Company OS 문서를 읽고 B2C·B2B·OEM·마케팅 업무를 라우팅한다.
 
+장기 작업과 무인 실행은
+[`DEC-0015`](./LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0015_UNATTENDED-EXECUTION-DECISION-DIGEST.md)를
+따른다. Hermes가 작업 큐의 단일 Primary로서 checkpoint와 Decision Digest를 관리하고,
+Orca는 사용할 경우 같은 Task-ID의 Claude Code Worker를 감독하는 하위 실행 조정자다.
+정책 질문은 Claude Code가 Codex에 직접 반환하며 사람에게 파일·SHA 전달을 요구하지 않는다.
+
+B2C 상품·가격·프로모션 자동 실행은
+[`SOP-014`](./LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-014_COMMERCE-CONTROL-RULES.md)의
+Commerce Control Rules가 활성화된 범위에서만 허용한다. 현재 활성 규칙 상태는
+[`COMMERCE-CONTROL-RULES.md`](./LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT/COMMERCE-CONTROL-RULES.md)에서
+확인한다.
+
 사람이 사용하는 기능은 코드 검토만으로 merge하지 않는다. Agent가 동일 revision의
 Preview URL과 시각 증거를 제공하고 대표가 Slack에서 승인하면, 해당 revision은 추가
 수동 확인 없이 자동 merge·배포·smoke test로 진행한다. 세부 기준은

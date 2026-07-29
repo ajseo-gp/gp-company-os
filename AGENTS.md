@@ -38,6 +38,12 @@
 - `DEC-0013`에 따라 Claude Code는 스마트스토어·쿠팡 및 활성 쇼핑몰의 상품 등록, 가격,
   할인·프로모션을 자동 실행할 수 있다. Commerce Control Rules와 표현·SKU·예산·rollback·
   실행 기록 Gate를 통과하지 못하면 외부 쓰기를 실행하지 않는다.
+- `DEC-0015`에 따라 비차단 정책 질문은 대표에게 즉시 중계시키지 않고 Codex 작업 또는
+  `DECISION_QUEUE`로 직접 라우팅한다. 무인 실행은 checkpoint로 이어가며 비용 상한 없는
+  별도 과금 API로 사용량 한도를 자동 우회하지 않는다.
+- Claude Code가 정책 변경을 요청할 때 대표에게 파일·SHA·도구 선택을 전달시키지 않는다.
+  Hermes·Orca·공유 작업 artifact 중 현재 활성 경로로 Codex에 직접 인계하고, 새
+  `OS-Ref`를 받으면 Claude Code가 구현을 재개한다.
 
 ## Direction Reading Profiles
 

@@ -1,0 +1,58 @@
+document_type: CommerceControlRules
+template_version: 1.0
+status: DRAFT
+ccr_id: CCR-0000
+revision: 0
+owner: GP Company CEO / Marketing Owner
+approved_by: null
+approved_at: null
+effective_from: null
+effective_until: null
+runtime_authority_ref: null
+
+scope:
+  channels: []
+  skus: []
+  catalog_revision: null
+
+price:
+  source_ref: null
+  floor:
+    value: null
+    formula: null
+  ceiling:
+    value: null
+    formula: null
+  max_discount_rate: null
+
+promotion:
+  allowed_types: []
+  start_at: null
+  end_at: null
+
+budget:
+  source_ref: null
+  daily_cap: null
+  total_cap: null
+
+claims:
+  rules_revision: null
+  product_status_source_ref: null
+
+stop_conditions: []
+rollback:
+  method: null
+  verification_id: null
+
+first_listing_approval: {}
+external_write_enabled: false
+
+validation:
+  catalog_sku_match: PENDING
+  channel_required_fields: PENDING
+  claims_gate: PENDING
+  duplicate_check: PENDING
+  before_value_snapshot: PENDING
+  idempotency: PENDING
+  rollback_dry_run: PENDING
+  audit_log: PENDING

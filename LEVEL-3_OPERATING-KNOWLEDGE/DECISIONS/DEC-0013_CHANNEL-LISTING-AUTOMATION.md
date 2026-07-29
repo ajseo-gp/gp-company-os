@@ -48,9 +48,13 @@ Claude Code를 멀티채널 상거래 자동화의 단일 기술 실행자로 �
    Commerce Control Rules revision, 승인 상태,
    외부 상품 ID, 실행 시각·주체와 rollback 경로를 기록한다. credential과 고객·원가
    원문은 기록하지 않는다.
-8. 채널별 `L1`·`L2`·`L3` 자동화는 실패·반려·예산 초과·규칙 이탈 1건이 발생하면 즉시
-   중단한다. 재개에는 원인·
-   rollback 결과와 재개 근거를 대표에게 보고해야 한다.
+8. 채널별 `L1`·`L2`·`L3` 자동화의 실패·반려·규칙 이탈은 해당 `채널×SKU` 범위를
+   즉시 격리한다. 자동 rollback이 성공하면 원인·rollback 결과와 재개 근거를
+   `DEC-0015`의 Decision Digest로 보고하고, Digest 전달 후 수정된 입력으로 1회
+   재검증할 수 있다. 영향받지 않는 채널·SKU는 계속 실행한다.
+   - 예산 초과: 해당 채널의 가격·프로모션·유료 집행 전체를 즉시 중단
+   - 표현 검수 미통과: 해당 SKU 외부 쓰기를 중단하고 사람 판단 전 재개 금지
+   - 같은 원인 3회 반복 또는 rollback 실패: 모든 채널 외부 쓰기 중단과 즉시 대표 보고
 9. `externalWriteEnabled`는 이 Decision의 검사 Gate, 상업 규칙, 실행 기록과 중단 규칙이 구현·
    검증된 경우에만 활성화한다. 쓰기 함수만 먼저 만들고 Gate를 나중에 붙이지 않는다.
 
@@ -80,7 +84,8 @@ Claude Code를 멀티채널 상거래 자동화의 단일 기술 실행자로 �
 
 - 채널·상품·가격·프로모션 규칙을 한 번 설정하면 대표가 실행마다 중계하지 않아도 된다.
 - 규칙 밖의 가격·예산 판단은 자동화하지 않아 수익성·현금 리스크를 통제한다.
-- 실패·반려·예산 초과 1건에서 자동을 멈춰 잘못된 대량 실행을 차단한다.
+- 실패는 `채널×SKU`로 격리해 독립 실행을 보존하고, 예산·표현·반복 실패·rollback
+  실패는 넓은 범위를 중단해 잘못된 대량 실행을 차단한다.
 
 ## 전환과 검증
 
@@ -90,7 +95,9 @@ Claude Code를 멀티채널 상거래 자동화의 단일 기술 실행자로 �
 2. 채널별 안전한 검증 범위에서 등록·가격 반영·프로모션·rollback을 확인한다.
 3. 대표 승인으로 채널별 첫 `L1` 상품을 실행하고, 이후 규칙 안의 `L1`~`L3` 실행 결과를
    B2C Growth에 기록한다.
-4. 성공 기준은 규칙 없는 외부 쓰기 0건, 표현 검수 미통과 반영 0건, 중복 등록 0건,
+4. 일반 실패가 다른 채널·SKU를 중단하지 않는지, 예산·표현·3회 반복·rollback 실패가
+   지정 범위를 정확히 중단하는지 검증한다.
+5. 성공 기준은 규칙 없는 외부 쓰기 0건, 표현 검수 미통과 반영 0건, 중복 등록 0건,
    예산 초과 0건, 실행 기록·rollback 경로 100%다.
 
 ## 재검토 조건
@@ -105,5 +112,8 @@ Claude Code를 멀티채널 상거래 자동화의 단일 기술 실행자로 �
 - Context: `LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT/CURRENT-PRIORITIES.md`
 - Decision: `DEC-0009_REVENUE-FIRST.md`, `DEC-0012_AI-WORK-ALLOCATION.md`
 - SOP: `LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-007_HERMES-SLACK-ORCHESTRATION.md`, `SOP-011_MARKETING-EXPERIMENT.md`
+- Commerce Control: `LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT/COMMERCE-CONTROL-RULES.md`,
+  `LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-014_COMMERCE-CONTROL-RULES.md`
+- Unattended Execution: `DEC-0015_UNATTENDED-EXECUTION-DECISION-DIGEST.md`
 - Agent: `LEVEL-4_AI-EXECUTION/AGENTS/AGENT-MARKETING-GROWTH-TEAM.md`
 - Hub: `brands/gentlepapa/commerce-store-automation-strategy-v0.1.md`

@@ -35,6 +35,8 @@ Context는 정책을 새로 만들지 않는다. 현재 상태가 기존 Decisio
 | B2C 운영 | `../../LEVEL-2_BUSINESS/B2C.md` |
 | 마케팅 방향 | `../../LEVEL-2_BUSINESS/MARKETING.md` |
 | 연구·생산 현재 정합성 | `WORKBENCH-RESEARCH-PRODUCTION-ALIGNMENT.md` |
+| Commerce Control Rules 상태 | `COMMERCE-CONTROL-RULES.md` |
+| Domain 실행·검토 기본 담당 | `DOMAIN-OPERATING-DEFAULTS.md` |
 | 대표 의사결정 원칙 | `../../LEVEL-1_DIRECTION/MANIFEST.md`, `../../LEVEL-4_AI-EXECUTION/AI.md` |
 
 위 표는 중복 Context 파일을 만들기보다 해당 주제의 현재 원본을 찾기 위한 지도다.

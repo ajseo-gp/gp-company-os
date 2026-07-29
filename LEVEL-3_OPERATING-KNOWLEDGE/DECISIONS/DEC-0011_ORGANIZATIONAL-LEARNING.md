@@ -118,8 +118,10 @@ Hub와 Workbench의 실제 구현 상태는 별도 Repository 감사 전까지 `
    - `scripts/validate_os.rb`: 기계 판독 가능한 Enforcement 계약의 경로·역참조 검사
 2. `SOP-006`의 출력 계약을 템플릿 자체가 아니라 기준기간을 가진 불변 Review 인스턴스로
    수정하고, 원본 저장소·파일명·ID 규칙을 확정한다.
-3. Knowledge Steward가 PLANNED인 동안 WF-006·WF-007·WF-008의 수동 Reviewer와 대리자를
-   지정한다. 수동 Owner가 없으면 해당 학습 상태 전이를 ACTIVE 실행으로 보고하지 않는다.
+3. Knowledge Steward가 PLANNED인 동안 Domain별 실행 Owner, 수동 Reviewer, 검토 준비
+   대리와 측정 주기를 `CONTEXT/DOMAIN-OPERATING-DEFAULTS.md`에 한 번 지정한다. Task는
+   기본값을 상속하며 예외일 때만 override한다. Reviewer가 비어 있으면 Campaign 실행이
+   아니라 해당 학습의 검증·`PRACTICE` 승격을 보류한다.
 4. CEO가 이 전체 변경의 정확한 commit SHA와 적용일을 승인한다.
 5. 현재 Revenue 우선순위와 직접 연결된 젠틀파파 B2C Campaign을 첫 `L2` PILOT으로 한다.
 6. 비교 가능한 다음 Campaign에서 학습 소비와 결과 변화를 확인한다.
@@ -158,8 +160,10 @@ Hub와 Workbench의 실제 구현 상태는 별도 Repository 감사 전까지 `
 ## 활성화와 남은 승인사항
 
 - 이 Decision과 Company OS 활성화 패키지는 2026-07-26 승인되었다.
-- 첫 L2 PILOT을 시작하기 전에 실행 Owner, 수동 Knowledge Reviewer·대리자와 측정일을
-  Task별로 지정한다. 역할이 비어 있으면 PILOT을 시작하지 않는다.
+- 첫 L2 PILOT은 `CONTEXT/DOMAIN-OPERATING-DEFAULTS.md`의 B2C 기본 담당과 측정 주기를
+  상속한다. Task별 재지정은 예외가 있을 때만 필요하다. 실행 Owner가 없으면 PILOT을
+  시작하지 않지만, 수동 Reviewer·대리자의 일시 부재는 승인된 Campaign 실행을 막지 않고
+  학습 검증·승격만 보류한다.
 - Weekly Review 실행 기록의 원본은 GP Workbench로 한다. 구현 전 임시 원본이 필요하면
   승인된 운영 저장소와 안전한 Review-ID를 지정하며 OS에 운영 원문을 복사하지 않는다.
 - 외부 게시·광고·가격·고객 발송, Hub·Workbench 코드 변경과 Agent·Automation의
@@ -169,6 +173,7 @@ Hub와 Workbench의 실제 구현 상태는 별도 Repository 감사 전까지 `
 
 - Business: `../../LEVEL-2_BUSINESS/BUSINESS.md`, `../../LEVEL-2_BUSINESS/MARKETING.md`
 - Context: `../CONTEXT/ORGANIZATIONAL-LEARNING-GAP.md`
+- Domain Defaults: `../CONTEXT/DOMAIN-OPERATING-DEFAULTS.md`
 - Decision: `DEC-0009_REVENUE-FIRST.md`, `DEC-0010_TARGETED-KNOWLEDGE-REFRESH.md`
 - Workflow: `../../LEVEL-4_AI-EXECUTION/WORKFLOW/WF-008_ORGANIZATIONAL-LEARNING-LOOP.md`
 - SOP: `../SOP/SOP-013_ORGANIZATIONAL-LEARNING-CYCLE.md`

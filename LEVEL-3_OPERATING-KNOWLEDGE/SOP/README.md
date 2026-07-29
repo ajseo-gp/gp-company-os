@@ -34,6 +34,7 @@ SOP는 최소 하나의 Workflow 또는 반복 운영 목적에 연결한다. `A
 - 콘텐츠 제작
 - 주간 운영 리뷰
 - Hermes–Slack 작업 오케스트레이션
+- Commerce Control Rules 승인·활성화·중단
 - Human Preview 승인과 자동 Release
 - GP Workbench Closed Beta Fast Lane
 - 연구에서 견적·생산까지의 상태 전환과 추적
