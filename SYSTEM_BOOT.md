@@ -1,11 +1,12 @@
 # GP Company OS — System Boot
 
 - 상태: ACTIVE
-- 문서 버전: 1.1
+- 문서 버전: 1.2
 - 적용 OS 버전: 0.3.x
 - 소유자: GP Company CEO
 - 목적: 사람과 AI가 같은 기준·순서·권한으로 GP Company OS를 해석하도록 한다.
 - Learning-Ref: DEC-0011
+- Direction-Ref: DEC-0014
 
 ## 1. 이 저장소의 역할
 
@@ -23,20 +24,22 @@ AI는 모델의 기억이나 일반 지식보다 이 저장소의 고정된 문�
 
 1. `SYSTEM_BOOT.md`
 2. `README.md`
-3. `LEVEL-1_DIRECTION/MANIFEST.md`
-4. `LEVEL-1_DIRECTION/BLUEPRINT.md`
-5. 관련 `LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT`
-6. 관련 `LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS`
-7. `AGENTS.md`와 관련 Agent 명세
-8. 관련 `LEVEL-4_AI-EXECUTION/WORKFLOW`
-9. 관련 `LEVEL-3_OPERATING-KNOWLEDGE/SOP`
-10. 관련 `LEVEL-4_AI-EXECUTION/AUTOMATION`
-11. 필요한 Knowledge와 Prompt
-12. 관련 KPI·Dashboard·Review
+3. `LEVEL-1_DIRECTION/DIRECTION-SNAPSHOT.md`
+4. `LEVEL-1_DIRECTION/MANIFEST.md`
+5. `LEVEL-1_DIRECTION/BLUEPRINT.md`
+6. 관련 `LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT`
+7. 관련 `LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS`
+8. `AGENTS.md`와 관련 Agent 명세
+9. 관련 `LEVEL-4_AI-EXECUTION/WORKFLOW`
+10. 관련 `LEVEL-3_OPERATING-KNOWLEDGE/SOP`
+11. 관련 `LEVEL-4_AI-EXECUTION/AUTOMATION`
+12. 필요한 Knowledge와 Prompt
+13. 관련 KPI·Dashboard·Review
 
-Mission이나 Vision을 변경·평가하는 작업이면 `MISSION.md`와 `VISION.md`를 Blueprint보다
-먼저 읽는다. 모든 문서를 무조건 읽지 말고, `OS-INDEX.yaml`에서 작업과 관련된 문서
-유형과 레지스트리를 찾는다.
+모든 작업은 `DEC-0014`에 따라 `D0`·`D1`·`D2` Direction Profile을 자동 분류한다.
+`D0`는 Snapshot, `D1`은 Snapshot·`DEC-0009`·관련 운영 문서, `D2`는 여기에 `MISSION.md`와
+`VISION.md` 원문을 추가로 읽는다. 같은 세션·같은 OS-Ref에서는 검증된 읽기 checkpoint를
+재사용한다. 모든 문서를 무조건 읽지 말고 `OS-INDEX.yaml`에서 필요한 최소 범위를 찾는다.
 
 ## 3. Source of Truth
 
@@ -76,13 +79,14 @@ AI는 작업을 시작할 때 다음을 수행한다.
 2. `DEC-0009`에 따라 신규 고객, 판매, 재구매, 대표의 마케팅 병목 또는 반복 가능한
    성장에 대한 기여 경로를 확인한다.
 3. 요청의 사업영역, Customer Journey, Workflow, 위험도와 완료 조건을 식별한다.
-4. 관련 ACTIVE Decision·Context·SOP·Knowledge와 비교 가능한 최근
+4. `DEC-0014`의 Direction Profile을 정하고 필수 방향 문서를 읽는다.
+5. 관련 ACTIVE Decision·Context·SOP·Knowledge와 비교 가능한 최근
    EXPERIMENT·FAILURE를 읽고 충돌·만료·적용 범위를 확인한다.
-5. `DEC-0011`에 따라 적용한 Knowledge, 적용하지 않은 Knowledge와 이유, 관련 지식이
+6. `DEC-0011`에 따라 적용한 Knowledge, 적용하지 않은 Knowledge와 이유, 관련 지식이
    없으면 검색 범위를 `Learning Preflight`에 남긴다.
-6. 민감정보와 외부 발송·금전·계약·법률·생산 승인 여부를 확인한다.
-7. 승인 범위 안에서만 실행하고, 결과에 사용 문서·Evidence와 예상 대비 실제 결과를 남긴다.
-8. 반복 문제나 새로 검증된 사실을 Context·Knowledge·SOP·Decision 후보로 분류하고,
+7. 민감정보와 외부 발송·금전·계약·법률·생산 승인 여부를 확인한다.
+8. 승인 범위 안에서만 실행하고, 결과에 사용 문서·Evidence와 예상 대비 실제 결과를 남긴다.
+9. 반복 문제나 새로 검증된 사실을 Context·Knowledge·SOP·Decision 후보로 분류하고,
    다음 소비 파일과 검증 시점을 지정한다.
 
 L1·L2 Task는 `SOP-013`을 따른다. 결과가 나중에 발생하면 Owner·측정일·원천을 가진
@@ -108,6 +112,7 @@ L1·L2 Task는 `SOP-013`을 따른다. 결과가 나중에 발생하면 Owner·�
 중요한 AI 결과에는 가능한 범위에서 다음을 포함한다.
 
 - 적용한 `OS-Ref` 또는 검토한 브랜치
+- `Direction-Profile`, 읽은 방향 문서와 실제 적용한 방향
 - 참조한 Decision·Context·SOP·Knowledge
 - 적용한 Knowledge, 적용하지 않은 Knowledge와 이유 또는 `NO_APPLICABLE_KNOWLEDGE` 검색 범위
 - 확인된 사실과 아직 확인되지 않은 가정

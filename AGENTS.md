@@ -5,7 +5,8 @@
 ## Required Boot
 
 1. `SYSTEM_BOOT.md`를 먼저 읽는다.
-2. `README.md`와 `OS-INDEX.yaml`로 저장소 구조와 작업 관련 문서를 찾는다.
+2. `README.md`, `LEVEL-1_DIRECTION/DIRECTION-SNAPSHOT.md`와 `OS-INDEX.yaml`로 저장소 구조와
+   작업 관련 문서를 찾는다.
 3. 변경 전 관련 ACTIVE Decision → Context → SOP 순으로 충돌을 확인한다.
 4. 작업 결과에 참조 문서, 확인되지 않은 항목과 승인 필요사항을 남긴다.
 
@@ -37,6 +38,13 @@
 - `DEC-0013`에 따라 Claude Code는 스마트스토어·쿠팡 및 활성 쇼핑몰의 상품 등록, 가격,
   할인·프로모션을 자동 실행할 수 있다. Commerce Control Rules와 표현·SKU·예산·rollback·
   실행 기록 Gate를 통과하지 못하면 외부 쓰기를 실행하지 않는다.
+
+## Direction Reading Profiles
+
+- 모든 작업은 `DEC-0014`에 따라 `D0`·`D1`·`D2`로 분류하고 Direction Snapshot을 읽는다.
+- `D0` 단순 기술 변경은 Snapshot만, `D1` 매출·고객·기능 변경은 Snapshot과 `DEC-0009`,
+  `D2` 가격·프로모션·외부 쓰기·신규 사업·권한·정책은 Mission·Vision 원문까지 읽는다.
+- 같은 세션·같은 OS-Ref에서 이미 검증한 방향 문서는 다시 읽지 않고 checkpoint를 재사용한다.
 
 ## Change Discipline
 

@@ -6,6 +6,7 @@ entrypoint: SYSTEM_BOOT.md
 boot_sequence:
   - SYSTEM_BOOT.md
   - README.md
+  - LEVEL-1_DIRECTION/DIRECTION-SNAPSHOT.md
   - LEVEL-1_DIRECTION/MANIFEST.md
   - LEVEL-1_DIRECTION/BLUEPRINT.md
   - LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT
@@ -26,6 +27,19 @@ corporate_direction:
     - Hair & Scalp Business
     - AI & Company OS Business
   value_principle: Transferable Company
+direction_boot:
+  status: ACTIVE
+  decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0014_TIERED-DIRECTION-BOOT.md
+  snapshot: LEVEL-1_DIRECTION/DIRECTION-SNAPSHOT.md
+  mission: LEVEL-1_DIRECTION/MISSION.md
+  vision: LEVEL-1_DIRECTION/VISION.md
+  authority_repository: ajseo-gp/gp-company-os
+  exact_os_ref_required: true
+  session_cache_key: OS-Ref
+  profiles:
+    D0: [snapshot]
+    D1: [snapshot, DEC-0009, related_business_decision_context_sop]
+    D2: [snapshot, mission, vision, DEC-0009, related_business_decision_context_sop]
 customer_journey:
   - Customer Acquisition
   - Customer Activation

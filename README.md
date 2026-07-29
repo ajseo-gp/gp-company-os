@@ -24,6 +24,9 @@ GP Company OS는 문서 보관함이 아니라 회사의 두 번째 두뇌다. M
 
 원문은 [`MISSION.md`](./LEVEL-1_DIRECTION/MISSION.md)와
 [`VISION.md`](./LEVEL-1_DIRECTION/VISION.md)를 따른다.
+모든 작업의 짧은 방향 확인은 [`DIRECTION-SNAPSHOT.md`](./LEVEL-1_DIRECTION/DIRECTION-SNAPSHOT.md)를
+사용하고, 가격·프로모션·외부 쓰기·신규 사업·권한·정책 변경은 `DEC-0014`에 따라
+Mission·Vision 원문까지 읽는다.
 
 ## Corporate Direction
 
