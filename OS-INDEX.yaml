@@ -1,4 +1,4 @@
-version: 0.3.0
+version: 0.3.1
 status: ACTIVE
 owner: GP Company CEO
 authority_repository: ajseo-gp/gp-company-os
@@ -40,6 +40,32 @@ direction_boot:
     D0: [snapshot]
     D1: [snapshot, DEC-0009, related_business_decision_context_sop]
     D2: [snapshot, mission, vision, DEC-0009, related_business_decision_context_sop]
+operational_data_protection:
+  status: ACTIVE
+  decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0016_OPERATIONAL-DATA-BACKUP-RECOVERY.md
+  sop: LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-015_OPERATIONAL-DATA-BACKUP-RESTORE.md
+  security: SECURITY.md
+  evidence: https://github.com/ajseo-gp/gp-company-os/issues/12
+  executor: local Claude Code
+  policy_owner: Codex
+  manifest_required: true
+  minimum_copies_including_primary: 3
+  independent_backup_copies: 2
+  immutable_or_offline_copies: 1
+  encrypted_before_external_transfer: true
+  encrypted_operational_data_in_git: forbidden
+  minimum_recovery_custodians: 2
+  default_rpo: 1h
+  default_rto: 8h
+  retention:
+    hourly: 7d
+    daily: 90d
+    monthly: 12mo
+    immutable_daily: 35d
+    immutable_monthly: 12mo
+  restore_verification:
+    sample: monthly
+    full_isolated: quarterly
 customer_journey:
   - Customer Acquisition
   - Customer Activation
