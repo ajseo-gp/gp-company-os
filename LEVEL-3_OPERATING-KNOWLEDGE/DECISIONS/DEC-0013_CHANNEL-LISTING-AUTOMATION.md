@@ -7,6 +7,8 @@
 - 적용 범위: 스마트스토어·쿠팡 및 승인된 쇼핑몰의 상품 등록·가격·프로모션 실행
 - 대체하는 Decision: 없음
 - 대체된 Decision: 없음
+- 변경 제안일: 2026-07-30
+- 변경 승인: CEO 승인 필요
 
 ## 배경
 
@@ -38,6 +40,11 @@ Claude Code를 멀티채널 상거래 자동화의 단일 기술 실행자로 �
    프로모션 유형, 시작·종료 시각, 일·총 예산 또는 비용 상한, 중단 조건과 rollback
    방법이 포함되어야 한다. 규칙이 없거나 값을 벗어나면 Claude Code는 실행하지 않고
    대표 결정으로 올린다.
+   최초 활성화는 `FIXED_BASELINE` 모드를 사용한다. 이 모드의 가격은 권한 저장소의
+   승인된 상품 마스터 가격을 사용하며, 같은 SKU가 이미 해당 채널에서 판매 중이면
+   현재 채널 가격을 기준선 Evidence로 함께 대조한다. AI가 가격을 추정하거나 생성하지
+   않으며 허용 가격 변화량은 `0`이다. 승인 가격 원천이 없거나 두 원천이 불일치하면
+   `PRICE_SOURCE_BLOCKED`로 중단한다.
 4. 유료 광고·외부 매체 집행도 동일 규칙에 채널·일·총 예산 상한이 명시된 경우에만
    자동 실행한다. 결제·환불·정산·계정·권한 변경은 계속 권한 밖이다.
 5. 실행 전에는 화장품 표현 검수, 채널의 현재 필수 필드·길이·카테고리 규칙, SKU 매칭,
@@ -48,11 +55,17 @@ Claude Code를 멀티채널 상거래 자동화의 단일 기술 실행자로 �
    Commerce Control Rules revision, 승인 상태,
    외부 상품 ID, 실행 시각·주체와 rollback 경로를 기록한다. credential과 고객·원가
    원문은 기록하지 않는다.
-8. 채널별 `L1`·`L2`·`L3` 자동화는 실패·반려·예산 초과·규칙 이탈 1건이 발생하면 즉시
-   중단한다. 재개에는 원인·
-   rollback 결과와 재개 근거를 대표에게 보고해야 한다.
-9. `externalWriteEnabled`는 이 Decision의 검사 Gate, 상업 규칙, 실행 기록과 중단 규칙이 구현·
-   검증된 경우에만 활성화한다. 쓰기 함수만 먼저 만들고 Gate를 나중에 붙이지 않는다.
+8. 일반 실패·반려·규칙 이탈 1건은 해당 `채널×SKU` 실행 권한만 격리한다. 같은 원인
+   3회 반복, rollback 실패, 예산 초과 또는 표현 Gate 위반은 관련 범위를 중단한다.
+   독립 범위의 실행은 계속하며 전역 중단 조건은 `SOP-014`를 따른다.
+9. 전역 `externalWriteEnabled=true`는 허용하지 않는다. 외부 쓰기 권한은
+   `채널×SKU×작업종류×CCR revision`과 유효기간에 묶인 capability로 발급한다. 정확한
+   범위의 검사 Gate, 상업 규칙, 실행 기록과 rollback이 구현·검증된 경우에만 활성화한다.
+   쓰기 함수만 먼저 만들고 Gate를 나중에 붙이지 않는다.
+10. 가격 자동화는 두 단계로 분리한다.
+    - `FIXED_BASELINE`: 승인 가격을 복제하여 상품 등록·카탈로그 동기화를 먼저 연다.
+    - `FORMULA_CONTROLLED`: 승인된 하한·상한 또는 산식과 입력 기준시각이 있을 때만
+      가격 변경·할인·프로모션을 연다.
 
 ## 이유
 
@@ -67,7 +80,7 @@ Claude Code를 멀티채널 상거래 자동화의 단일 기술 실행자로 �
 - 승인된 카탈로그→스마트스토어·쿠팡 및 활성 쇼핑몰의 신규 등록·콘텐츠·가격 동기화
 - 채널별 할인·쿠폰·프로모션과 규칙 안의 유료 집행
 - 쓰기 Adapter, 표현·SKU·필수필드 검사 Gate, 상업 규칙, rollback과 실행 기록
-- B2C Growth의 상업 규칙·자동화 상태와 `externalWriteEnabled` 표시
+- B2C Growth의 상업 규칙·자동화 상태와 범위 제한 capability 표시
 
 ### 비적용
 
@@ -80,7 +93,8 @@ Claude Code를 멀티채널 상거래 자동화의 단일 기술 실행자로 �
 
 - 채널·상품·가격·프로모션 규칙을 한 번 설정하면 대표가 실행마다 중계하지 않아도 된다.
 - 규칙 밖의 가격·예산 판단은 자동화하지 않아 수익성·현금 리스크를 통제한다.
-- 실패·반려·예산 초과 1건에서 자동을 멈춰 잘못된 대량 실행을 차단한다.
+- 실패·반려 1건은 해당 채널×SKU만 격리하고, 반복 실패·rollback 실패·예산 초과에서는
+  관련 범위를 중단해 안전성과 독립 실행을 함께 유지한다.
 
 ## 전환과 검증
 
@@ -90,7 +104,10 @@ Claude Code를 멀티채널 상거래 자동화의 단일 기술 실행자로 �
 2. 채널별 안전한 검증 범위에서 등록·가격 반영·프로모션·rollback을 확인한다.
 3. 대표 승인으로 채널별 첫 `L1` 상품을 실행하고, 이후 규칙 안의 `L1`~`L3` 실행 결과를
    B2C Growth에 기록한다.
-4. 성공 기준은 규칙 없는 외부 쓰기 0건, 표현 검수 미통과 반영 0건, 중복 등록 0건,
+4. 최초 `FIXED_BASELINE`에서는 상품 등록과 가격 변경을 같은 요청으로 보내되 승인 가격과
+   요청 가격의 차이가 `0`인지 검증한다. 가격 산식이 승인되기 전에는 `L3` 가격 변경을
+   활성화하지 않는다.
+5. 성공 기준은 규칙 없는 외부 쓰기 0건, 표현 검수 미통과 반영 0건, 중복 등록 0건,
    예산 초과 0건, 실행 기록·rollback 경로 100%다.
 
 ## 재검토 조건
@@ -102,8 +119,11 @@ Claude Code를 멀티채널 상거래 자동화의 단일 기술 실행자로 �
 ## 관련 문서
 
 - Business: `LEVEL-2_BUSINESS/B2C.md`, `LEVEL-2_BUSINESS/MARKETING.md`
-- Context: `LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT/CURRENT-PRIORITIES.md`
+- Context: `LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT/CURRENT-PRIORITIES.md`,
+  `LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT/COMMERCE-CONTROL-RULES.md`
 - Decision: `DEC-0009_REVENUE-FIRST.md`, `DEC-0012_AI-WORK-ALLOCATION.md`
-- SOP: `LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-007_HERMES-SLACK-ORCHESTRATION.md`, `SOP-011_MARKETING-EXPERIMENT.md`
+- Workflow: `LEVEL-4_AI-EXECUTION/WORKFLOW/WF-006_REVENUE-GROWTH-LOOP.md`
+- SOP: `LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-014_COMMERCE-CONTROL-RULES.md`
+- Automation: `LEVEL-4_AI-EXECUTION/AUTOMATION/AUT-014_CHANNEL-LISTING-EXECUTION.md`
 - Agent: `LEVEL-4_AI-EXECUTION/AGENTS/AGENT-MARKETING-GROWTH-TEAM.md`
 - Hub: `brands/gentlepapa/commerce-store-automation-strategy-v0.1.md`

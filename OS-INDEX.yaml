@@ -172,11 +172,21 @@ execution_lanes:
   channel_listing_automation:
     executor: local Claude Code
     policy: DEC-0013
+    context: LEVEL-3_OPERATING-KNOWLEDGE/CONTEXT/COMMERCE-CONTROL-RULES.md
+    workflow: LEVEL-4_AI-EXECUTION/WORKFLOW/WF-006_REVENUE-GROWTH-LOOP.md
+    sop: LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-014_COMMERCE-CONTROL-RULES.md
+    automation: LEVEL-4_AI-EXECUTION/AUTOMATION/AUT-014_CHANNEL-LISTING-EXECUTION.md
+    rules_template: TEMPLATES/COMMERCE-CONTROL-RULES-TEMPLATE.yaml
     source: approved_catalog
     channels: [smartstore, coupang, approved_marketplaces]
     l1_first_approval_count: 1
-    l1_l2_l3_pause_threshold: 1
+    scope_failure_quarantine_threshold: 1
+    global_same_cause_pause_threshold: 3
     commerce_control_rules: required
+    bootstrap_mode: FIXED_BASELINE
+    bootstrap_max_absolute_price_change: 0
+    write_capability_scope: [channel, sku, operation, ccr_revision, validity]
+    global_external_write: forbidden
     automation_scope: [listing, content, price, inventory, promotion, paid_promotion_within_budget]
   workbench_closed_beta:
     implementer: local Claude Code via gpwb_bot
