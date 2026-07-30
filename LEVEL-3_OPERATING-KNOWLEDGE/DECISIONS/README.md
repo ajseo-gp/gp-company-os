@@ -35,6 +35,7 @@
 | DEC-0012 | Codex–Claude Code 역할 분리 | ACTIVE | Codex 정책·문서, Claude Code 개발·데이터·API 구현 |
 | DEC-0013 | 멀티채널 상품·가격·프로모션 자동화 | ACTIVE | 쇼핑몰 등록·가격·프로모션의 규칙 기반 자동 실행 |
 | DEC-0014 | 작업 위험도별 Direction Boot | ACTIVE | Snapshot·Mission·Vision의 비용 효율적 선택 읽기 |
+| DEC-0016 | 운영 데이터 백업·복구와 암호화 키 관리 | ACTIVE | Workbench 운영 데이터의 Manifest·이중화·불변 사본·복원 검증 |
 
 초기 Decision 중 필수 메타데이터가 없는 문서는 내용을 추정해 채우지 않고, 다음 재검토
 때 신규 템플릿으로 마이그레이션한다.
