@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- `DEC-0017` 제안으로 GP Workbench 대표실의 단일 자연어 접수, Atlas 압축 보고,
+  Hermes 단일 작업 원본, 정책·권한 효력과 Brand·Factory 적용 확인 경계를 정의
+- 대표가 보고 목록을 찾지 않도록 `지금 결정/오늘 알 것/안전하게 진행 중` 현재 브리핑
+  계약과 `정책 결정/전달/구현/적용/결과 확인` 분리 상태를 제안
+- `SOP-016` 제안으로 자연어 정책 접수, 문서 유형 분류, 영향 검토, 정확한 revision 승인,
+  OS main 효력 발생, 권한 부여·회수와 하위 저장소 적용·검증 절차를 정의
+- 대표가 작성하지 않는 Company OS 변경 내부 Envelope를 추가해 정책 상태와 Brand·Factory·
+  Hub·Agent 적용 상태를 분리 기록
+- `WF-009` 제안으로 대표 자연어 입력부터 OS 정본, Hermes·Hub 전달, Brand·Factory·Agent
+  구현, 운영 적용과 결과 확인까지 하나의 Task-ID·OS-Ref로 연결
 - CEO 승인 `DEC-0011`을 ACTIVE로 전환해 Targeted Knowledge Refresh와 실행 결과 기반
   Organizational Learning의 책임을 분리
 - `WF-008`·`SOP-013`을 ACTIVE 수동 운영 기준으로 등록하고 Learning Record 템플릿에

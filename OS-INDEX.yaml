@@ -58,6 +58,25 @@ revenue_runtime:
   kpi: LEVEL-5_MANAGEMENT-CONTROL/KPI.md
   smartstore_knowledge: LEVEL-3_OPERATING-KNOWLEDGE/KNOWLEDGE/PRACTICE-0001_SMARTSTORE-OPERATING-GUIDE.md
   smartstore_prompt: LEVEL-3_OPERATING-KNOWLEDGE/PROMPT-LIBRARY/PROMPT-SMARTSTORE-COMMERCE.md
+ceo_office:
+  status: PROPOSED
+  decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0017_CEO-OFFICE-AND-UNATTENDED-EXECUTION.md
+  briefing_template: TEMPLATES/CEO-BRIEFING-TEMPLATE.md
+  policy_lifecycle_sop: LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-016_COMPANY-OS-POLICY-LIFECYCLE.md
+  policy_propagation_workflow: LEVEL-4_AI-EXECUTION/WORKFLOW/WF-009_COMPANY-OS-POLICY-PROPAGATION.md
+  change_envelope: TEMPLATES/COMPANY-OS-CHANGE-ENVELOPE.md
+  human_surface: GP Workbench CEO Office
+  presentation_role: Atlas as CEO Co-Operator
+  task_authority: Hermes Primary
+  policy_authority: gp-company-os main
+  implementation_authority: gpcompany-lab and gp-company-hub
+  transition_interface: GPcompany Slack
+  briefing_contract:
+    decide_now_max: 3
+    watch_today_domain_max: 3
+    running_safely: grouped_single_line
+    p0_override: true
+  downstream_states: [decided, delivered, implemented, applied, verified]
 knowledge_refresh:
   decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0010_TARGETED-KNOWLEDGE-REFRESH.md
   workflow: LEVEL-4_AI-EXECUTION/WORKFLOW/WF-007_TARGETED-KNOWLEDGE-REFRESH.md

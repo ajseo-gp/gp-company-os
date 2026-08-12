@@ -40,3 +40,4 @@ SOP는 최소 하나의 Workflow 또는 반복 운영 목적에 연결한다. `A
 - Customer Journey 기반 Marketing Revenue Experiment
 - 과제별·주간·월간 Targeted Knowledge Refresh
 - 전사 실행 전 학습 조회·결과 포착·운영계약 반영·재사용 검증 (`SOP-013`)
+- Company OS 정책·권한의 자연어 제안, 대표 승인, 정본 반영과 실행 저장소 적용 확인 (`SOP-016`, PROPOSED)
