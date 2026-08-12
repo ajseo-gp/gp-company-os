@@ -1,7 +1,7 @@
-# Company OS 변경 내부 Envelope
+# GPcompany OS 변경 내부 Envelope
 
-- 상태: PROPOSED
-- 버전: 0.1
+- 상태: ACTIVE
+- 버전: 1.0
 - 소유자: GP Company CEO / Codex Policy Owner
 - 적용 Decision: DEC-0017
 - 적용 SOP: SOP-016
