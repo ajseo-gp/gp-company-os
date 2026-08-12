@@ -1,9 +1,9 @@
-# WF-009 Company OS 정책 전달과 적용 확인
+# WF-009 GPcompany OS 정책 전달과 적용 확인
 
-- 상태: PROPOSED
+- 상태: ACTIVE
 - 소유자: GP Company CEO / CEO Co-Operator
 - 적용 사업: 전사
-- 버전: 0.1
+- 버전: 1.0
 - 작성일: 2026-08-12
 - 검토일: 첫 대표실 Pilot 종료 후
 - 적용 Decision: DEC-0017
@@ -11,7 +11,7 @@
 
 ## Purpose
 
-대표의 자연어 정책 입력을 Company OS의 승인된 정본으로 만들고, 그 변경을 Hub,
+대표의 자연어 정책 입력을 GPcompany OS의 승인된 정본으로 만들고, 그 변경을 Hub,
 Workbench, Brand, Factory, Agent와 Automation에 전달한 뒤 실제 운영 결과까지 확인한다.
 
 정책 승인과 구현 완료를 같은 상태로 보지 않으며, 각 시스템이 서로의 원본을 침범하지
@@ -28,7 +28,7 @@ Workbench, Brand, Factory, Agent와 Automation에 전달한 뒤 실제 운영 �
 
 ### Completion
 
-- 대표가 승인한 동일 revision이 Company OS main에서 ACTIVE가 됨
+- 대표가 승인한 동일 revision이 GPcompany OS main에서 ACTIVE가 됨
 - 영향 대상이 `NOT_REQUIRED` 또는 `VERIFIED`로 판정됨
 - 정책·권한·실행 부작용과 미확인 사항이 해소됨
 - 결과가 미래에 발생하면 Owner·측정일·원천을 가진 `RESULT_PENDING`이 연결됨
@@ -101,7 +101,7 @@ IMPLEMENTED / APPLIED / VERIFIED`를 별도로 가진다. 전체 Workflow는 가
 sequenceDiagram
     participant C as 대표
     participant A as Atlas·대표실
-    participant O as Codex·Company OS
+    participant O as Codex·GPcompany OS
     participant H as Hermes·Hub
     participant E as Claude Code·실행 Owner
     participant B as Brand·Factory·Agent

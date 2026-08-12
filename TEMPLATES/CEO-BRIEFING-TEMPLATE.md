@@ -1,6 +1,6 @@
 # CEO 현재 브리핑 템플릿
 
-- 상태: PROPOSED
+- 상태: ACTIVE
 - 소유자: GP Company CEO / CEO Co-Operator
 - 적용 Decision: DEC-0017
 - 목적: 대표가 보고 목록을 찾지 않고 현재 판단과 회사 영향만 확인하게 한다.

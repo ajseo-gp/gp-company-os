@@ -1,19 +1,19 @@
-# SOP-016 Company OS 정책 운영
+# SOP-016 GPcompany OS 정책 운영
 
-- 상태: PROPOSED
-- 버전: 0.1
+- 상태: ACTIVE
+- 버전: 1.0
 - 소유자: GP Company CEO / Codex Policy Owner
 - 적용 Decision: DEC-0017
-- 적용 범위: Company OS 정책·권한·Decision·Context·SOP의 제안, 승인, 적용과 재검토
+- 적용 범위: GPcompany OS 정책·권한·Decision·Context·SOP의 제안, 승인, 적용과 재검토
 - 기준일: 2026-08-12
 - 다음 검토일: 첫 대표실 Pilot 종료 후
 
 ## 목적
 
-대표가 자연어로 회사 정책과 권한을 제안·결정하고, Company OS 정본 반영부터
+대표가 자연어로 회사 정책과 권한을 제안·결정하고, GPcompany OS 정본 반영부터
 Brand·Factory·Hub·Agent 적용 결과까지 한 흐름으로 통제하도록 한다.
 
-Company OS에 장기 기준과 실행 화면의 세부사항이 뒤섞여 개발이 불필요하게 느려지거나,
+GPcompany OS에 장기 기준과 실행 화면의 세부사항이 뒤섞여 개발이 불필요하게 느려지거나,
 반대로 정책과 권한을 확인하지 않고 실행이 앞서는 일을 막는다.
 
 ## 적용 범위
@@ -171,7 +171,7 @@ Atlas가 의도를 구조화하되 범위를 추정해 넓히지 않는다. 조�
 
 ### 7. OS main 반영과 효력 발생
 
-1. 승인된 동일 revision을 Company OS 변경 절차로 main에 반영한다.
+1. 승인된 동일 revision을 GPcompany OS 변경 절차로 main에 반영한다.
 2. merge된 정확한 40자리 commit SHA를 새 OS-Ref로 기록한다.
 3. `ACTIVE` 상태와 적용일이 없는 제안은 권한 근거로 사용하지 않는다.
 4. 대표실은 기술 식별자보다 `정책이 효력을 얻음`을 먼저 보고하고 SHA는 상세에 둔다.
@@ -225,7 +225,7 @@ Atlas가 의도를 구조화하되 범위를 추정해 넓히지 않는다. 조�
 
 ## 출력물
 
-- 내부 Company OS Change Envelope
+- 내부 GPcompany OS Change Envelope
 - 분류 결과와 변경·비변경 근거
 - 영향 분석과 대표 결정안
 - 검증된 OS 변경 revision과 merge된 OS-Ref

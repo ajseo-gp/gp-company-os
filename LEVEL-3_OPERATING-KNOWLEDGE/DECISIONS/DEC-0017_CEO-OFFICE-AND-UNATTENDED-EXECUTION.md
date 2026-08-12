@@ -1,9 +1,10 @@
 # DEC-0017 대표실 단일 접수·압축 보고와 무인 실행
 
-- 상태: PROPOSED
-- 결정일:
-- 적용일:
+- 상태: ACTIVE
+- 결정일: 2026-08-12
+- 적용일: 2026-08-12
 - 결정자/소유자: GP Company CEO
+- 승인 근거: PR #15 merge 후 2026-08-12 대표의 활성화 지시
 - 적용 범위: 대표의 회사 운영 요청·보고·결정, Hermes 작업 큐, GP Workbench 대표실
 - 대체하는 Decision: DEC-0005의 사람용 주 인터페이스 조항(전환 완료 후)
 - 대체된 Decision: 없음
@@ -92,7 +93,7 @@ Atlas의 압축 보고를 받아 정책·권한·실행을 한곳에서 결정�
    먼저 확인해 하나의 결정안으로 올린다.
 3. 대표가 승인하면 Codex가 정확한 변경 revision을 준비하고 검증한다. 대표가 확인한
    동일 revision이 `gp-company-os` main에 merge되어야 ACTIVE 효력이 생긴다.
-4. 대표실 버튼이나 대화 기록만으로 Company OS 정책이 바뀐 것으로 간주하지 않는다.
+4. 대표실 버튼이나 대화 기록만으로 GPcompany OS 정책이 바뀐 것으로 간주하지 않는다.
 5. 권한 부여는 ACTIVE OS 근거가 생긴 뒤 적용한다. 권한 회수는 피해 방지를 위한 즉시
    정지가 가능하지만, 같은 작업 안에서 OS 기록을 완료하기 전 재개하지 않는다.
 
@@ -144,12 +145,12 @@ Atlas의 압축 보고를 받아 정책·권한·실행을 한곳에서 결정�
 - Atlas/CEO Co-Operator의 보고 계약
 - Hermes Primary 작업 큐와 대표 결정 대기
 - Orca Worker 조정과 checkpoint
-- Company OS 변경의 Brand·Factory·Hub·Agent 전달 상태
+- GPcompany OS 변경의 Brand·Factory·Hub·Agent 전달 상태
 
 ### 비적용
 
 - 이 Decision 자체는 가격·예산·외부 쓰기·결제·계정 권한을 새로 부여하지 않는다.
-- Workbench가 Company OS 원본 저장소를 대체하지 않는다.
+- Workbench가 GPcompany OS 원본 저장소를 대체하지 않는다.
 - Atlas가 대표의 승인이나 확인되지 않은 회사 사실을 대신 만들지 않는다.
 - OS가 Brand·Factory의 구현 상태표와 실행 데이터를 복사해 보관하지 않는다.
 - 이 Decision 승인만으로 Workbench·Hub 구현, merge 또는 배포를 승인하지 않는다.
