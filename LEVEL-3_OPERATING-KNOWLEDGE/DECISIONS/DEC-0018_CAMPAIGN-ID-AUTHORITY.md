@@ -1,10 +1,10 @@
 # DEC-0018 Campaign-ID 발급과 운영 원본
 
-- 상태: PROPOSED
+- 상태: ACTIVE
 - 결정일: 2026-08-13
-- 적용일: 대표가 동일 revision을 승인하고 GPcompany OS main에 반영된 날
+- 적용일: 2026-08-13
 - 결정자/소유자: GP Company CEO
-- 승인 근거: 2026-08-13 대표의 Campaign-ID 결정안 승인; 동일 문서 revision 검토 필요
+- 승인 근거: 2026-08-13 대표 승인 및 PR #17 merge 후 활성화 진행 지시
 - 적용 범위: Revenue Campaign·Experiment의 식별, 승인, 실행·측정 기록 연결
 - 대체하는 Decision: 없음
 - 대체된 Decision: 없음

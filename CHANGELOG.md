@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- CEO 승인 `DEC-0018`을 ACTIVE로 전환해 Campaign-ID 형식, CEO OFFICE 발급 시점,
+  Hub 운영 원본과 Hermes work_id 연결 기준을 확정
 - 대표 승인으로 `DEC-0017`을 ACTIVE 전환해 GP Workbench 대표실의 단일 자연어 접수, Atlas 압축 보고,
   Hermes 단일 작업 원본, 정책·권한 효력과 Brand·Factory 적용 확인 경계를 정의
 - 대표가 보고 목록을 찾지 않도록 `지금 결정/오늘 알 것/안전하게 진행 중` 현재 브리핑
