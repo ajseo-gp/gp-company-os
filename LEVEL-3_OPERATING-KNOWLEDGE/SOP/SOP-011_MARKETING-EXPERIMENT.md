@@ -4,7 +4,7 @@
 - 버전: 1.0
 - 소유자: Marketing Owner
 - 적용 Workflow: WF-006 Revenue Growth Loop
-- 적용 Decision: DEC-0009
+- 적용 Decision: DEC-0009, DEC-0018
 - 작성일: 2026-07-23
 - 다음 검토일: 2026-08-23
 
@@ -43,8 +43,10 @@ Revenue Impact, 실행비용, 학습가치와 위험을 함께 본다.
 
 ### 2. Campaign Brief 작성
 
-고유 `Campaign-ID`를 만들고 목적, 가설, 대상, Offer, 채널, revision, 기간, KPI,
-Guardrail, 데이터 원천, 비용과 승인 Gate를 기록한다.
+목적, 가설, 대상, Offer, 채널, revision, 기간, KPI, Guardrail, 데이터 원천, 비용과 승인
+Gate를 기록한다. 필수 입력과 기준선 검증이 완료되면 CEO OFFICE가 대표 승인 대기 카드를
+만들면서 `DEC-0018` 형식의 고유 `Campaign-ID`를 Hub Campaign Registry에서 발급받는다.
+실행 Agent나 Workbench가 번호를 임의 생성하지 않는다.
 
 ### 3. 기준선 검증
 
@@ -55,6 +57,9 @@ Revenue Analytics가 기간·제품·채널·주문 중복, 누락, 환불, 비�
 
 예산·할인·가격·Claim·외부 발행·고객 발송·개인정보 사용과 자동화 범위를 승인받는다.
 승인 revision이 바뀌면 다시 검토한다.
+
+승인 카드는 Campaign-ID, work_id, Task-ID(있는 경우), Campaign revision과 OS-Ref를 함께
+고정한다. 발급은 실행 승인이 아니며, 거절·취소된 Campaign-ID도 재사용하지 않는다.
 
 ### 5. 실행
 
@@ -125,3 +130,4 @@ Knowledge Steward가 근거·신뢰·적용 범위·제외 범위를 검증한�
 - `../../LEVEL-4_AI-EXECUTION/WORKFLOW/WF-006_REVENUE-GROWTH-LOOP.md`
 - `../../LEVEL-4_AI-EXECUTION/AGENTS/AGENT-MARKETING-GROWTH-TEAM.md`
 - `../../LEVEL-5_MANAGEMENT-CONTROL/KPI.md`
+- `../DECISIONS/DEC-0018_CAMPAIGN-ID-AUTHORITY.md`

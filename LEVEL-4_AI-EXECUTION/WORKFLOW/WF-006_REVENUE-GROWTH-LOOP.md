@@ -4,7 +4,7 @@
 - 소유자: GP Company CEO / Marketing Owner
 - 적용 사업: Hair & Scalp B2C
 - 버전: 1.1
-- 적용 Decision: DEC-0009
+- 적용 Decision: DEC-0009, DEC-0018
 - 작성일: 2026-07-23
 - 변경일: 2026-07-26
 - Learning-Ref: DEC-0011
@@ -51,9 +51,9 @@ Revenue 목표·병목
 | 현재 상태 | 진입 조건 | 다음 상태 | 책임자 | 생성 기록 |
 |---|---|---|---|---|
 | `BOTTLENECK_IDENTIFIED` | KPI·Evidence로 병목 식별 | `BRIEF_DRAFTED` | Growth Orchestrator | 병목·기준선 |
-| `BRIEF_DRAFTED` | Campaign 계약 완성 | `APPROVAL_PENDING` | 실행 Agent | Brief·예상 영향 |
+| `BRIEF_DRAFTED` | 필수 입력·기준선 검증과 Campaign 계약 완성 | `APPROVAL_PENDING` | CEO OFFICE / Hub | Brief·Campaign-ID·work_id·예상 영향 |
 | `APPROVAL_PENDING` | 예산·표현·발행 Gate 제출 | `APPROVED`, `REJECTED` | 승인권자 | 승인·수정·거절 |
-| `APPROVED` | scope·revision·기간 고정 | `RUNNING` | 실행 Agent | Campaign-ID |
+| `APPROVED` | scope·revision·기간 고정 | `RUNNING` | 실행 Agent | 승인 revision·실행 시작 Evidence |
 | `RUNNING` | 승인 범위 내 실행 | `MEASURING`, `PAUSED` | 실행 Agent | 실행·비용 Evidence |
 | `MEASURING` | 결과 측정일 도달 | `REVIEWED`, `DATA_BLOCKED` | Revenue Analytics | KPI·품질·attribution |
 | `REVIEWED` | 결과와 Guardrail 검토 | `SCALE`, `ITERATE`, `STOP` | Growth Orchestrator/CEO | 결과 Decision |
@@ -65,6 +65,7 @@ Revenue 목표·병목
 ## Campaign Data Contract
 
 - Campaign-ID, Task-ID와 가능한 경우 OS-Ref
+- 정확히 하나의 Hermes work_id와 Campaign revision
 - Journey 단계, 채널, 제품·Offer와 대상 Segment
 - 가설, 기준선, 목표 KPI와 Guardrail
 - 기간, Owner, 예산·할인·발행 승인
@@ -125,6 +126,7 @@ KPI 산식·원천·주기·목표는 `LEVEL-5_MANAGEMENT-CONTROL/KPI.md`와 CEO
 ## Related Documents
 
 - `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0009_REVENUE-FIRST.md`
+- `../../LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0018_CAMPAIGN-ID-AUTHORITY.md`
 - `../../LEVEL-2_BUSINESS/MARKETING.md`
 - `../AGENTS/AGENT-MARKETING-GROWTH-TEAM.md`
 - `../../LEVEL-5_MANAGEMENT-CONTROL/KPI.md`

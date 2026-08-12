@@ -58,6 +58,20 @@ revenue_runtime:
   kpi: LEVEL-5_MANAGEMENT-CONTROL/KPI.md
   smartstore_knowledge: LEVEL-3_OPERATING-KNOWLEDGE/KNOWLEDGE/PRACTICE-0001_SMARTSTORE-OPERATING-GUIDE.md
   smartstore_prompt: LEVEL-3_OPERATING-KNOWLEDGE/PROMPT-LIBRARY/PROMPT-SMARTSTORE-COMMERCE.md
+campaign_identity:
+  status: PROPOSED
+  decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0018_CAMPAIGN-ID-AUTHORITY.md
+  format: CMP-YYYYMMDD-NNN
+  timezone: Asia/Seoul
+  issuance_state: APPROVAL_PENDING
+  human_issuer: GP Workbench CEO OFFICE
+  registry_authority: ajseo-gp/gp-company-hub
+  policy_authority: ajseo-gp/gp-company-os
+  presentation_surface: ajseo-gp/gpcompany-lab
+  required_link: work_id
+  task_id: required_when_present
+  reuse: forbidden
+  external_write_authority: false
 ceo_office:
   status: ACTIVE
   decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0017_CEO-OFFICE-AND-UNATTENDED-EXECUTION.md
