@@ -6,6 +6,21 @@
 
 젠틀파파는 아빠의 두피 고민에서 시작해 가족의 일상에서 제품을 검증하는 Hair·Scalp 중심 브랜드다.
 
+### GentlePapa Canon Authority
+
+- GP Company OS는 GentlePapa를 B2C 핵심 브랜드 도메인으로 등록한다.
+- 브랜드 세계관·콘텐츠·제품 역할·고객 VOC의 단일 Canon 원본은
+  `ajseo-gp/gp-company-hub/brands/gentlepapa`다.
+- 공식 부팅 진입점은 `brands/gentlepapa/BOOT.md`다.
+- Company OS는 GentlePapa 세계관 원문을 복제하지 않고 Authority와 실행 계약만 소유한다.
+- GentlePapa 관련 Task는 시작 시 Hub `main`의 정확한 40자리 SHA를
+  `GentlePapa-Canon-Ref`로 고정한다.
+- 같은 Task/Campaign의 Content, Publisher, SmartStore 등 소비자가 서로 다른 Canon SHA를
+  사용하면 `CANON_REVISION_MISMATCH`로 외부 실행 전에 차단한다.
+- 제품·커머스 실행은 승인된 Current Product Brief가 없으면
+  `CANON_PRODUCT_BRIEF_REQUIRED`로 Campaign 발급 전에 차단한다.
+- 이 규칙의 정책 근거는 `DEC-0019`이며, `DEC-0019`가 ACTIVE가 되기 전에는 제안 상태다.
+
 ## Core Growth Loop
 
 Acquisition → Activation → Conversion → Retention → Referral → Evidence → Knowledge → 개선
