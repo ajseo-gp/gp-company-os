@@ -27,6 +27,27 @@ corporate_direction:
     - Hair & Scalp Business
     - AI & Company OS Business
   value_principle: Transferable Company
+brand_authority:
+  gentelpapa:
+    status: REVIEW
+    decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0019_GENTLEPAPA-CANON-AUTHORITY.md
+    business_role: B2C core brand
+    authority_repository: ajseo-gp/gp-company-hub
+    canon_branch: main
+    canon_root: brands/gentlepapa
+    boot_entrypoint: brands/gentlepapa/BOOT.md
+    revision_contract: exact_40_char_commit_sha_per_task
+    task_ref_name: GentlePapa-Canon-Ref
+    observed_revision_at_review: 1660b69c9e69e0855da6061300a9dd2595fbcd77
+    observed_at: 2026-08-14
+    duplication: forbidden
+    consumers: [content, publisher, smartstore, founder_story, product]
+    failures:
+      unavailable: CANON_UNAVAILABLE
+      revision_mismatch: CANON_REVISION_MISMATCH
+      product_brief_required: CANON_PRODUCT_BRIEF_REQUIRED
+    external_write_authority: false
+    campaign_issuance_authority: false
 direction_boot:
   status: ACTIVE
   decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0014_TIERED-DIRECTION-BOOT.md
