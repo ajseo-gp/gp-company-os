@@ -39,7 +39,7 @@ brand_authority:
     revision_contract: exact_40_char_commit_sha_per_task
     task_ref_name: GentlePapa-Canon-Ref
     observed_revision_at_review: 1660b69c9e69e0855da6061300a9dd2595fbcd77
-    observed_at: 2026-08-14
+    observed_at: "2026-08-14"
     duplication: forbidden
     consumers: [content, publisher, smartstore, founder_story, product]
     failures:
