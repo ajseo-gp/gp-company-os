@@ -12,7 +12,7 @@
 - Canon root: `brands/gentlepapa`
 - Boot entrypoint: `brands/gentlepapa/BOOT.md`
 - Canon branch: `main`
-- Operating contract: `DEC-0019 GentlePapa Canon Authority`
+- Operating contract: `LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0019_GENTLEPAPA-CANON-AUTHORITY.md`
 
 GentlePapa 관련 전략·콘텐츠·Publisher·SmartStore·Founder Story·제품 역할 판단은 작업 시작 시 Hub `main`의 정확한 40자리 commit SHA를 `GentlePapa-Canon-Ref`로 고정하고, 해당 revision의 `BOOT.md`를 통해 Canon을 읽어야 한다.
 
