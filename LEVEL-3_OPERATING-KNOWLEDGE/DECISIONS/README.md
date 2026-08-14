@@ -37,6 +37,7 @@
 | DEC-0014 | 작업 위험도별 Direction Boot | ACTIVE | Snapshot·Mission·Vision의 비용 효율적 선택 읽기 |
 | DEC-0017 | 대표실 단일 접수·압축 보고와 무인 실행 | ACTIVE | 대표 요청·보고·결정·권한과 안전한 지속 실행 |
 | DEC-0018 | Campaign-ID 발급과 운영 원본 | ACTIVE | Revenue Campaign 식별·CEO OFFICE 승인·Hub 원장·work_id 연결 |
+| DEC-0019 | GentlePapa Canon Authority | ACTIVE | B2C 브랜드 정본 권위·부팅·revision 결속·Product Brief Gate |
 
 초기 Decision 중 필수 메타데이터가 없는 문서는 내용을 추정해 채우지 않고, 다음 재검토
 때 신규 템플릿으로 마이그레이션한다.
