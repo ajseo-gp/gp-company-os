@@ -31,7 +31,7 @@ Knowledge에는 지식 ID와 유형, 상태, 소유자, 검토일, 주장, 근�
 | 문서 | 유형 | 상태 | 보완 필요 |
 |---|---|---|---|
 | `COMPANY-PROFILE.md` | FACT | ACTIVE | 근거·검토일 |
-| `GENTLEPAPA-BRAND.md` | FACT/PRACTICE | ACTIVE | 적용 범위·검토일 |
+| `GENTLEPAPA-BRAND.md` | HISTORICAL POINTER | ARCHIVED | 현재 Canon은 `gp-company-hub/brands/gentlepapa` 및 DEC-0019 참조 |
 | `CUSTOMER-SEGMENTS.md` | INSIGHT | 미표시 | 근거·상태 |
 | `COSMETIC-CLAIMS-GUIDE.md` | PRACTICE | ACTIVE | 법규 검토일·출처 |
 | `MANUFACTURING-CAPABILITY.md` | FACT | REVIEW | 생산 근거·책임자 |
