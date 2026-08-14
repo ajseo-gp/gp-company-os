@@ -96,6 +96,25 @@ L1·L2 Task는 `SOP-013`을 따른다. 결과가 나중에 발생하면 Owner·�
 `OS-Ref`를 고정할 수 없는 대화형 검토에서는 현재 브랜치와 미확정 상태를 명시하고,
 실행 시스템의 확정 기준인 것처럼 보고하지 않는다.
 
+### GentlePapa Brand Task Boot
+
+`DEC-0019`가 ACTIVE인 경우 GentlePapa 관련 콘텐츠·커머스·Publisher·Founder Story·제품
+작업은 일반 AI Task Boot 뒤에 다음 절차를 추가한다.
+
+1. `OS-INDEX.yaml`의 `brand_authority.gentlepapa`를 확인한다.
+2. `ajseo-gp/gp-company-hub`의 Canon branch `main`에서 정확한 40자리 HEAD SHA를
+   `GentlePapa-Canon-Ref`로 고정한다.
+3. 같은 SHA의 `brands/gentlepapa/BOOT.md`를 진입점으로 해당 Task에 필요한 Canon 문서를 읽는다.
+4. Canon을 확인할 수 없으면 `CANON_UNAVAILABLE`로 실행을 확대하지 않는다.
+5. 같은 Task/Campaign의 다른 소비자가 다른 Canon SHA를 사용하면
+   `CANON_REVISION_MISMATCH`로 외부 게시·Campaign 발급·SmartStore 쓰기 전에 차단한다.
+6. 제품·커머스 작업은 현재 상품 사실과 허용 표현을 동일 `GentlePapa-Canon-Ref`에 결속한
+   승인 Current Product Brief가 없으면 `CANON_PRODUCT_BRIEF_REQUIRED`로 차단한다.
+7. Company OS에는 GentlePapa 세계관 원문을 복사하지 않는다. Brand Canon 원문은 Hub의
+   Authority path에서만 읽는다.
+
+`DEC-0019`가 `REVIEW` 또는 `DRAFT`이면 위 절차는 검토 기준일 뿐 운영 권한으로 사용하지 않는다.
+
 ## 6. Stop and Escalate
 
 다음은 승인 또는 추가 근거 없이 확정·실행하지 않는다.
@@ -112,6 +131,7 @@ L1·L2 Task는 `SOP-013`을 따른다. 결과가 나중에 발생하면 Owner·�
 중요한 AI 결과에는 가능한 범위에서 다음을 포함한다.
 
 - 적용한 `OS-Ref` 또는 검토한 브랜치
+- GentlePapa Task인 경우 적용한 `GentlePapa-Canon-Ref` 또는 Canon 차단 사유
 - `Direction-Profile`, 읽은 방향 문서와 실제 적용한 방향
 - 참조한 Decision·Context·SOP·Knowledge
 - 적용한 Knowledge, 적용하지 않은 Knowledge와 이유 또는 `NO_APPLICABLE_KNOWLEDGE` 검색 범위
