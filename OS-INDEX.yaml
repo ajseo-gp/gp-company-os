@@ -29,7 +29,7 @@ corporate_direction:
   value_principle: Transferable Company
 brand_authority:
   gentlepapa:
-    status: REVIEW
+    status: ACTIVE
     decision: LEVEL-3_OPERATING-KNOWLEDGE/DECISIONS/DEC-0019_GENTLEPAPA-CANON-AUTHORITY.md
     business_role: B2C core brand
     authority_repository: ajseo-gp/gp-company-hub
