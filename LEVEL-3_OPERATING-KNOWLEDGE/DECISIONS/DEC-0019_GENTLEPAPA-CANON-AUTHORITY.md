@@ -1,9 +1,11 @@
 # DEC-0019 GentlePapa Canon Authority
 
-- 상태: REVIEW
+- 상태: ACTIVE
 - 결정일: 2026-08-14
-- 적용일: 대표가 동일 revision을 승인하고 main에 반영한 시점
+- 승인일: 2026-08-14
+- 적용일: main 반영 시점
 - 결정자/소유자: GP Company CEO
+- 승인 근거: CEO의 PR #19 정책 승인
 - 대체하는 Decision: 없음
 - 대체된 Decision: 없음
 
