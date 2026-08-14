@@ -32,18 +32,20 @@ fail-closed로 막혀 있었지만, 브랜드 정본의 권위 위치와 revisio
    - Canon branch: `main`
 3. `gp-company-os`에는 `WORLD-BIBLE.md`, `BRAND-CANON.md`, `CUSTOMER-VOICE.md` 등 브랜드
    원문을 복제하지 않는다. OS에는 Authority metadata와 소비 규칙만 둔다.
-4. GentlePapa 관련 AI·Agent·Automation 작업은 시작 시 Hub `main`의 정확한 40자리 commit
+4. 기존 `LEVEL-3_OPERATING-KNOWLEDGE/KNOWLEDGE/GENTLEPAPA-BRAND.md`는 `ARCHIVED` historical
+   pointer로만 유지하며 현재 브랜드 실행 정본 또는 별도 Canon으로 사용하지 않는다.
+5. GentlePapa 관련 AI·Agent·Automation 작업은 시작 시 Hub `main`의 정확한 40자리 commit
    SHA를 `GentlePapa-Canon-Ref`로 해석하고, 해당 SHA의 `BOOT.md` 절차를 따른다.
-5. 같은 Task 또는 Campaign에 참여하는 SmartStore, Publisher, Content, Founder Story 등 모든
+6. 같은 Task 또는 Campaign에 참여하는 SmartStore, Publisher, Content, Founder Story 등 모든
    소비자는 동일한 `GentlePapa-Canon-Ref`를 사용한다.
-6. 현재 Hub Canon을 확인할 수 없으면 `CANON_UNAVAILABLE`, 소비자가 고정한 Canon SHA와 현재
+7. 현재 Hub Canon을 확인할 수 없으면 `CANON_UNAVAILABLE`, 소비자가 고정한 Canon SHA와 현재
    Task의 `GentlePapa-Canon-Ref`가 다르면 `CANON_REVISION_MISMATCH`로 실패 폐쇄한다.
-7. 제품·커머스 실행은 Canon 일치만으로 허용되지 않는다. 해당 상품의 현재 SKU·가용성·허용
+8. 제품·커머스 실행은 Canon 일치만으로 허용되지 않는다. 해당 상품의 현재 SKU·가용성·허용
    표현을 Canon과 연결한 승인된 Current Product Brief가 없으면
    `CANON_PRODUCT_BRIEF_REQUIRED`로 Campaign 발급과 외부 쓰기 전에 차단한다.
-8. Brand Canon 변경의 내용 승인과 역사 관리는 Hub의 GentlePapa Canon 규칙을 따른다.
+9. Brand Canon 변경의 내용 승인과 역사 관리는 Hub의 GentlePapa Canon 규칙을 따른다.
    Company OS는 Canon 원문을 재해석하거나 별도 세계관을 만들지 않는다.
-9. Runtime 구현은 `gp-company-hub`, `gpcompany-lab` 등 실행 저장소의 책임이다. OS는 fail-closed
+10. Runtime 구현은 `gp-company-hub`, `gpcompany-lab` 등 실행 저장소의 책임이다. OS는 fail-closed
    계약과 Authority 경계만 정의한다.
 
 ### 활성화 검토 시점의 관측값
@@ -96,12 +98,13 @@ fail-closed로 막혀 있었지만, 브랜드 정본의 권위 위치와 revisio
 1. `OS-INDEX.yaml`에 GentlePapa Brand Authority metadata와 fail-closed 코드를 등록한다.
 2. `SYSTEM_BOOT.md`에 Brand Task Boot 절차를 추가한다.
 3. `LEVEL-2_BUSINESS/B2C.md`에서 GentlePapa의 Canon Authority 경계를 명시한다.
-4. Hub/Workbench/Publisher/SmartStore 구현 저장소는 동일한 `GentlePapa-Canon-Ref` 계약을 소비한다.
-5. 한 Task에서 서로 다른 Canon SHA를 주입했을 때 `CANON_REVISION_MISMATCH`로 외부 쓰기 전에
+4. 기존 `GENTLEPAPA-BRAND.md`를 `ARCHIVED` historical pointer로 전환하고 Knowledge Register도 같은 상태로 맞춘다.
+5. Hub/Workbench/Publisher/SmartStore 구현 저장소는 동일한 `GentlePapa-Canon-Ref` 계약을 소비한다.
+6. 한 Task에서 서로 다른 Canon SHA를 주입했을 때 `CANON_REVISION_MISMATCH`로 외부 쓰기 전에
    차단되는 회귀 검증을 둔다.
-6. Product Brief가 없을 때 `CANON_PRODUCT_BRIEF_REQUIRED`, 승인된 동일 Canon-ref Product
+7. Product Brief가 없을 때 `CANON_PRODUCT_BRIEF_REQUIRED`, 승인된 동일 Canon-ref Product
    Brief가 있을 때만 다음 승인 단계로 진행되는지 검증한다.
-7. 첫 Revenue Loop에서 Content → Channel → SmartStore → Revenue Evidence가 동일
+8. 첫 Revenue Loop에서 Content → Channel → SmartStore → Revenue Evidence가 동일
    `GentlePapa-Canon-Ref`와 Campaign-ID로 추적되는지 확인한다.
 
 ## 재검토 조건
@@ -118,4 +121,5 @@ fail-closed로 막혀 있었지만, 브랜드 정본의 권위 위치와 revisio
 - Decision: `DEC-0009`, `DEC-0017`, `DEC-0018`
 - Workflow: `LEVEL-4_AI-EXECUTION/WORKFLOW/WF-006_REVENUE-GROWTH-LOOP.md`, `LEVEL-4_AI-EXECUTION/WORKFLOW/WF-009_COMPANY-OS-POLICY-PROPAGATION.md`
 - SOP: `LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-011_MARKETING-EXPERIMENT.md`, `LEVEL-3_OPERATING-KNOWLEDGE/SOP/SOP-016_COMPANY-OS-POLICY-LIFECYCLE.md`
+- Historical pointer: `LEVEL-3_OPERATING-KNOWLEDGE/KNOWLEDGE/GENTLEPAPA-BRAND.md`
 - Brand Authority: `ajseo-gp/gp-company-hub/brands/gentlepapa/BOOT.md`
